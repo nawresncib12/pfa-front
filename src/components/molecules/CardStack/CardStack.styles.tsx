@@ -2,8 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 
 type CardProps = {
-  index: number;
-  activeIndex: number;
+  $isActiveCard: boolean;
 };
 
 export const CardStackContainer = styled.div`
@@ -26,8 +25,13 @@ export const Card = styled(motion.div)<CardProps>`
   position: absolute;
   width: 100%;
   height: 100%;
+  transition: border 0.3s ease-in-out;
   background-color: white;
-  opacity: ${({ index, activeIndex }) => (index == activeIndex ? 1 : 0.4)};
+  opacity: ${({ $isActiveCard }) => ($isActiveCard ? 1 : 0.4)};
+  border: ${({ $isActiveCard, theme }) =>
+    $isActiveCard
+      ? `2px solid ${theme.colors.primary[500]}`
+      : "2px solid white"};
   border-radius: 8px;
   cursor: pointer;
 `;

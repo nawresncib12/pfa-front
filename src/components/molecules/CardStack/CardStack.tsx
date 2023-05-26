@@ -6,8 +6,7 @@ import { AnimatePresence } from "framer-motion";
 type CardStackProps = PropsWithChildren<{}>;
 
 const CardStack = ({ children }: CardStackProps) => {
-  const rotationRange = 6;
-
+  const ROTATION_RANGE = 6;
   const childArray = React.Children.toArray(children) as ReactNode[];
   const [visibleCards, setVisibleCard] = useState(childArray);
   const next = () => {
@@ -16,7 +15,7 @@ const CardStack = ({ children }: CardStackProps) => {
   };
 
   const generateRandomRotation = () => {
-    const randomRotation = Math.random() * rotationRange - rotationRange / 2;
+    const randomRotation = Math.random() * ROTATION_RANGE - ROTATION_RANGE / 2;
     return randomRotation;
   };
   return (
@@ -24,17 +23,16 @@ const CardStack = ({ children }: CardStackProps) => {
       <S.Stack>
         <AnimatePresence>
           {visibleCards.map((card, index) => {
-            const isActiveCard = index === visibleCards.length;
+            const isActiveCard = index === visibleCards.length - 1;
             const rotation = generateRandomRotation();
             return (
               <S.Card
-                activeIndex={visibleCards.length - 1}
+                $isActiveCard={isActiveCard}
                 key={index}
                 initial={{ rotate: 0, x: 0 }}
                 exit={{ x: rotation < 0 ? "-100%" : "100%" }}
                 animate={{ rotate: rotation, x: 0 }}
                 transition={{ duration: 0.3 }}
-                index={index}
                 onClick={next}
               >
                 {card}
