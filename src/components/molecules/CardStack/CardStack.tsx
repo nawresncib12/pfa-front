@@ -2,45 +2,75 @@ import { PropsWithChildren, ReactNode, useState } from "react";
 import * as S from "./CardStack.styles";
 import React from "react";
 import { AnimatePresence } from "framer-motion";
+import Button from "../../atoms/Button/Button";
 
 type CardStackProps = PropsWithChildren<{}>;
 
 const CardStack = ({ children }: CardStackProps) => {
-  const ROTATION_RANGE = 6;
+  const ROTATION_RANGE = 5;
   const childArray = React.Children.toArray(children) as ReactNode[];
-  const [visibleCards, setVisibleCard] = useState(childArray);
+  const [currentCardIndex, setCurrentCardIndex] = useState(
+    childArray.length - 1
+  );
+
   const next = () => {
-    const newCards = visibleCards;
-    setVisibleCard(newCards.slice(0, -1));
+    if (currentCardIndex > 0) {
+      setCurrentCardIndex((currentCardIndex) => currentCardIndex - 1);
+    }
+  };
+
+  const back = () => {
+    if (currentCardIndex <= childArray.length - 1) {
+      setCurrentCardIndex((currentCardIndex) => currentCardIndex + 1);
+    }
   };
 
   const generateRandomRotation = () => {
     const randomRotation = Math.random() * ROTATION_RANGE - ROTATION_RANGE / 2;
     return randomRotation;
   };
+
   return (
     <S.CardStackContainer>
-      <S.Stack>
+      <S.CardStack>
         <AnimatePresence>
-          {visibleCards.map((card, index) => {
-            const isActiveCard = index === visibleCards.length - 1;
+          {childArray.map((card, index) => {
+            const isActiveCard = index === currentCardIndex;
             const rotation = generateRandomRotation();
+            const shouldRender = index <= currentCardIndex;
             return (
-              <S.Card
-                $isActiveCard={isActiveCard}
-                key={index}
-                initial={{ rotate: 0, x: 0 }}
-                exit={{ x: rotation < 0 ? "-100%" : "100%" }}
-                animate={{ rotate: rotation, x: 0 }}
-                transition={{ duration: 0.3 }}
-                onClick={next}
-              >
-                {card}
-              </S.Card>
+              shouldRender && (
+                <S.Card
+                  $isActiveCard={isActiveCard}
+                  key={index}
+                  initial={{ rotate: 0, x: "-50%", y: "-50%" }}
+                  exit={{ x: rotation < 0 ? "-150%" : "150%", y: "-50%" }}
+                  animate={{ rotate: rotation, x: "-50%", y: "-50%" }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {card}
+                </S.Card>
+              )
             );
           })}
         </AnimatePresence>
-      </S.Stack>
+      </S.CardStack>
+      <S.Buttons>
+        <Button
+          variant="secondary"
+          onClick={back}
+          disabled={currentCardIndex === childArray.length - 1}
+        >
+          Back
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={next}
+          disabled={currentCardIndex === 0}
+        >
+          Next
+        </Button>
+      </S.Buttons>
     </S.CardStackContainer>
   );
 };

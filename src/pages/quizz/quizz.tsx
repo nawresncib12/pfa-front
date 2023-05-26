@@ -1,9 +1,12 @@
-import CardStack from "../../components/molecules/CardStack/CardStack";
-import QuizzCards from "../../components/organisms/Quizz/QuizzCards";
-import { questions } from "./quizz.contants";
+import QuizzCards from "../../components/organisms/Quizz/QuizzCards/QuizzCards";
+import * as S from "./Quizz.style";
 
 const Quizz = () => {
-  return <QuizzCards></QuizzCards>;
+  return (
+    <S.QuizzContainer>
+      <QuizzCards />
+    </S.QuizzContainer>
+  );
 };
 
 export default Quizz;

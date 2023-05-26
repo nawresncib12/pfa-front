@@ -1,18 +1,20 @@
-import { IntlProvider } from "react-intl";
 import Quizz from "./pages/quizz/quizz";
-import { useLocale } from "./lang/useLocale";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/atoms/Layout/Layout";
 
 function App() {
-  const { locale, messages } = useLocale();
-
   return (
     <BrowserRouter>
-      <IntlProvider locale={locale} messages={messages}>
-        <Routes>
-          <Route path="/quizz" element={<Quizz />} />
-        </Routes>
-      </IntlProvider>
+      <Routes>
+        <Route
+          path="/quizz"
+          element={
+            <Layout>
+              <Quizz />
+            </Layout>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }

@@ -1,4 +1,3 @@
-import { useTheme } from "styled-components";
 import Typography from "../Typography/Typography.styles";
 import * as S from "./Button.styles";
 import { PropsWithChildren } from "react";
@@ -6,13 +5,18 @@ import { PropsWithChildren } from "react";
 export type ButtonProps = PropsWithChildren<{
   onClick?: () => void;
   variant?: "secondary" | "primary";
+  disabled?: boolean;
 }>;
 
-const Button = ({ onClick, variant = "primary", children }: ButtonProps) => {
-  const theme = useTheme();
+const Button = ({
+  onClick,
+  variant = "primary",
+  disabled = false,
+  children,
+}: ButtonProps) => {
   return (
-    <S.Button variant={variant} onClick={onClick}>
-      <Typography.Base color="inherit">{children}</Typography.Base>
+    <S.Button disabled={disabled} variant={variant} onClick={onClick}>
+      {children}
     </S.Button>
   );
 };
