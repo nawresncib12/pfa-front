@@ -4,9 +4,11 @@ import React from "react";
 import { AnimatePresence } from "framer-motion";
 import Button from "../../atoms/Button/Button";
 
-type CardStackProps = PropsWithChildren<{}>;
+type CardStackProps = PropsWithChildren<{
+  onDone: () => void;
+}>;
 
-const CardStack = ({ children }: CardStackProps) => {
+const CardStack = ({ children, onDone }: CardStackProps) => {
   const ROTATION_RANGE = 5;
   const childArray = React.Children.toArray(children) as ReactNode[];
   const [currentCardIndex, setCurrentCardIndex] = useState(
@@ -72,12 +74,20 @@ const CardStack = ({ children }: CardStackProps) => {
         >
           Back
         </Button>
+
         <Button
           variant="secondary"
           onClick={next}
           disabled={currentCardIndex === 0}
         >
           Next
+        </Button>
+        <Button
+          variant="secondary"
+          onClick={onDone}
+          disabled={currentCardIndex === childArray.length - 1}
+        >
+          Submit
         </Button>
       </S.Buttons>
     </S.CardStackContainer>
