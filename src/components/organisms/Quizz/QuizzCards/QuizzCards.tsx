@@ -1,15 +1,21 @@
-import { Button } from "../../../atoms/Button/Button.styles";
 import CardStack from "../../../molecules/CardStack/CardStack";
 import * as S from "./QuizzCards.style";
-import { questions } from "../../../../pages/quizz/quizz.contants";
-import QuizzItem from "../QuizzItem/QuizzItem";
+import QuizzCard from "../QuizzCard/QuizzCard";
+import { useQuizz } from "../../../../store/quizz/quizz.hooks";
 
 const QuizzCards = () => {
+  const { quizz } = useQuizz();
+
   return (
     <S.QuizzCardsContainer>
       <CardStack>
-        {questions.map((question) => (
-          <QuizzItem question={question} key={question.question} />
+        {quizz.map((quizzItem, index) => (
+          <QuizzCard
+            total={quizz.length}
+            index={index}
+            quizzItem={quizzItem}
+            key={quizzItem.question}
+          />
         ))}
       </CardStack>
     </S.QuizzCardsContainer>
