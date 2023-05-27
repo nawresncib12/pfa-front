@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode, useState } from "react";
+import { PropsWithChildren, ReactNode, useEffect, useState } from "react";
 import * as S from "./CardStack.styles";
 import React from "react";
 import { AnimatePresence } from "framer-motion";
@@ -12,6 +12,7 @@ const CardStack = ({ children }: CardStackProps) => {
   const [currentCardIndex, setCurrentCardIndex] = useState(
     childArray.length - 1
   );
+  const [rotationValues, setRotationValues] = useState<number[]>([]);
 
   const next = () => {
     if (currentCardIndex > 0) {
@@ -25,6 +26,14 @@ const CardStack = ({ children }: CardStackProps) => {
     }
   };
 
+  useEffect(() => {
+    // Generate random rotation values for each card
+    const rotations = Array(childArray.length)
+      .fill(0)
+      .map(() => generateRandomRotation());
+    setRotationValues(rotations);
+  }, [childArray.length]);
+
   const generateRandomRotation = () => {
     const randomRotation = Math.random() * ROTATION_RANGE - ROTATION_RANGE / 2;
     return randomRotation;
@@ -36,17 +45,17 @@ const CardStack = ({ children }: CardStackProps) => {
         <AnimatePresence>
           {childArray.map((card, index) => {
             const isActiveCard = index === currentCardIndex;
-            const rotation = generateRandomRotation();
+            const rotation = rotationValues[index];
             const shouldRender = index <= currentCardIndex;
             return (
               shouldRender && (
                 <S.Card
                   $isActiveCard={isActiveCard}
                   key={index}
-                  initial={{ rotate: 0, x: "-50%", y: "-50%" }}
+                  initial={{ x: rotation < 0 ? "-150%" : "150%", y: "-50%" }}
                   exit={{ x: rotation < 0 ? "-150%" : "150%", y: "-50%" }}
                   animate={{ rotate: rotation, x: "-50%", y: "-50%" }}
-                  transition={{ duration: 0.3 }}
+                  transition={{ duration: 0.5 }}
                 >
                   {card}
                 </S.Card>

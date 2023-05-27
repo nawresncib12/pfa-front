@@ -35,7 +35,6 @@ export const Card = styled(motion.div)<CardProps>`
       ? `2px solid ${theme.colors.primary[500]}`
       : "2px solid white"};
   border-radius: 8px;
-  cursor: pointer;
 `;
 
 export const Buttons = styled.div`
