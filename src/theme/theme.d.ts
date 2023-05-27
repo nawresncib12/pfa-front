@@ -36,6 +36,18 @@ type FullColorPalette = {
   900: string;
 };
 
+type Pastels = {
+  lightPink: string;
+  darkPink: string;
+  lightPurple: string;
+  lightBlue: string;
+  darkBlue: string;
+  lightYellow: string;
+  darkYellow: string;
+  lightOrange: string;
+  darkOrange: string;
+};
+
 type FullPaletteColorKeys =
   | "primary"
   | "gray"
@@ -48,4 +60,5 @@ type FullPaletteColors = Record<FullPaletteColorKeys, FullColorPalette>;
 export type Colors = {
   white: string;
   black: string;
+  pastels: Pastels;
 } & FullPaletteColors;
