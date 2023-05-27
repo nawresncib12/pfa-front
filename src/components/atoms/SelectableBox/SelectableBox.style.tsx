@@ -5,9 +5,8 @@ type SelectableBoxContainerProps = {
 };
 
 const ActiveSelectableBoxContainerStyle = css`
-  background-color: ${({ theme }) => theme.colors.primary[500]};
+  background-color: ${({ theme }) => theme.colors.primary[200]};
   border: 1px solid ${({ theme }) => theme.colors.primary[200]};
-  color: white;
 `;
 
 export const SelectableBoxContainer = styled.div<SelectableBoxContainerProps>`
@@ -19,7 +18,7 @@ export const SelectableBoxContainer = styled.div<SelectableBoxContainerProps>`
   border-radius: 8px;
   width: fit-content;
   height: fit-content;
-  color: ${({ theme }) => theme.colors.primary[500]};
+  color: ${({ theme }) => theme.colors.primary[900]};
   border: 1px solid ${({ theme }) => theme.colors.primary[200]};
   transition: all 0.3s ease-in-out;
   ${({ $isSelected }) => $isSelected && ActiveSelectableBoxContainerStyle}
