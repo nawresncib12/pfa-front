@@ -6,7 +6,7 @@ import Input from "../../atoms/Input/Input";
 
 type AutoCompleteProps = {
   placeholder?: string;
-  maxVisibleItems: number;
+  maxVisibleItems?: number;
   icon?: IconDefinition;
   suggestions?: string[];
   onChange?: (value: string) => void;
