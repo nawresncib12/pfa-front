@@ -27,6 +27,7 @@ const Recipes = () => {
       <S.StepContainer>
         <AnimatePresence mode="wait">
           <motion.div
+            style={{ height: "100%" }}
             key={step}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

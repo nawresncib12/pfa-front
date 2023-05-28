@@ -12,9 +12,11 @@ type InputProps = {
   onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   width?: string;
   borderRadius?: string;
+  type?: string;
 };
 
 const Input = ({
+  type = "text",
   placeholder,
   icon,
   value,
@@ -25,6 +27,30 @@ const Input = ({
   width,
   borderRadius,
 }: InputProps) => {
+  if (type === "file") {
+    return (
+      <S.InputWrapper width={width}>
+        {icon && (
+          <S.IconWrapper>
+            <FontAwesomeIcon icon={icon} />
+          </S.IconWrapper>
+        )}
+        <S.FileInputWrapper>
+          <S.FileInputLabel htmlFor="file-input">
+            Choose a file
+            <S.FileInput
+              id="file-input"
+              type="file"
+              onChange={onChange}
+              onBlur={onBlur}
+            />
+          </S.FileInputLabel>
+          <S.FileName>{value ? value : "No file selected"}</S.FileName>
+        </S.FileInputWrapper>
+      </S.InputWrapper>
+    );
+  }
+
   return (
     <S.InputWrapper width={width}>
       {icon && (
@@ -39,7 +65,7 @@ const Input = ({
         onKeyDown={onKeyDown}
         onBlur={onBlur}
         onChange={onChange}
-        type="text"
+        type={type}
         placeholder={placeholder}
         icon={icon}
       />

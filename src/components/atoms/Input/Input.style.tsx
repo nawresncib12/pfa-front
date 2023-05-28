@@ -1,7 +1,10 @@
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
 import styled from "styled-components";
 
-type InputFieldProps = { icon?: IconDefinition; $borderRadius?: string };
+type InputFieldProps = {
+  icon?: IconDefinition;
+  $borderRadius?: string;
+};
 
 type InputWrapperProps = {
   width?: string;
@@ -10,7 +13,6 @@ type InputWrapperProps = {
 export const InputWrapper = styled.div<InputWrapperProps>`
   width: ${({ width }) => width};
   position: relative;
-  height: 100%;
 `;
 
 export const IconWrapper = styled.div`
@@ -44,4 +46,34 @@ export const InputField = styled.input<InputFieldProps>`
   &::placeholder {
     color: ${({ theme }) => theme.colors.gray[300]};
   }
+`;
+
+export const FileInputWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FileInputLabel = styled.label`
+  background-color: ${({ theme }) => theme.colors.primary[300]};
+  color: ${({ theme }) => theme.colors.white};
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primary[400]};
+  }
+`;
+
+export const FileInput = styled.input`
+  display: none;
+`;
+
+export const FileName = styled.span`
+  margin-left: 8px;
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.gray[700]};
 `;
