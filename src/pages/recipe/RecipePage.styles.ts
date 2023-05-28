@@ -21,6 +21,8 @@ export const RecipeImageContainer = styled.div`
   height: 40vh;
   
   @media only screen and (min-width: 1024px) {
+    position: sticky;
+    top: 0;
     order: 2;
     height: 80vh;
     padding: 32px;
