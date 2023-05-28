@@ -31,6 +31,7 @@ const disabledButtonStyle = css`
   border: 1px solid ${({ theme }) => theme.colors.primary[500]};
   cursor: not-allowed;
   opacity: 0.6;
+  pointer-events: none;
 `;
 
 export const Button = styled.button<StyledButtonProps>`
