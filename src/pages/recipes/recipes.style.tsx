@@ -1,13 +1,22 @@
 import styled from "styled-components";
-import { VERTICAL_PADDING } from "../../components/atoms/Layout/Layout.style";
+import {
+  HORIZONTAL_PADDING,
+  VERTICAL_PADDING,
+} from "../../components/atoms/Layout/Layout.style";
+import { MOBILE_HORIZONTAL_PADDING } from "../../components/atoms/Layout/Layout.style";
 
 export const RecipesContainer = styled.div`
   height: calc(100vh - ${2 * VERTICAL_PADDING}px);
+  width: calc(100vw - ${2 * MOBILE_HORIZONTAL_PADDING}px);
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    width: calc(100vw - ${2 * HORIZONTAL_PADDING}px);
+  }
 `;
 
 export const StepContainer = styled.div`
