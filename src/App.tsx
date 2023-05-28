@@ -6,6 +6,7 @@ import Layout from "./components/atoms/Layout/Layout";
 import Recipes from "./pages/recipes/recipes";
 import RecipePage from "./pages/recipe/RecipePage";
 import Header from "./components/molecules/Header/Header";
+import Login from "./pages/auth/login/Login";
 
 
 function App() {
@@ -17,6 +18,14 @@ function App() {
           element={
             <Layout>
               <RecipePage />
+              </Layout>
+              }
+        />
+          <Route
+          path="/auth/login"
+          element={
+            <Layout>
+              <Login />
             </Layout>
           }
         />
