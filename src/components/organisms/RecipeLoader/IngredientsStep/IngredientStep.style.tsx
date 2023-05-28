@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const IngredientStepContainer = styled.div`
   width: 100%;
-  @media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+  height: 100%;
+  margin: auto;
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}px) {
     width: 80%;
   }
 `;

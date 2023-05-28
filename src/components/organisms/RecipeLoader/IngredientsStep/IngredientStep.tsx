@@ -15,7 +15,6 @@ const IngredientStep = ({
   const removeIngredient = (value: string) => {
     if (ingredients.includes(value)) {
       const newIngredients = ingredients.filter((ing) => ing !== value);
-
       setIngredients(newIngredients);
     }
   };
