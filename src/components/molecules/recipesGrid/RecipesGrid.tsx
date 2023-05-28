@@ -1,9 +1,17 @@
+import Card from "../../atoms/card/Card";
 import * as S from "./RecipesGrid.styles";
 
 const RecipesGrid = () => {
   return (
     <S.RecipesGridContainer>
-      big Grid
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+      <Card></Card>
+
     </S.RecipesGridContainer>
   );
 };

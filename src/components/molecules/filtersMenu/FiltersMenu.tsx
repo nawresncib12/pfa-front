@@ -5,49 +5,40 @@ import * as S from "./filtersMenu.styles";
 import './styles.css';
 
 
-const FilterMenu = () => {
+const FiltersMenu = () => {
   const filterList=[
     {fitlerGroup: 'by Season', 
     elements: [
       'winter',
       'summer',
       'spring',
-    ]},
-    {fitlerGroup: 'by Dish', 
-    elements: [
-        'winter',
-        'summer',
-        'spring',
-      ]},
+    ]}
   ]
   const [activatedFilterList, setActivatedFilterList] =useState(filterList)
 
-  const toggleFilter = (fitlerGroup: any, value: any) => {    
-    let newFilters=activatedFilterList
-    newFilters.map(filter => {
-      if (filter.fitlerGroup == fitlerGroup){
-        if(filter.elements.includes(value)){
-
-          //filter.elements = filter.elements.filter(element => element != value)
-          filter.elements = []
-          console.log(filter.elements)
-        }
-        else {
-          filter.elements.push(value)
+  const toggleFilter = (fitlerGroup: any, value: any) => {
+    let newFilters = [...activatedFilterList];
+    newFilters.map((filter) => {
+      if (filter.fitlerGroup == fitlerGroup) {
+        if (filter.elements.includes(value)) {
+          filter.elements = filter.elements.filter(
+            (element) => element != value
+          );
+        } else {
+          filter.elements.push(value);
         }
       }
-    })
-    console.log(newFilters)
-    setActivatedFilterList(newFilters)
-  }
+    });
+
+    setActivatedFilterList(newFilters);
+  };
 
   return (
       <S.FiltersContainer>      
       <h3>Filter Recipes</h3>
       <h5>check the options u want</h5>
-      {JSON.stringify(activatedFilterList)}
       {filterList.map((options) => (
-        <div key={options.fitlerGroup}>
+      <div key={options.fitlerGroup}>
       <h5 style={{ margin:"0px"}}> {options.fitlerGroup} </h5>
       {options.elements.map((option) => (
       <div key={option} style={{ display: 'flex', alignItems: 'center',margin:'5px 15px'}}>
@@ -67,4 +58,4 @@ const FilterMenu = () => {
   );
 };
 
-export default FilterMenu;
+export default FiltersMenu;

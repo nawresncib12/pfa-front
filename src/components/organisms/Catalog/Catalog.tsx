@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from "./Catalog.style";
-import FilterMenu from "../../molecules/filtersMenu/filtersMenu";
+import FiltersMenu from "../../molecules/filtersMenu/FiltersMenu";
 import RecipesSearchBar from "../../molecules/recipiesSearchBar/RecipesSearchBar";
 import RecipesGrid from "../../molecules/recipesGrid/RecipesGrid";
 
@@ -21,7 +21,7 @@ const Catalog = () => {
       ])
   return (
     <S.CatalogContainer>
-        <FilterMenu/>
+        <FiltersMenu/>
         <RecipesSearchBar/>
         <RecipesGrid/>
     </S.CatalogContainer>

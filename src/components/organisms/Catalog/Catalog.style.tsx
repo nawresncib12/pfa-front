@@ -4,6 +4,6 @@ export const CatalogContainer = styled.div`
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 1fr 10fr;
   gap: 10px;
-  background-color: lightgray;
+  background-color: white;
   padding: 10px;
 `;
