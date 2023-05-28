@@ -1,59 +1,61 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import Input from "../../components/atoms/Input/Input";
-import { useState } from "react";
-import AutoComplete from "../../components/molecules/AutoComplete/AutoComplete";
+import { useMemo, useState } from "react";
+import * as S from "./recipes.style";
+import IngredientStep from "../../components/organisms/RecipeLoader/IngredientsStep/IngredientStep";
+import ProgressBar from "../../components/atoms/ProgressBar/ProgressBar";
 import Button from "../../components/atoms/Button/Button";
+import { AnimatePresence, motion } from "framer-motion";
+import ImageUploadStep from "../../components/organisms/RecipeLoader/ImageUploadStep/ImageUploadStep";
 
 const Recipes = () => {
+  const steps = ["Upload image", "Edit ingredients", "Add options"];
   const [ingredients, setIngredients] = useState<string[]>([]);
-  const [value, setValue] = useState("");
-
-  const onChoose = (input: string) => {
-    if (ingredients.includes(input)) {
-      return;
+  const [step, setStep] = useState(0);
+  const next = () => {
+    if (step < steps.length - 1) {
+      setStep((step) => step + 1);
     }
-    const newIngredients = [...ingredients, input];
-    setIngredients(newIngredients);
   };
-  const onChange = (input: string) => {
-    setValue(input);
+  const back = () => {
+    if (step > 0) {
+      setStep((step) => step - 1);
+    }
   };
 
   return (
-    <div>
-      <AutoComplete
-        onChange={onChange}
-        maxVisibleItems={3}
-        suggestions={["tomato", "potato", "beans", "pies", "milk"]}
-        onChoose={onChoose}
-        icon={faSearch}
-        placeholder="Add ingredients"
-      />
-
-      <Button
-        onClick={() => {
-          onChoose(value);
-        }}
-      >
-        Add
-      </Button>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      <p>hi</p>
-      {ingredients.map((o) => (
-        <p>{o}</p>
-      ))}
-    </div>
+    <S.RecipesContainer>
+      <ProgressBar steps={steps} currentStep={step} />
+      <S.StepContainer>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={step}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {step == 0 && <ImageUploadStep />}
+            {step == 1 && (
+              <IngredientStep
+                ingredients={ingredients}
+                setIngredients={setIngredients}
+              />
+            )}
+            {step == 2 && <ImageUploadStep />}
+          </motion.div>
+        </AnimatePresence>
+      </S.StepContainer>
+      <S.ButtonsContainer>
+        <Button variant="secondary" disabled={step <= 0} onClick={back}>
+          Back
+        </Button>
+        {step === steps.length - 1 ? (
+          <Button onClick={() => {}}>Submit</Button>
+        ) : (
+          <Button disabled={step >= steps.length - 1} onClick={next}>
+            Next
+          </Button>
+        )}
+      </S.ButtonsContainer>
+    </S.RecipesContainer>
   );
 };
 

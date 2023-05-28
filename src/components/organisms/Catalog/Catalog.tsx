@@ -4,6 +4,7 @@ import FiltersMenu from "../../molecules/filtersMenu/FiltersMenu";
 import AutoComplete from "../../molecules/AutoComplete/AutoComplete";
 import RecipesSearchBar from "../../molecules/recipiesSearchBar/RecipesSearchBar";
 import RecipesGrid from "../../molecules/recipesGrid/RecipesGrid";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Catalog = () => {
   const recipesList = [
@@ -76,6 +77,9 @@ const Catalog = () => {
     <S.CatalogContainer>
       <FiltersMenu />
       <AutoComplete
+        icon={faSearch}
+        inputStyle={{ borderRadius: "8px 0 0 8px" }}
+        placeholder="Search recipes by name..."
         suggestions={recipies.map((el) => el.name)}
         onChange={onChange}
       />

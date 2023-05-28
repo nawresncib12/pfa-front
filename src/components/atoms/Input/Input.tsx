@@ -1,5 +1,5 @@
 import { IconDefinition } from "@fortawesome/fontawesome-common-types";
-import * as S from "./Input.styles";
+import * as S from "./Input.style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type InputProps = {
@@ -9,7 +9,9 @@ type InputProps = {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
   onBlur?: () => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   width?: string;
+  borderRadius?: string;
 };
 
 const Input = ({
@@ -19,7 +21,9 @@ const Input = ({
   onChange,
   onFocus,
   onBlur,
+  onKeyDown,
   width,
+  borderRadius,
 }: InputProps) => {
   return (
     <S.InputWrapper width={width}>
@@ -29,8 +33,10 @@ const Input = ({
         </S.IconWrapper>
       )}
       <S.InputField
+        $borderRadius={borderRadius}
         value={value}
         onFocus={onFocus}
+        onKeyDown={onKeyDown}
         onBlur={onBlur}
         onChange={onChange}
         type="text"

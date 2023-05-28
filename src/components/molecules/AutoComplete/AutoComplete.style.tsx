@@ -18,7 +18,7 @@ export const calculateHeight = (count: number) => {
 
 export const AutoCompleteContainer = styled.div`
   width: fit-content;
-  width: 500px;
+  width: 100%;
   position: relative;
 `;
 
@@ -43,6 +43,7 @@ export const MenuContainer = styled.div<MenuContainerProps>`
 
 export const AutoCompleteItem = styled.div<AutoCompleteItemProps>`
   height: ${itemHeight}px;
+  width: 100%;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.gray[700]};
   padding: ${({ icon }) =>

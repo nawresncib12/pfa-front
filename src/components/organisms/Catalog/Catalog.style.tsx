@@ -6,4 +6,5 @@ export const CatalogContainer = styled.div`
   gap: 10px;
   background-color: white;
   padding: 10px;
+  margin-top: 50px;
 `;
