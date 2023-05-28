@@ -8,5 +8,4 @@ export const RecipesGridContainer = styled.div`
     border-radius: 10px;
     background-color: white;
     width:100%;
-    
 `;

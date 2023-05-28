@@ -2,7 +2,7 @@
     border: 0px solid #ddd;
     border-radius: 22px;
     width: 40px;
-    height: 250px;
+    height: 300px;
     text-align: center;
     width:250px;
     margin: 50px 20px;
@@ -10,8 +10,8 @@
 
 }
 .card_img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     border-radius: 100%;
     margin: -60px auto 0;
@@ -110,4 +110,7 @@ hr.rounded {
   font-size: 15px;
   line-height: 1;
   font-weight: 500;
+}
+.NotifHeartIcon {
+  margin-right: 5px;
 }
