@@ -8,7 +8,7 @@ import { useTheme } from "styled-components";
 type InputProps = {
   placeholder?: string;
   icon?: IconDefinition;
-  value?: string;
+  value?: string | number;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
   onBlur?: () => void;
@@ -61,25 +61,28 @@ const Input = ({
   }
 
   return (
-    <S.InputWrapper width={width}>
-      {icon && (
-        <S.IconWrapper>
-          <FontAwesomeIcon icon={icon} />
-        </S.IconWrapper>
-      )}
-      <S.InputField
-        max={max}
-        min={0}
-        $borderRadius={borderRadius}
-        value={value}
-        onFocus={onFocus}
-        onKeyDown={onKeyDown}
-        onBlur={onBlur}
-        onChange={onChange}
-        type={type}
-        placeholder={placeholder}
-        icon={icon}
-      />
+    <>
+      {" "}
+      <S.InputWrapper width={width}>
+        {icon && (
+          <S.IconWrapper>
+            <FontAwesomeIcon icon={icon} />
+          </S.IconWrapper>
+        )}
+        <S.InputField
+          max={max}
+          min={0}
+          $borderRadius={borderRadius}
+          value={value}
+          onFocus={onFocus}
+          onKeyDown={onKeyDown}
+          onBlur={onBlur}
+          onChange={onChange}
+          type={type}
+          placeholder={placeholder}
+          icon={icon}
+        />
+      </S.InputWrapper>
       <AnimatePresence>
         {error && (
           <motion.div
@@ -97,7 +100,7 @@ const Input = ({
           </motion.div>
         )}
       </AnimatePresence>
-    </S.InputWrapper>
+    </>
   );
 };
 

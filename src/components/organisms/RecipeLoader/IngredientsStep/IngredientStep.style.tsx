@@ -17,8 +17,9 @@ export const IngredientStepContainer = styled.div`
 export const IngredientList = styled.div`
   padding: 24px 0;
   width: 100%;
-  height: 75%;
+  align-items: center;
   margin: auto;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -27,7 +28,6 @@ export const IngredientList = styled.div`
 
 export const NoIngredientAlert = styled(motion.div)`
   display: flex;
-  max-height: 80%;
   margin: auto;
   flex-direction: column;
   gap: 8px;
@@ -37,7 +37,8 @@ export const NoIngredientAlert = styled(motion.div)`
 
 export const NoIngredientImage = styled.img`
   max-height: 80%;
+  height: 300px;
   width: auto;
-  max-width: 80%;
+  max-width: 100%;
   object-fit: cover;
 `;
