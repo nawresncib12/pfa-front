@@ -11,6 +11,7 @@ type AutoCompleteProps = {
   suggestions?: string[];
   onChange?: (value: string) => void;
   onChoose?: (value: string) => void;
+  inputStyle: any;
 };
 
 const AutoComplete = ({
@@ -20,6 +21,7 @@ const AutoComplete = ({
   placeholder,
   onChange,
   onChoose,
+  inputStyle,
 }: AutoCompleteProps) => {
   let blurTimeout: any;
   const [open, setOpen] = useState(false);
@@ -27,8 +29,11 @@ const AutoComplete = ({
   const [filteredSuggestions, setFilteredSuggestions] = useState(suggestions);
 
   const handleDebouncedInputChange = debounce((value: string) => {
-    const filtered = suggestions.filter((suggestion) =>
-      suggestion.toLowerCase().startsWith(value.toLowerCase())
+    const filtered = suggestions.filter(
+      (suggestion) =>
+        suggestion.toLowerCase().startsWith(value.toLowerCase()) ||
+        (value.length > 2 &&
+          suggestion.toLowerCase().includes(value.toLowerCase()))
     );
     setFilteredSuggestions(filtered);
   }, 300);
@@ -59,9 +64,17 @@ const AutoComplete = ({
     onChoose?.(value);
   };
 
+  const onEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    console.log(event);
+    if (event.key === "Enter") {
+      onChoose?.(inputValue);
+    }
+  };
+
   return (
     <S.AutoCompleteContainer>
       <Input
+        onKeyDown={onEnter}
         width="100%"
         onChange={handleInputChange}
         value={inputValue}
@@ -69,6 +82,7 @@ const AutoComplete = ({
         onBlur={handleBlur}
         icon={icon}
         placeholder={placeholder}
+        {...inputStyle}
       />
       {!!filteredSuggestions?.length && open && (
         <S.MenuContainer
