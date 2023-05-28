@@ -5,6 +5,7 @@ export type API_Ingredient = {
   food: string;
   weight: number;
   foodId: string;
+  image: string
 };
 
 export type Digest = {
