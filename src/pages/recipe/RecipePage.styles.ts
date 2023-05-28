@@ -1,8 +1,34 @@
 import styled from 'styled-components';
 
+export const RecipePageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  width: 100%;
+  min-height: 80vh;
+  @media only screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
+`;
+
+export const RecipeImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  height: 40vh;
+  
+  @media only screen and (min-width: 1024px) {
+    order: 2;
+    height: 80vh;
+    padding: 32px;
+  }
+`;
 export const RecipeImage = styled.img`
   width: 100%;
-  height: 30vh;
+  height: 100%;
   object-fit: cover;
   border-radius: 16px;
 `;
@@ -56,4 +82,42 @@ export const PillsContainer = styled.div`
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 16px;
+`;
+
+export const RecipeIngredientsContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+
+  @media only screen and (min-width: 520px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+`;
+
+export const RecipeIngredient = styled.div`
+  display: grid;
+  grid-template-columns: 48px 1fr 1fr;
+  align-items: center;
+  gap: 16px;
+`;
+
+export const RecipeIngredientText = styled.span`
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+`;
+
+export const RecipeIngredientQuantity = styled.span`
+  font-size: 0.75rem;
+  font-weight: 300;
+  color: ${({ theme }) => theme.colors.gray[600]};
+`;
+export const RecipeIngredientImage = styled.img`
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 1px solid ${({ theme }) => theme.colors.primary[300]};
 `;
