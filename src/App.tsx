@@ -3,12 +3,21 @@ import Catalog from "./pages/catalog/Catalog"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/atoms/Layout/Layout";
 import Recipes from "./pages/recipes/recipes";
+import RecipePage from "./pages/recipe/RecipePage";
 
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+          path="/recipe/:id"
+          element={
+            <Layout>
+              <RecipePage />
+            </Layout>
+          }
+        />
         <Route
           path="/quizz"
           element={
