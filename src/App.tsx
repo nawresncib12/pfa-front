@@ -7,6 +7,7 @@ import Recipes from "./pages/recipes/recipes";
 import RecipePage from "./pages/recipe/RecipePage";
 import Header from "./components/molecules/Header/Header";
 import Login from "./pages/auth/login/Login";
+import Signup from "./pages/auth/signup/Signup";
 
 function App() {
   return (
@@ -17,6 +18,14 @@ function App() {
           element={
             <Layout>
               <RecipePage />
+            </Layout>
+          }
+        />
+        <Route
+          path="/auth/register"
+          element={
+            <Layout>
+              <Signup />
             </Layout>
           }
         />
