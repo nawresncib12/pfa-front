@@ -43,11 +43,11 @@ function App() {
           <Route
             path="/quizz"
             element={
-              <ProtectedRoute>
-                <Layout>
-                  <Quizz />
-                </Layout>
-              </ProtectedRoute>
+              // <ProtectedRoute>
+              <Layout>
+                <Quizz />
+              </Layout>
+              // </ProtectedRoute>
             }
           />
           <Route
