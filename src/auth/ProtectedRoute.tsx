@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
@@ -8,7 +8,11 @@ type ProtectedRouteProps = {
 };
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
-  const { checkTokenLocal } = useAuth();
+  const { checkTokenLocal, checkTokenExpiration } = useAuth();
+
+  useEffect(() => {
+    checkTokenExpiration();
+  }, []);
 
   if (!checkTokenLocal()) {
     return <Navigate to="/auth/login" />;
