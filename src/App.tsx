@@ -8,61 +8,63 @@ import RecipePage from "./pages/recipe/RecipePage";
 import Header from "./components/molecules/Header/Header";
 import Login from "./pages/auth/login/Login";
 import Signup from "./pages/auth/signup/Signup";
+import { AuthProvider } from "./auth/AuthContext";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/recipe/:id"
-          element={
-            <Layout>
-              <RecipePage />
-            </Layout>
-          }
-        />
-        <Route
-          path="/auth/register"
-          element={
-            <Layout>
-              <Signup />
-            </Layout>
-          }
-        />
-        <Route
-          path="/auth/login"
-          element={
-            <Layout>
-              <Login />
-            </Layout>
-          }
-        />
-        <Route
-          path="/quizz"
-          element={
-            <Layout>
-              <Quizz />
-            </Layout>
-          }
-        />
-        <Route
-          path="/catalog"
-          element={
-            <div>
-            <Header/>
-              <Catalog />
+      <AuthProvider>
+        <Routes>
+          <Route
+            path="/recipe/:id"
+            element={
+              <Layout>
+                <RecipePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/auth/register"
+            element={
+              <Layout>
+                <Signup />
+              </Layout>
+            }
+          />
+          <Route
+            path="/auth/login"
+            element={
+              <Layout>
+                <Login />
+              </Layout>
+            }
+          />
+          <Route
+            path="/quizz"
+            element={
+              <Layout>
+                <Quizz />
+              </Layout>
+            }
+          />
+          <Route
+            path="/catalog"
+            element={
+              <div>
+                <Header />
+                <Catalog />
               </div>
-          }
-          ></Route>
-        <Route
-          path="/recipes"
-          element={
-            <Layout>
-              <Recipes />
-            </Layout>
-          }
-        />
-      </Routes>
+            }></Route>
+          <Route
+            path="/recipes"
+            element={
+              <Layout>
+                <Recipes />
+              </Layout>
+            }
+          />
+        </Routes>
+      </AuthProvider>
     </BrowserRouter>
   );
 }
