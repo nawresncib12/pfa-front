@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const IngredientCardContainer = styled.div`
+export const IngredientCardContainer = styled(motion.div)`
   padding: 16px 32px;
   border-radius: 8px;
   box-sizing: border-box;
