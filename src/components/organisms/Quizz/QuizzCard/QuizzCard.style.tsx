@@ -12,17 +12,14 @@ export const QuizzCard = styled.div`
   height: 100%;
   flex-direction: column;
   border-radius: 8px;
-  gap: 16px;
-  padding: 32px;
+  gap: 24px;
+  padding: 64px 32px;
   box-sizing: border-box;
-  justify-content: space-around;
 `;
 
 export const QuizzOptions = styled.div`
   display: flex;
-  flex-grow: 1;
   flex-wrap: wrap;
-  align-content: center;
   align-items: center;
   gap: 24px;
   overflow-y: scroll;
@@ -31,4 +28,9 @@ export const QuizzOptions = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
+`;
+
+export const QuestionText = styled.div`
+  display: flex;
+  gap: 8px;
 `;
