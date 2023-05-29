@@ -43,7 +43,7 @@ export const Button = styled.button<StyledButtonProps>`
   cursor: pointer;
   transition: background-color 0.3s ease; /* Add hover transition */
   ${({ disabled }) => disabled && disabledButtonStyle}
-  ${({ variant }) =>
-    variant === "primary" ? primaryButtonStyle : secondaryButtonStyle}
+  ${({ variant }) => (variant === "primary" ? primaryButtonStyle : secondaryButtonStyle)}
   ${({ $borderRadius }) => $borderRadius && `border-radius:${$borderRadius}`}
+  text-align: center;
 `;
