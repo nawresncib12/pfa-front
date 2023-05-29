@@ -30,8 +30,6 @@ export const SelectableBoxContainer = styled.div<SelectableBoxContainerProps>`
 
   &:hover {
     ${({ $isSelected }) =>
-      $isSelected
-        ? InactiveSelectableBoxContainerStyle
-        : ActiveSelectableBoxContainerStyle}
+      $isSelected ? InactiveSelectableBoxContainerStyle : ActiveSelectableBoxContainerStyle}
   }
 `;

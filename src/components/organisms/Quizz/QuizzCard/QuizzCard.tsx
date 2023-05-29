@@ -19,26 +19,14 @@ const QuizzCard = ({ quizzItem, index, total }: QuizzCardProps) => {
   return (
     <S.QuizzCard>
       <S.QuizzCardTitles>
-        <Typography.Base
-          fontSize="lg"
-          color={theme.colors.primary[300]}
-          weight="bold"
-        >
+        <Typography.Base fontSize="lg" color={theme.colors.primary[300]} weight="bold">
           Question {total - index} of {total}
         </Typography.Base>
         <S.QuestionText>
-          <Typography.Base
-            fontSize="lg"
-            color={theme.colors.primary[300]}
-            weight="bold"
-          >
+          <Typography.Base fontSize="lg" color={theme.colors.primary[300]} weight="bold">
             {quizzItem.icon && <FontAwesomeIcon icon={quizzItem.icon} />}
           </Typography.Base>
-          <Typography.Base
-            fontSize="lg"
-            color={theme.colors.primary[600]}
-            weight="bold"
-          >
+          <Typography.Base fontSize="lg" color={theme.colors.primary[600]} weight="bold">
             {quizzItem.question}
           </Typography.Base>
         </S.QuestionText>

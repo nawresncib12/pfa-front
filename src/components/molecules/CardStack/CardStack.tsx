@@ -11,9 +11,7 @@ type CardStackProps = PropsWithChildren<{
 const CardStack = ({ children, onDone }: CardStackProps) => {
   const ROTATION_RANGE = 5;
   const childArray = React.Children.toArray(children) as ReactNode[];
-  const [currentCardIndex, setCurrentCardIndex] = useState(
-    childArray.length - 1
-  );
+  const [currentCardIndex, setCurrentCardIndex] = useState(childArray.length - 1);
   const [rotationValues, setRotationValues] = useState<number[]>([]);
 
   const next = () => {
@@ -57,8 +55,7 @@ const CardStack = ({ children, onDone }: CardStackProps) => {
                   initial={{ x: rotation < 0 ? "-150%" : "150%", y: "-50%" }}
                   exit={{ x: rotation < 0 ? "-150%" : "150%", y: "-50%" }}
                   animate={{ rotate: rotation, x: "-50%", y: "-50%" }}
-                  transition={{ duration: 0.5 }}
-                >
+                  transition={{ duration: 0.5 }}>
                   {card}
                 </S.Card>
               )
@@ -70,23 +67,17 @@ const CardStack = ({ children, onDone }: CardStackProps) => {
         <Button
           variant="secondary"
           onClick={back}
-          disabled={currentCardIndex === childArray.length - 1}
-        >
+          disabled={currentCardIndex === childArray.length - 1}>
           Back
         </Button>
 
-        <Button
-          variant="secondary"
-          onClick={next}
-          disabled={currentCardIndex === 0}
-        >
+        <Button variant="secondary" onClick={next} disabled={currentCardIndex === 0}>
           Next
         </Button>
         <Button
           variant="secondary"
           onClick={onDone}
-          disabled={currentCardIndex === childArray.length - 1}
-        >
+          disabled={currentCardIndex === childArray.length - 1}>
           Submit
         </Button>
       </S.Buttons>

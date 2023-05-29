@@ -17,29 +17,22 @@ const Header = () => {
   return (
     <div>
       <S.Header>
-        <h1 style={{ margin: 10, left: "20px", position: "absolute" }}>
-          Mealos
-        </h1>
+        <h1 style={{ margin: 10, left: "20px", position: "absolute" }}>Mealos</h1>
 
-        <S.Button
-          onClick={manageHeader}
-        >
-          {isOpen ? (
-            <FontAwesomeIcon icon={faClose} />
-          ) : (
-            <FontAwesomeIcon icon={faBars} />
-          )}
+        <S.Button onClick={manageHeader}>
+          {isOpen ? <FontAwesomeIcon icon={faClose} /> : <FontAwesomeIcon icon={faBars} />}
         </S.Button>
       </S.Header>
-      {isOpen && 
-      <S.Overlay $isOpen={isOpen}>
-        <S.Paramter>
-          <h1>Profile</h1>
-        </S.Paramter>
-        <S.Paramter>
-          <h1>Settings</h1>
-        </S.Paramter>
-      </S.Overlay>}
+      {isOpen && (
+        <S.Overlay $isOpen={isOpen}>
+          <S.Paramter>
+            <h1>Profile</h1>
+          </S.Paramter>
+          <S.Paramter>
+            <h1>Settings</h1>
+          </S.Paramter>
+        </S.Overlay>
+      )}
     </div>
   );
 };

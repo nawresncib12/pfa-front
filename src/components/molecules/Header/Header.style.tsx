@@ -35,7 +35,6 @@ export const Button = styled.div`
   position: absolute;
   cursor: pointer;
   position: fixed;
-
 `;
 
 export const Overlay = styled.div<OverlayProps>`
@@ -52,8 +51,7 @@ export const Overlay = styled.div<OverlayProps>`
   right: 0;
   bottom: 0;
   background: ${({ theme }) => theme.colors.primary[500]};
-  transform: ${({ $isOpen }) =>
-    $isOpen ? "translateX(0)" : "translateX(100vw)"};
+  transform: ${({ $isOpen }) => ($isOpen ? "translateX(0)" : "translateX(100vw)")};
   transition: transform 0.5s ease-in;
   transform-origin: top right;
   z-index: 2;

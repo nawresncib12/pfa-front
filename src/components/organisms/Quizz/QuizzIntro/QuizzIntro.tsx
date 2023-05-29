@@ -14,11 +14,7 @@ const QuizzIntro = ({ startQuizz, $quizzView }: QuizzIntroProps) => {
   return (
     <S.QuizzIntroContainer $quizzView={$quizzView}>
       <S.QuizzIntroInfo>
-        <Typography.H1
-          color={theme.colors.primary[500]}
-          align="center"
-          fontSize="2xl"
-        >
+        <Typography.H1 color={theme.colors.primary[500]} align="center" fontSize="2xl">
           Customize you recipes
         </Typography.H1>
         <div>

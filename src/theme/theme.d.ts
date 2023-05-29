@@ -48,12 +48,7 @@ type Pastels = {
   darkOrange: string;
 };
 
-type FullPaletteColorKeys =
-  | "primary"
-  | "gray"
-  | "success"
-  | "warning"
-  | "error";
+type FullPaletteColorKeys = "primary" | "gray" | "success" | "warning" | "error";
 
 type FullPaletteColors = Record<FullPaletteColorKeys, FullColorPalette>;
 

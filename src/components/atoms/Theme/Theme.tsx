@@ -8,7 +8,7 @@ import { PropsWithChildren } from "react";
 const defaultTheme: DefaultTheme = {
   colors,
   weights,
-  breakpoints,
+  breakpoints
 };
 
 export const Theme = ({ children }: PropsWithChildren) => {

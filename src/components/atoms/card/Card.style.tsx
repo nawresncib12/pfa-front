@@ -40,7 +40,6 @@ export const Card_info = styled.div`
   height: 250px;
   h6 {
     text-align: "center";
-
   }
 `;
 
@@ -81,11 +80,10 @@ export const ReceiptInfo = styled.div`
 
 export const Description = styled.div`
   font-size: 12px;
-  margin: 10px auto ;
+  margin: 10px auto;
   width: 70%;
 `;
 
 export const Title = styled.h4`
   margin: 15px 15px;
 `;
-

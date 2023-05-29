@@ -9,7 +9,6 @@ import Header from "./components/molecules/Header/Header";
 import Login from "./pages/auth/login/Login";
 import Signup from "./pages/auth/signup/Signup";
 import { AuthProvider } from "./auth/AuthContext";
-import ProtectedRoute from "./auth/ProtectedRoute";
 
 function App() {
   return (

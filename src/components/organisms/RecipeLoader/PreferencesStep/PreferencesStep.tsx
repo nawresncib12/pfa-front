@@ -16,7 +16,7 @@ const PreferencesStep = ({
   error,
   setError,
   ingredientCount,
-  setIngredientCount,
+  setIngredientCount
 }: PreferencesStepProps) => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);

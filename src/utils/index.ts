@@ -15,7 +15,7 @@ export const generateRandomPastel = (theme: DefaultTheme): string => {
     "lightYellow",
     "darkYellow",
     "lightOrange",
-    "darkOrange",
+    "darkOrange"
   ];
   const colorName = colors[Math.floor(Math.random() * colors.length)];
   return theme.colors.pastels[colorName] as string;

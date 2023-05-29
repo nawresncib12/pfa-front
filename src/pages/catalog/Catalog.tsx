@@ -3,7 +3,7 @@ import * as S from "./catalog.style";
 const catalog = () => {
   return (
     <S.CatalogContainer>
-      <Catalog/>
+      <Catalog />
     </S.CatalogContainer>
   );
 };

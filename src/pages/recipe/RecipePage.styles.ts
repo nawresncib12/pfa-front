@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const RecipePageContainer = styled.div`
   display: grid;
@@ -19,7 +19,7 @@ export const RecipeImageContainer = styled.div`
   border-radius: 16px;
   overflow: hidden;
   height: 40vh;
-  
+
   @media only screen and (min-width: 1024px) {
     position: sticky;
     top: 0;
@@ -41,7 +41,7 @@ export const RecipeTitle = styled.h1`
   margin: 0;
   color: ${({ theme }) => theme.colors.primary[500]};
   margin-bottom: 16px;
-  margin-top: 16px; 
+  margin-top: 16px;
 `;
 
 export const RecipeInfo = styled.div`
@@ -61,8 +61,8 @@ export const RecipeInfoItem = styled.span`
   display: flex;
   align-items: center;
   gap: 8px;
-`;  
-  
+`;
+
 export const RecipeSubtitle = styled.h2`
   font-size: 1.5rem;
   font-weight: 700;
@@ -95,7 +95,6 @@ export const RecipeIngredientsContainer = styled.div`
   @media only screen and (min-width: 520px) {
     grid-template-columns: 1fr 1fr;
   }
-
 `;
 
 export const RecipeIngredient = styled.div`

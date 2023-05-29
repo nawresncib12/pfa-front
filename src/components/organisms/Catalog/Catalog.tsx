@@ -19,10 +19,10 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
       ],
       time: "15",
-      calories: "120",
+      calories: "120"
     },
     {
       id: 2,
@@ -33,10 +33,10 @@ const Catalog = () => {
       ingedients: [
         "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
         "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*"
       ],
       time: "35",
-      calories: "445",
+      calories: "445"
     },
     {
       id: 3,
@@ -47,10 +47,10 @@ const Catalog = () => {
       ingedients: [
         "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
         "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*"
       ],
       time: "30",
-      calories: "600",
+      calories: "600"
     },
     {
       id: 4,
@@ -61,10 +61,10 @@ const Catalog = () => {
       ingedients: [
         "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
         "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*"
       ],
       time: "10",
-      calories: "800",
+      calories: "800"
     },
     {
       id: 5,
@@ -78,16 +78,15 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
       ],
       time: "30",
-      calories: "500",
+      calories: "500"
     },
     {
       id: 6,
       name: "chicken nuggets",
-      description:
-        "literally chicken turned into nuggest just to make you happy madame Sonia",
+      description: "literally chicken turned into nuggest just to make you happy madame Sonia",
       image:
         "https://hips.hearstapps.com/hmg-prod/images/summer-chicken-recipes-644c200dc03a1.jpeg?crop=0.998xw:1.00xh;0.00160xw,0&resize=360:*",
       ingedients: [
@@ -96,22 +95,22 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
       ],
       time: "26",
-      calories: "560",
-    },
+      calories: "560"
+    }
   ];
   const [recipies, setRecipies] = useState(recipesList);
   const filterList = [
     { fitlerGroup: "Season", elements: ["winter", "summer", "spring"] },
     { fitlerGroup: "Dish", elements: ["cold", "hot", "average"] },
-    { fitlerGroup: "Sort By", elements: ["time", "calories"] },
+    { fitlerGroup: "Sort By", elements: ["time", "calories"] }
   ];
   const [filters, setFilters] = useState([
     { fitlerGroup: "Season", elements: ["winter", "summer", "spring"] },
     { fitlerGroup: "Dish", elements: ["cold", "hot", "average"] },
-    { fitlerGroup: "Sort By", elements: "time" },
+    { fitlerGroup: "Sort By", elements: "time" }
   ]);
   const onChange = (input: string) => {
     let newRecipes = recipesList;

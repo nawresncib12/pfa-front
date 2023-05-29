@@ -15,8 +15,7 @@ const QuizzCards = ({ $quizzView }: QuizzCardsProps) => {
       <CardStack
         onDone={() => {
           /* call profile api*/
-        }}
-      >
+        }}>
         {quizz.map((quizzItem, index) => (
           <QuizzCard
             total={quizz.length}

@@ -30,8 +30,7 @@ export const MenuContainer = styled.div<MenuContainerProps>`
   height: ${({ itemsCount }) => calculateHeight(itemsCount)}px;
   max-height: ${({ maxVisibleItems }) => calculateHeight(maxVisibleItems)}px;
   border: 1px solid #d4d4d4;
-  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: 8px;
   overflow-y: scroll;
   -ms-overflow-style: none; /* IE and Edge */

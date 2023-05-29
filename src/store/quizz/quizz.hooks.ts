@@ -6,7 +6,7 @@ export const useQuizz = () => {
   const quizz = useAppSelector(quizzSlector());
 
   return {
-    quizz,
+    quizz
   };
 };
 
@@ -17,11 +17,11 @@ export const useQuizzQuestion = (tag: string) => {
     dispatch(
       quizzQuestionAnswer({
         tag,
-        item,
+        item
       })
     );
 
   return {
-    toggleOption,
+    toggleOption
   };
 };
