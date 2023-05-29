@@ -10,7 +10,7 @@ export const Card = styled.div`
   border: 0px solid #ddd;
   border-radius: 22px;
   width: 40px;
-  height: 300px;
+  height: 310px;
   text-align: center;
   width: 250px;
   margin: 50px 20px;
@@ -48,6 +48,12 @@ export const Card_img = styled.div`
 export const Card_info = styled.div`
   display: "flex";
   align-items: "center";
+  text-align: "center";
+  height: 250px;
+  h6 {
+    text-align: "center";
+
+  }
 `;
 
 export const Heart = styled.div`
@@ -80,10 +86,18 @@ export const ReceiptInfo = styled.div`
   grid-template-rows: repeat(2, 10px);
   margin-bottom: 20px;
   h5 {
-    margin: 0;
-  }
-  h6 {
     color: lightgray;
     margin: 10px;
   }
 `;
+
+export const Description = styled.div`
+  font-size: 12px;
+  margin: 10px auto ;
+  width: 70%;
+`;
+
+export const Title = styled.h4`
+  margin: 15px 15px;
+`;
+
