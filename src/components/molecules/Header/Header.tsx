@@ -31,7 +31,7 @@ const Header = () => {
           )}
         </S.Button>
       </S.Header>
-
+      {isOpen && 
       <S.Overlay $isOpen={isOpen}>
         <S.Paramter>
           <h1>Profile</h1>
@@ -39,7 +39,7 @@ const Header = () => {
         <S.Paramter>
           <h1>Settings</h1>
         </S.Paramter>
-      </S.Overlay>
+      </S.Overlay>}
     </div>
   );
 };

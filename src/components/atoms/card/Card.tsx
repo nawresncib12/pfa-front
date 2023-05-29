@@ -13,9 +13,11 @@ export const Card = ({recipie}: any) =>{
         <img src={recipie.image} alt="user-image"/>
     </S.Card_img>
     <S.Card_info>
-        <h4>{recipie.name}</h4>
+        <S.Title>{recipie.name}</S.Title>
+        <S.Description>{recipie.description}</S.Description>
         <S.Likes>
-    <FontAwesomeIcon className="NotifHeartIcon" icon={faHeart}></FontAwesomeIcon>        <div>12</div>
+    <FontAwesomeIcon className="NotifHeartIcon" icon={faHeart}></FontAwesomeIcon>        
+        <div>{Math.floor(Math.random()*20)}</div>
         </S.Likes>
         <hr className="rounded"></hr>
         <div className="receiptInfo">

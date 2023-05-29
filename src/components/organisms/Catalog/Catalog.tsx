@@ -9,10 +9,10 @@ const Catalog = () => {
   const recipesList = [
     {
       id: 1,
-      name: "jilbena",
-      description: "hethi jiblena bnina",
+      name: "salad without lituce",
+      description: "quick salad to lose weight",
       image:
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://hips.hearstapps.com/hmg-prod/images/salads-without-lettuce-645bd01724d31.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
       ingedients: [
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
@@ -21,32 +21,56 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
       ],
-      time: "1",
-      calories: "44",
+      time: "15",
+      calories: "120",
     },
     {
       id: 2,
-      name: "ma9arouna",
-      description: "hethi jiblena bnina",
-      image:
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+      name: "caprese pasta",
+      description: "delicious pasta (sans gluten)",
+      image: "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
       ingedients: [
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
       ],
-      time: "2",
+      time: "35",
       calories: "445",
     },
     {
       id: 3,
-      name: "patata",
-      description: "hethi jiblena bnina",
+      name: "meat and chease salad",
+      description: "balking by eating salads ? yes it is possible",
       image:
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://hips.hearstapps.com/hmg-prod/images/4th-of-july-salads-6451572460f16.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        ingedients: [
+          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+         ],
+      time: "30",
+      calories: "600",
+    },
+    {
+      id: 4,
+      name: "cow boy steak",
+      description: "for meat lovers",
+      image:
+        "https://hips.hearstapps.com/hmg-prod/images/cowboy-steak-recipe-2-6446ed45d1ae3.jpg?crop=0.502xw:1.00xh;0.279xw,0&resize=360:*",
+        ingedients: [
+          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+         ],
+      time: "10",
+      calories: "800",
+    },
+    {
+      id: 5,
+      name: "ultimate Rizz Salad",
+      description: "this salad is what we call the Digestable rizz",
+      image:
+        "https://hips.hearstapps.com/hmg-prod/images/caprese1-6441bd8994ae2.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=360:*",
       ingedients: [
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
@@ -55,9 +79,26 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
       ],
-      time: "4",
-      calories: "4",
+      time: "30",
+      calories: "500",
     },
+    {
+      id: 6,
+      name: "chicken nuggets",
+      description: "literally chicken turned into nuggest just to make you happy madame Sonia",
+      image:
+        "https://hips.hearstapps.com/hmg-prod/images/summer-chicken-recipes-644c200dc03a1.jpeg?crop=0.998xw:1.00xh;0.00160xw,0&resize=360:*",
+      ingedients: [
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+      ],
+      time: "26",
+      calories: "560",
+    }
   ];
   const [recipies, setRecipies] = useState(recipesList);
   const filterList = [
