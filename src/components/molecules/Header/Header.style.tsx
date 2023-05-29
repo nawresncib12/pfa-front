@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+type OverlayProps = {
+  $isOpen: boolean;
+};
+
 export const Header = styled.div`
   color: black;
   font-family: Century Gothic;
@@ -10,42 +14,64 @@ export const Header = styled.div`
   right: 0px;
   top: 0px;
   h1: {
-    left:2px;
+    left: 2px;
     margin: 0;
   }
 `;
 export const Button = styled.div`
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
   border: none;
   color: black;
-  padding: 15px;
-  margin: 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   z-index: 3;
+  margin: 10px;
+  width: 24px;
+  height: 24px;
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+  position: fixed;
+
 `;
 
-export const Overlay = styled.div`
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align:center;
-    width: 100vw;
-    height: 100vh;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(51,51,51,0.7);
-    z-index: 2;
+export const Overlay = styled.div<OverlayProps>`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: ${({ theme }) => theme.colors.primary[500]};
+  transform: ${({ $isOpen }) =>
+    $isOpen ? "translateX(0)" : "translateX(100vw)"};
+  transition: transform 0.5s ease-in;
+  transform-origin: top right;
+  z-index: 2;
 `;
 
 export const Paramter = styled.div`
-    color :white;
+  color: white;
+  padding: 10px 200px;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+  &:hover {
+    -webkit-transform: skewX(-30deg);
+    -moz-transform: skewX(-30deg);
+    -o-transform: skewX(-30deg);
+    transform: skewX(-30deg);
+  }
 `;
 
 export const Separator = styled.hr`

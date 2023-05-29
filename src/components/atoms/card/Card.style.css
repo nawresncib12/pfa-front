@@ -76,8 +76,12 @@ hr.rounded {
 .receiptInfo h6 {
   color: lightgray;
   margin:10px;
+  text-align: center ;
 }
 
+h6 {
+  text-align: center;
+}
 .AvatarRoot {
   display: inline-flex;
   align-items: center;
