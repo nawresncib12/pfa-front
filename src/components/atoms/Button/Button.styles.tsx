@@ -37,7 +37,6 @@ const disabledButtonStyle = css`
 export const Button = styled.button<StyledButtonProps>`
   border-radius: 8px;
   padding: 12px 20px;
-  min-width: 100px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;

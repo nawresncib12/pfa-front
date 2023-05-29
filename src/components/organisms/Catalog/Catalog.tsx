@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import * as S from "./Catalog.style";
 import FiltersMenu from "../../molecules/filtersMenu/FiltersMenu";
 import AutoComplete from "../../molecules/AutoComplete/AutoComplete";
@@ -28,11 +28,12 @@ const Catalog = () => {
       id: 2,
       name: "caprese pasta",
       description: "delicious pasta (sans gluten)",
-      image: "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+      image:
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
       ingedients: [
-       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
       ],
       time: "35",
       calories: "445",
@@ -43,11 +44,11 @@ const Catalog = () => {
       description: "balking by eating salads ? yes it is possible",
       image:
         "https://hips.hearstapps.com/hmg-prod/images/4th-of-july-salads-6451572460f16.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-        ingedients: [
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-         ],
+      ingedients: [
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+      ],
       time: "30",
       calories: "600",
     },
@@ -57,11 +58,11 @@ const Catalog = () => {
       description: "for meat lovers",
       image:
         "https://hips.hearstapps.com/hmg-prod/images/cowboy-steak-recipe-2-6446ed45d1ae3.jpg?crop=0.502xw:1.00xh;0.279xw,0&resize=360:*",
-        ingedients: [
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-         ],
+      ingedients: [
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+      ],
       time: "10",
       calories: "800",
     },
@@ -85,7 +86,8 @@ const Catalog = () => {
     {
       id: 6,
       name: "chicken nuggets",
-      description: "literally chicken turned into nuggest just to make you happy madame Sonia",
+      description:
+        "literally chicken turned into nuggest just to make you happy madame Sonia",
       image:
         "https://hips.hearstapps.com/hmg-prod/images/summer-chicken-recipes-644c200dc03a1.jpeg?crop=0.998xw:1.00xh;0.00160xw,0&resize=360:*",
       ingedients: [
@@ -98,7 +100,7 @@ const Catalog = () => {
       ],
       time: "26",
       calories: "560",
-    }
+    },
   ];
   const [recipies, setRecipies] = useState(recipesList);
   const filterList = [
