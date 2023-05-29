@@ -80,9 +80,6 @@ export const ReceiptInfo = styled.div`
   grid-template-rows: repeat(2, 10px);
   margin-bottom: 20px;
   h5 {
-    margin: 0;
-  }
-  h6 {
     color: lightgray;
     margin: 10px;
   }

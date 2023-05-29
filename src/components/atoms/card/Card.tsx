@@ -12,7 +12,6 @@ export const Card = ({recipie}: any) =>{
     <S.Card_img> 
         <img src={recipie.image} alt="user-image"/>
     </S.Card_img>
-
     <S.Card_info>
         <h4>{recipie.name}</h4>
         <S.Likes>
@@ -22,8 +21,8 @@ export const Card = ({recipie}: any) =>{
         <div className="receiptInfo">
         <h5>Time</h5>
         <h5>calories</h5>
-        <h6>30</h6>
-        <h6>445</h6>
+        <h5 style={{margin: '10px',color: 'gray'}}>{recipie.time}</h5>
+        <h5 style={{margin: '10px',color:'gray'}}> {recipie.calories}</h5>
         </div>
         <hr className="rounded"></hr>
     <div style={{ gap: 20 }}>

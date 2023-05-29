@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import * as S from "./Catalog.style";
 import FiltersMenu from "../../molecules/filtersMenu/FiltersMenu";
 import AutoComplete from "../../molecules/AutoComplete/AutoComplete";
-import RecipesSearchBar from "../../molecules/recipiesSearchBar/RecipesSearchBar";
 import RecipesGrid from "../../molecules/recipesGrid/RecipesGrid";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,8 +21,8 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
       ],
-      Time: "30min",
-      calories: "445",
+      time: "1",
+      calories: "44",
     },
     {
       id: 2,
@@ -39,7 +38,7 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
       ],
-      Time: "30min",
+      time: "2",
       calories: "445",
     },
     {
@@ -56,14 +55,20 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
       ],
-      Time: "30min",
-      calories: "445",
+      time: "4",
+      calories: "4",
     },
   ];
   const [recipies, setRecipies] = useState(recipesList);
-  const [filterList, setList] = useState([
-    { fitlerGroup: "by Season", elements: ["winter", "summer", "spring"] },
-    { fitlerGroup: "by Dish", elements: ["winter", "summer", "spring"] },
+  const filterList = [
+    { fitlerGroup: "Season", elements: ["winter", "summer", "spring"] },
+    { fitlerGroup: "Dish", elements: ["cold", "hot", "average"] },
+    { fitlerGroup: "Sort By", elements: ["time", "calories"] },
+  ];
+  const [filters, setFilters] = useState([
+    { fitlerGroup: "Season", elements: ["winter", "summer", "spring"] },
+    { fitlerGroup: "Dish", elements: ["cold", "hot", "average"] },
+    { fitlerGroup: "Sort By", elements: "time" },
   ]);
   const onChange = (input: string) => {
     let newRecipes = recipesList;
@@ -75,7 +80,7 @@ const Catalog = () => {
 
   return (
     <S.CatalogContainer>
-      <FiltersMenu />
+      <FiltersMenu filterList={filterList} filters={[filters, setFilters]} />
       <AutoComplete
         icon={faSearch}
         inputStyle={{ borderRadius: "8px 0 0 8px" }}
@@ -83,7 +88,7 @@ const Catalog = () => {
         suggestions={recipies.map((el) => el.name)}
         onChange={onChange}
       />
-      <RecipesGrid recipiesList={recipies} />
+      <RecipesGrid recipiesList={recipies} filters={filters} />
     </S.CatalogContainer>
   );
 };
