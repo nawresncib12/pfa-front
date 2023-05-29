@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../api/useApi";
 
 export type Preferences = {
   healthLabels: string[];
@@ -24,6 +25,9 @@ interface AuthContextType {
   login: (token: string) => void;
   logout: () => void;
   token: string | null;
+  checkTokenLocal: () => string | null;
+  checkTokenExpiration: () => void;
+  getToken: () => string | null;
 }
 
 // Create the authentication context
@@ -31,6 +35,9 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   login: () => {},
   logout: () => {},
+  checkTokenLocal: () => null,
+  checkTokenExpiration: () => {},
+  getToken: () => null,
   token: null
 });
 
@@ -40,30 +47,54 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [token, setToken] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  //  useEffect(() => {
-  //    // Check if user is authenticated on initial load
-  //    checkAuth();
-  //  }, []);
-
+  const getToken = () => {
+    const token = localStorage.getItem("token");
+    setToken(token);
+    return token;
+  };
   // Function to handle user login
   const login = (token: string) => {
     // Save the token in local storage or cookies
     localStorage.setItem("token", token);
     setToken(token);
-    navigate("/profile");
+
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    // Fetch the user data
+    api.get("/auth/profile").then((response) => {
+      setUser(response.data);
+    });
   };
 
+  const checkTokenLocal = () => {
+    const token = localStorage.getItem("token");
+    return token;
+  };
+
+  const checkTokenExpiration = async () => {
+    const token = getToken();
+    api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    try {
+      const response = await api.get("/auth/profile");
+      setUser(response.data);
+    } catch (error) {
+      console.error(error);
+      logout();
+    }
+  };
   // Function to handle user logout
   const logout = () => {
     // Remove the token from local storage or cookies
     localStorage.removeItem("token");
     setToken(null);
     setUser(null);
-    navigate("/login");
+    navigate("/auth/login");
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, token }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider
+      value={{ user, login, logout, token, checkTokenExpiration, checkTokenLocal, getToken }}>
+      {children}
+    </AuthContext.Provider>
   );
 }
 

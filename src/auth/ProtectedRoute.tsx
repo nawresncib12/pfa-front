@@ -1,23 +1,19 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from "react";
-import { Route, Navigate, RouteProps } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 // Define additional props for protected routes
-type ProtectedRouteProps = RouteProps & {
-  component: React.ComponentType<any>;
+type ProtectedRouteProps = {
+  children: JSX.Element;
 };
 
-const ProtectedRoute = ({ component: Component, ...rest }: ProtectedRouteProps) => {
-  const { user } = useAuth();
+const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  const { checkTokenLocal } = useAuth();
 
-  return (
-    <Route
-      {...rest}
-      // @ts-ignore
-      render={(props: any) => (user ? <Component {...props} /> : <Navigate to="/login" />)}
-    />
-  );
+  if (!checkTokenLocal()) {
+    return <Navigate to="/auth/login" />;
+  }
+  return children;
 };
 
 export default ProtectedRoute;

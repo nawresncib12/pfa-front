@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { Preferences, useAuth, User } from "../auth/AuthContext";
 import { Recipe } from "../pages/recipe/types";
 
-const API_URL = "http://localhost:3000";
+export const API_URL = "http://localhost:3000";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: API_URL,
   headers: {
     "Content-Type": "application/json"
@@ -15,6 +15,7 @@ function useApi() {
   const { token, login } = useAuth();
 
   useEffect(() => {
+    console.log("token", token);
     if (token) api.defaults.headers.common.Authorization = `Bearer ${token}`;
     else delete api.defaults.headers.common.Authorization;
   }, [token]);
