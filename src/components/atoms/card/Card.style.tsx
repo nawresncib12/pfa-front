@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { generateRandomPastel } from "../../../utils";
 
 export const primaryButtonStyle = css`
   background-color: ${({ theme }) => theme.colors.primary[500]};
@@ -17,26 +18,13 @@ export const Card = styled.div`
   background-color: #f6f6f6;
 `;
 
-const getRandomColor=()=>{
-    const colors=[  "lightPink",
-    "darkPink",
-    "lightPurple",
-    "lightBlue",
-    "darkBlue",
-    "lightYellow",
-    "darkYellow",
-    "lightOrange",
-    "darkOrange"]
-    return colors[Math.floor(Math.random() * colors.length)]
-}
-
 export const Card_img = styled.div`
   width: 150px;
   height: 150px;
   overflow: hidden;
   border-radius: 100%;
   margin: -60px auto 0;
-  box-shadow: 0px 0px 0px 4px ${({ theme }) => theme.colors.pastels[getRandomColor()]};
+  box-shadow: 0px 0px 0px 4px ${({ theme }) => generateRandomPastel(theme)};
 
   img {
     width: 100%;
