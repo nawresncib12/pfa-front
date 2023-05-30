@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pill from "../../components/atoms/Pill/Pill";
 import { capitalizeFirstLetter } from "../../utils";
 import { mockRecipe } from "./mock";
@@ -7,22 +7,40 @@ import * as S from "./RecipePage.styles";
 import { faHeart as rHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faEarth, faFire, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { useParams } from "react-router-dom";
+import useApi, { RecipeResponse } from "../../api/useApi";
 
-const RecipePage = ({ recipe = mockRecipe }: { recipe?: Recipe }) => {
-  const [isLiked, toggleLike] = useState(recipe.isLikedByMe);
+const RecipePage = () => {
+  const { getRecipe } = useApi();
+  const { id } = useParams();
+
+  const [recipeData, setRecipeData] = useState<RecipeResponse | null>(null);
+  // const [isLiked, toggleLike] = useState(recipe.isLikedByMe);
+  const isLiked = true;
+
+  const fetchRecipe = async () => {
+    if (!id) return;
+
+    const res = await getRecipe(id);
+    setRecipeData(res);
+  };
+  useEffect(() => {
+    fetchRecipe();
+  }, [id]);
+  console.log(recipeData);
+
+  if (recipeData === null) return null;
+
+  const recipe = recipeData.recipe;
+
   return (
     <S.RecipePageContainer>
       <S.RecipeImageContainer>
         <S.RecipeImage
-          src={recipe.images.LARGE?.url ?? recipe.images.REGULAR?.url ?? recipe.image}
+          src={recipe.images?.LARGE?.url ?? recipe.images?.REGULAR?.url ?? recipe.image}
         />
 
-        <S.HeartButton
-          onClick={() => {
-            toggleLike(!isLiked);
-            console.log(isLiked);
-          }}
-        >
+        <S.HeartButton>
           <FontAwesomeIcon
             size="xl"
             color="#F984B5"
