@@ -26,23 +26,24 @@ const Header = () => {
           ) : (
             <FontAwesomeIcon icon={faBars} />
           )}
+        </S.Button>
 
         <h1>
           Mealos
         </h1>
-        <FontAwesomeIcon size='10x' icon={faInstagram} />
-
+        <S.InstaIcon>
+        <FontAwesomeIcon size='2xl' icon={faInstagram} />
+        </S.InstaIcon>
       </S.Header>
-      {isOpen && (
-        <S.Overlay $isOpen={isOpen}>
-          <S.Paramter>
-            <h1>Profile</h1>
-          </S.Paramter>
-          <S.Paramter>
-            <h1>Settings</h1>
-          </S.Paramter>
-        </S.Overlay>
-      )}
+      {isOpen && 
+      <S.Overlay $isOpen={isOpen}>
+        <S.Paramter>
+          <h1>Profile</h1>
+        </S.Paramter>
+        <S.Paramter>
+          <h1>Settings</h1>
+        </S.Paramter>
+      </S.Overlay>}
     </div>
   );
 };
