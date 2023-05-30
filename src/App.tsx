@@ -9,6 +9,7 @@ import Header from "./components/molecules/Header/Header";
 import Login from "./pages/auth/login/Login";
 import Signup from "./pages/auth/signup/Signup";
 import { AuthProvider } from "./auth/AuthContext";
+import Profile from "./pages/profile/Profile";
 
 function App() {
   return (
@@ -62,6 +63,14 @@ function App() {
             element={
               <Layout>
                 <Recipes />
+              </Layout>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <Layout>
+                <Profile />
               </Layout>
             }
           />
