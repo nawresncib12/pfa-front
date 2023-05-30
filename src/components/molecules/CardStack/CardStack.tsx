@@ -55,7 +55,8 @@ const CardStack = ({ children, onDone }: CardStackProps) => {
                   initial={{ x: rotation < 0 ? "-150%" : "150%", y: "-50%" }}
                   exit={{ x: rotation < 0 ? "-150%" : "150%", y: "-50%" }}
                   animate={{ rotate: rotation, x: "-50%", y: "-50%" }}
-                  transition={{ duration: 0.5 }}>
+                  transition={{ duration: 0.5 }}
+                >
                   {card}
                 </S.Card>
               )
@@ -67,7 +68,8 @@ const CardStack = ({ children, onDone }: CardStackProps) => {
         <Button
           variant="secondary"
           onClick={back}
-          disabled={currentCardIndex === childArray.length - 1}>
+          disabled={currentCardIndex === childArray.length - 1}
+        >
           Back
         </Button>
 
@@ -77,7 +79,8 @@ const CardStack = ({ children, onDone }: CardStackProps) => {
         <Button
           variant="secondary"
           onClick={onDone}
-          disabled={currentCardIndex === childArray.length - 1}>
+          disabled={currentCardIndex === childArray.length - 1}
+        >
           Submit
         </Button>
       </S.Buttons>

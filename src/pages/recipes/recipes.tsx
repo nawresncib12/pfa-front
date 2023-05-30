@@ -35,7 +35,8 @@ const Recipes = () => {
             key={step}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}>
+            exit={{ opacity: 0 }}
+          >
             {step == 0 && <ImageUploadStep />}
             {step == 1 && (
               <IngredientStep ingredients={ingredients} setIngredients={setIngredients} />
@@ -61,7 +62,8 @@ const Recipes = () => {
             disabled={ingredients.length === 0}
             onClick={() => {
               console.log("test");
-            }}>
+            }}
+          >
             Submit
           </Button>
         ) : (

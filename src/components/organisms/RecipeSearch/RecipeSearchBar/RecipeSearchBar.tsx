@@ -39,7 +39,8 @@ const RecipeSearchBar = ({ ingredients, setIngredients }: RecipeSearchBarProps) 
         onClick={() => {
           onChoose(value);
         }}
-        borderRadius="0 8px 8px 0">
+        borderRadius="0 8px 8px 0"
+      >
         Add
       </Button>
     </S.RecipeSearchBarContainer>

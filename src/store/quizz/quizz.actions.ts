@@ -1,5 +1,5 @@
-import { PayloadAction, current } from '@reduxjs/toolkit';
-import { QuizzState } from './quizz.types';
+import { PayloadAction, current } from "@reduxjs/toolkit";
+import { QuizzState } from "./quizz.types";
 
 export const quizzQuestionAnswerAction = (
   state: QuizzState,
