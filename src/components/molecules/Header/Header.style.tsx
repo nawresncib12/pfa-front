@@ -9,12 +9,18 @@ type OverlayProps = {
   $isOpen: boolean;
 };
 
+export const HEADER_HEIGHT = 80;
+
 export const Header = styled.div`
-  height: 60px;
+  position: absolute;
+  width: 100vw;
+  box-sizing: border-box;
+  z-index: 999;
+  height: ${HEADER_HEIGHT}px;
   display: flex;
   justify-content: space-between;
   color: black;
-  padding: 5px;
+  align-items: center;
   text-align: center;
   padding: ${VERTICAL_PADDING}px ${MOBILE_HORIZONTAL_PADDING}px;
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
@@ -55,7 +61,7 @@ export const Overlay = styled.div<OverlayProps>`
   transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100vw)')};
   transition: transform 0.5s ease-in;
   transform-origin: top right;
-  z-index: 2;
+  z-index: 3;
 `;
 
 export const Paramter = styled.div`

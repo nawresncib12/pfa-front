@@ -6,7 +6,6 @@ const Layout = ({ children }: PropsWithChildren) => {
   return (
     <S.Layout>
       <Header></Header>
-
       <S.Body>{children}</S.Body>
       {
         //footer

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PropsWithChildren } from "react";
 import { Weights } from "../../../theme/theme";
 
-type FontSize = "2xl" | "base" | "sm" | "xs" | "lg" | "xl";
+type FontSize = "6xl" | "4xl" | "2xl" | "base" | "sm" | "xs" | "lg" | "xl";
 
 export type TypographyProps = {
   backgroundColor?: string;
@@ -28,6 +28,10 @@ const pickFontSizeHeight = (fontSize = "base"): { size: string; lineHeight: stri
       return { size: "1.25rem", lineHeight: "1.75rem" };
     case "2xl":
       return { size: "1.5rem", lineHeight: "2rem" };
+    case "4xl":
+      return { size: "2.5rem", lineHeight: "3rem" };
+    case "6xl":
+      return { size: "7rem", lineHeight: "7.5rem" };
     case "base":
     default:
       return { size: "1rem", lineHeight: "1.5rem" };
