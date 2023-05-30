@@ -18,7 +18,7 @@ export type User = {
 
   preferences?: Preferences;
   likedRecipes?: RecipeEntity[];
-  savedRecipes?: RecipeEntity[];
+  recipes?: RecipeEntity[];
   // Add other user properties as needed
 };
 
@@ -63,9 +63,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     // Fetch the user data
-    api.get("/auth/profile").then((response) => {
-      setUser(response.data);
-    });
+    api
+      .get("/auth/profile")
+      .then((response) => {
+        setUser(response.data);
+        navigate("/profile");
+      })
+      .catch(() => {
+        logout();
+      });
   };
 
   const checkTokenLocal = () => {

@@ -13,6 +13,7 @@ import Profile from "./pages/profile/Profile";
 import SavedRecipes from "./pages/profile/saved/SavedRecipes";
 import LikedRecipes from "./pages/profile/liked/LikedRecipes";
 import ProfileInfo from "./pages/profile/profile-info/ProfileInfo";
+import ProtectedRoute from "./auth/ProtectedRoute";
 
 function App() {
   return (
@@ -73,9 +74,11 @@ function App() {
           <Route
             path="/profile"
             element={
-              <Layout>
-                <Profile />
-              </Layout>
+              <ProtectedRoute>
+                <Layout>
+                  <Profile />
+                </Layout>
+              </ProtectedRoute>
             }
           >
             <Route path="" element={<ProfileInfo />} />
