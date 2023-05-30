@@ -14,29 +14,31 @@ export const Header = styled.div`
   left: 0px;
   right: 0px;
   top: 0px;
-  h1 {
-    margin: 10; 
-    font-family: "system-ui";
-
+  a {
+    color: black;
+    h1 {
+      margin: 10px;
+      font-family: "system-ui";
+      cursor: pointer;
+    }
   }
 `;
 export const Button = styled.div`
   background-color: #f6f6f6;
   border: none;
   color: black;
-  
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   z-index: 3;
-  top:20px;
-  left:50px;
-  width: 24px;
-  height: 24px;
+  top: 15px;
+  left: 50px;
+  width: 40px;
+  height: 40px;
   position: absolute;
   cursor: pointer;
-  `;
+`;
 
 export const Overlay = styled.div<OverlayProps>`
   position: absolute;
@@ -79,8 +81,19 @@ export const Separator = styled.hr`
   background-color: white;
   width: 70%;
 `;
-export const InstaIcon = styled.div`
+
+export const InstaIcon = styled.a`
+  background-color: #f6f6f6;
+  border: none;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  top: 15px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
   position: absolute;
-  top: 20px;
-  right: 50px
+  cursor: pointer;
 `;

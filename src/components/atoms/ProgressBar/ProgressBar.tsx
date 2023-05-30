@@ -13,7 +13,6 @@ const ProgressBar = ({ currentStep, steps }: ProgressBarProps) => {
   return (
     <S.ProgressBarContainer>
       {" "}
-
       <Typography.Base>
         Step {currentStep + 1} of {steps.length} : {steps[currentStep]}
       </Typography.Base>
