@@ -21,7 +21,7 @@ const RecipePage = () => {
   const { id } = useParams();
   const { user } = useAuth();
 
-  const [recipeData, setRecipeData] = useState<RecipeResponse | null>(null);
+  const [recipe, setRecipe] = useState<RecipeResponse | null>(null);
 
   const isLiked = useMemo(() => {
     if (!user) return false;
@@ -37,7 +37,7 @@ const RecipePage = () => {
     if (!id) return;
 
     const res = await getRecipe(id);
-    setRecipeData(res);
+    setRecipe(res);
   };
   useEffect(() => {
     fetchRecipe();
@@ -61,9 +61,7 @@ const RecipePage = () => {
     }
   };
 
-  if (recipeData === null) return null;
-
-  const recipe = recipeData.recipe;
+  if (recipe === null) return <div>Loading...</div>;
 
   return (
     <S.RecipePageContainer>

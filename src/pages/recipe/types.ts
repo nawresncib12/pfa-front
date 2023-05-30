@@ -184,6 +184,7 @@ export type SearchRecipeResponse = {
 
 // https://developer.edamam.com/edamam-docs-recipe-api
 export type Recipe = {
+  id: string;
   uri: string;
   label: string;
   image: string;

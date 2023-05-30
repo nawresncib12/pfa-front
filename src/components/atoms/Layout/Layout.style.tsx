@@ -5,6 +5,7 @@ export const MOBILE_HORIZONTAL_PADDING = 50;
 
 export const Layout = styled.div`
   min-height: 100vh;
+  height: fit-content;
   width: 100%;
 `;
 
