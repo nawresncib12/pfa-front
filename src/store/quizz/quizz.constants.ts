@@ -1,9 +1,11 @@
-import { QuizzItem, QuizzState } from "./quizz.types";
+import { faBurger, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import { QuizzItem } from "./quizz.types";
 
 export const initialQuizz: QuizzItem[] = [
   {
     question: "What cuisine do you prefer?",
     tag: "cuisine",
+    icon: faBurger,
     options: [
       "American",
       "Asian",
@@ -18,14 +20,15 @@ export const initialQuizz: QuizzItem[] = [
       "Japanese",
       "Kosher",
       "Mediterranean",
-      "Mexican",
+      "Mexican"
     ],
-    selected: [],
+    selected: []
   },
   {
     question: "What meal do you prefer?",
     tag: "meal",
+    icon: faUtensils,
     options: ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"],
-    selected: [],
-  },
+    selected: []
+  }
 ];

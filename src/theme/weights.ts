@@ -5,5 +5,5 @@ export const weights: Weights = {
   regular: 400,
   normal: 500,
   semiBold: 700,
-  bold: 900,
+  bold: 900
 };

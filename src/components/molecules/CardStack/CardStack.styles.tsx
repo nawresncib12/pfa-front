@@ -31,9 +31,7 @@ export const Card = styled(motion.div)<CardProps>`
   background-color: white;
   opacity: ${({ $isActiveCard }) => ($isActiveCard ? 1 : 0.4)};
   border: ${({ $isActiveCard, theme }) =>
-    $isActiveCard
-      ? `2px solid ${theme.colors.primary[500]}`
-      : "2px solid white"};
+    $isActiveCard ? `2px solid ${theme.colors.primary[500]}` : "2px solid white"};
   border-radius: 8px;
 `;
 

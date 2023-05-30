@@ -11,9 +11,7 @@ type CardStackProps = PropsWithChildren<{
 const CardStack = ({ children, onDone }: CardStackProps) => {
   const ROTATION_RANGE = 5;
   const childArray = React.Children.toArray(children) as ReactNode[];
-  const [currentCardIndex, setCurrentCardIndex] = useState(
-    childArray.length - 1
-  );
+  const [currentCardIndex, setCurrentCardIndex] = useState(childArray.length - 1);
   const [rotationValues, setRotationValues] = useState<number[]>([]);
 
   const next = () => {
@@ -75,11 +73,7 @@ const CardStack = ({ children, onDone }: CardStackProps) => {
           Back
         </Button>
 
-        <Button
-          variant="secondary"
-          onClick={next}
-          disabled={currentCardIndex === 0}
-        >
+        <Button variant="secondary" onClick={next} disabled={currentCardIndex === 0}>
           Next
         </Button>
         <Button

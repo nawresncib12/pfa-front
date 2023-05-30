@@ -9,10 +9,7 @@ type RecipeSearchBarProps = {
   setIngredients: Dispatch<SetStateAction<string[]>>;
 };
 
-const RecipeSearchBar = ({
-  ingredients,
-  setIngredients,
-}: RecipeSearchBarProps) => {
+const RecipeSearchBar = ({ ingredients, setIngredients }: RecipeSearchBarProps) => {
   const [value, setValue] = useState("");
 
   const onChoose = (input: string) => {

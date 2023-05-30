@@ -5,15 +5,10 @@ type SelectableBoxProps = {
   title?: string;
   value: string;
   isSelected: boolean;
-  toggleOption: any;
+  toggleOption: (val: string) => void;
 };
 
-const SelectableBox = ({
-  value,
-  toggleOption,
-  title = value,
-  isSelected,
-}: SelectableBoxProps) => {
+const SelectableBox = ({ value, toggleOption, title = value, isSelected }: SelectableBoxProps) => {
   const toggleSelected = () => {
     toggleOption(value);
   };

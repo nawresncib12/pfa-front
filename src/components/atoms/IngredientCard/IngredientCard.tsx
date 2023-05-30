@@ -8,19 +8,12 @@ type IngredientCardProps = {
   removeIngredient?: (value: string) => void;
 };
 
-const IngredientCard = ({
-  ingredient,
-  removeIngredient,
-}: IngredientCardProps) => {
+const IngredientCard = ({ ingredient, removeIngredient }: IngredientCardProps) => {
   const theme = useTheme();
 
   return (
     <S.IngredientCardContainer>
-      <Typography.Base
-        weight="semiBold"
-        fontSize="lg"
-        color={theme.colors.gray[800]}
-      >
+      <Typography.Base weight="semiBold" fontSize="lg" color={theme.colors.gray[800]}>
         {ingredient}
       </Typography.Base>
       <S.RemoveIcon

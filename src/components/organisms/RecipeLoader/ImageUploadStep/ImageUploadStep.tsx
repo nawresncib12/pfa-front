@@ -1,5 +1,7 @@
 import React, { useMemo, useState } from "react";
 import placeholderImage from "../../../../assets/images/placeholderImage.png";
+import * as S from "./ImageUploadStep.style";
+import Input from "../../../atoms/Input/Input";
 
 const ImageUploadStep = () => {
   const [value, setValue] = useState<File | null>(null);
@@ -14,14 +16,19 @@ const ImageUploadStep = () => {
   }, [value]);
 
   return (
-    <div>
-      <input type="file" onChange={onImageSelected} />
+    <S.ImageUploadStepContainer>
+      <Input value={value?.name} type="file" onChange={onImageSelected} />
       {memoizedImage ? (
-        <img src={memoizedImage} alt="Uploaded Image" />
+        <S.UploadedImage height={"100%"} width={"100%"} src={memoizedImage} alt="Uploaded Image" />
       ) : (
-        <img src={placeholderImage} alt="Placeholder Image" />
+        <S.UploadedImage
+          height={"100%"}
+          width={"100%"}
+          src={placeholderImage}
+          alt="Placeholder Image"
+        />
       )}
-    </div>
+    </S.ImageUploadStepContainer>
   );
 };
 

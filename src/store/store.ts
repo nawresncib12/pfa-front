@@ -5,7 +5,7 @@ import appReducer from "./appSlice";
 export const store = configureStore({
   reducer: appReducer,
   devTools: process.env.NODE_ENV !== "production",
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware({}),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({})
 });
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -9,7 +9,7 @@ const gray = {
   600: "#7A7A7A",
   700: "#666666",
   800: "#4D4D4D",
-  900: "#333333",
+  900: "#333333"
 };
 
 const primary = {
@@ -21,7 +21,7 @@ const primary = {
   600: "#6B7FE3",
   700: "#5268CE",
   800: "#394FB8",
-  900: "#2139A3",
+  900: "#2139A3"
 };
 
 const success = {
@@ -33,7 +33,7 @@ const success = {
   600: "#17B958",
   700: "#139D4A",
   800: "#10803C",
-  900: "#0C642E",
+  900: "#0C642E"
 };
 
 const error = {
@@ -45,7 +45,7 @@ const error = {
   600: "#E61717",
   700: "#CC1414",
   800: "#B21111",
-  900: "#990E0E",
+  900: "#990E0E"
 };
 
 const warning = {
@@ -57,7 +57,7 @@ const warning = {
   600: "#FFFFFF",
   700: "#FFFFFF",
   800: "#FFFFFF",
-  900: "#FFFFFF",
+  900: "#FFFFFF"
 };
 
 const pastels: Pastels = {
@@ -69,7 +69,7 @@ const pastels: Pastels = {
   lightYellow: "#FFFFB3",
   darkYellow: "#FFDD80",
   lightOrange: "#FFC9A3",
-  darkOrange: "#FFA680",
+  darkOrange: "#FFA680"
 };
 
 export const colors: Colors = {
@@ -80,5 +80,5 @@ export const colors: Colors = {
   success,
   error,
   warning,
-  pastels,
+  pastels
 };

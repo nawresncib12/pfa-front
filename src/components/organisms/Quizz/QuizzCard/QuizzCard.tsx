@@ -4,6 +4,7 @@ import * as S from "./QuizzCard.style";
 import SelectableBox from "../../../atoms/SelectableBox/SelectableBox";
 import { QuizzItem } from "../../../../store/quizz/quizz.types";
 import { useQuizzQuestion } from "../../../../store/quizz/quizz.hooks";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type QuizzCardProps = {
   quizzItem: QuizzItem;
@@ -18,20 +19,17 @@ const QuizzCard = ({ quizzItem, index, total }: QuizzCardProps) => {
   return (
     <S.QuizzCard>
       <S.QuizzCardTitles>
-        <Typography.Base
-          fontSize="lg"
-          color={theme.colors.primary[300]}
-          weight="bold"
-        >
+        <Typography.Base fontSize="lg" color={theme.colors.primary[300]} weight="bold">
           Question {total - index} of {total}
         </Typography.Base>
-        <Typography.Base
-          fontSize="lg"
-          color={theme.colors.primary[600]}
-          weight="bold"
-        >
-          {quizzItem.question}
-        </Typography.Base>
+        <S.QuestionText>
+          <Typography.Base fontSize="lg" color={theme.colors.primary[300]} weight="bold">
+            {quizzItem.icon && <FontAwesomeIcon icon={quizzItem.icon} />}
+          </Typography.Base>
+          <Typography.Base fontSize="lg" color={theme.colors.primary[600]} weight="bold">
+            {quizzItem.question}
+          </Typography.Base>
+        </S.QuestionText>
       </S.QuizzCardTitles>
       <S.QuizzOptions>
         {quizzItem.options.map((option, index) => (

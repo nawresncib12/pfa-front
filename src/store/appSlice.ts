@@ -9,8 +9,8 @@ const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    quizzQuestionAnswer: quizzQuestionAnswerAction,
-  },
+    quizzQuestionAnswer: quizzQuestionAnswerAction
+  }
 });
 
 export const { quizzQuestionAnswer } = appSlice.actions;

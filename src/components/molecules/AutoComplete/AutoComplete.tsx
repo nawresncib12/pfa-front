@@ -6,7 +6,7 @@ import Input from "../../atoms/Input/Input";
 
 type AutoCompleteProps = {
   placeholder?: string;
-  maxVisibleItems: number;
+  maxVisibleItems?: number;
   icon?: IconDefinition;
   suggestions?: string[];
   onChange?: (value: string) => void;
@@ -21,7 +21,7 @@ const AutoComplete = ({
   placeholder,
   onChange,
   onChoose,
-  inputStyle,
+  inputStyle
 }: AutoCompleteProps) => {
   let blurTimeout: any;
   const [open, setOpen] = useState(false);
@@ -32,8 +32,7 @@ const AutoComplete = ({
     const filtered = suggestions.filter(
       (suggestion) =>
         suggestion.toLowerCase().startsWith(value.toLowerCase()) ||
-        (value.length > 2 &&
-          suggestion.toLowerCase().includes(value.toLowerCase()))
+        (value.length > 2 && suggestion.toLowerCase().includes(value.toLowerCase()))
     );
     setFilteredSuggestions(filtered);
   }, 300);
@@ -85,10 +84,7 @@ const AutoComplete = ({
         {...inputStyle}
       />
       {!!filteredSuggestions?.length && open && (
-        <S.MenuContainer
-          maxVisibleItems={maxVisibleItems}
-          itemsCount={filteredSuggestions.length}
-        >
+        <S.MenuContainer maxVisibleItems={maxVisibleItems} itemsCount={filteredSuggestions.length}>
           {filteredSuggestions.map((suggestion) => {
             return (
               <S.AutoCompleteItem
