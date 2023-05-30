@@ -57,7 +57,8 @@ function App() {
                 <Header />
                 <Catalog />
               </div>
-            }></Route>
+            }
+          ></Route>
           <Route
             path="/recipes"
             element={
