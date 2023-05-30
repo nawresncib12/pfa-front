@@ -191,4 +191,3 @@ export const mockRecipe = {
         "likes": 23,
         "isLikedByMe":false
 }
-

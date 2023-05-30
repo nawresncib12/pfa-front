@@ -1,8 +1,5 @@
 import styled from "styled-components";
-import {
-  HORIZONTAL_PADDING,
-  VERTICAL_PADDING,
-} from "../../components/atoms/Layout/Layout.style";
+import { HORIZONTAL_PADDING, VERTICAL_PADDING } from "../../components/atoms/Layout/Layout.style";
 import { MOBILE_HORIZONTAL_PADDING } from "../../components/atoms/Layout/Layout.style";
 
 export const RecipesContainer = styled.div`

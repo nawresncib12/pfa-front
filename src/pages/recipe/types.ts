@@ -5,7 +5,7 @@ export type API_Ingredient = {
   food: string;
   weight: number;
   foodId: string;
-  image: string
+  image: string;
 };
 
 export type Digest = {
@@ -34,96 +34,96 @@ export type Image = {
 // MIN-MAX
 export type Range = number | `${number}+` | `${number}-${number}`;
 export type Diet =
-  | 'balanced'
-  | 'high-fiber'
-  | 'high-protein'
-  | 'low-carb'
-  | 'low-fat'
-  | 'low-sodium';
+  | "balanced"
+  | "high-fiber"
+  | "high-protein"
+  | "low-carb"
+  | "low-fat"
+  | "low-sodium";
 
 export type Health =
-  | 'alcohol-cocktail'
-  | 'alcohol-free'
-  | 'celery-free'
-  | 'crustacean-free'
-  | 'dairy-free'
-  | 'DASH'
-  | 'egg-free'
-  | 'fish-free'
-  | 'FODMAP-free'
-  | 'gluten-free'
-  | 'immuno-supportive'
-  | 'keto-friendly'
-  | 'kidney-friendly'
-  | 'kosher'
-  | 'low-fat-abs'
-  | 'low-potassium'
-  | 'low-sugar'
-  | 'lupine-free'
-  | 'mediterranean'
-  | 'mollusk-free'
-  | 'mustard-free'
-  | 'No-oil-added'
-  | 'paleo'
-  | 'peanut-free'
-  | 'pescatarian'
-  | 'pork-free'
-  | 'red-meat-free'
-  | 'sesame-free'
-  | 'shellfish-free'
-  | 'soy-free'
-  | 'sugar-conscious'
-  | 'tree-nut-free'
-  | 'vegan'
-  | 'vegetarian'
-  | 'wheat-free';
+  | "alcohol-cocktail"
+  | "alcohol-free"
+  | "celery-free"
+  | "crustacean-free"
+  | "dairy-free"
+  | "DASH"
+  | "egg-free"
+  | "fish-free"
+  | "FODMAP-free"
+  | "gluten-free"
+  | "immuno-supportive"
+  | "keto-friendly"
+  | "kidney-friendly"
+  | "kosher"
+  | "low-fat-abs"
+  | "low-potassium"
+  | "low-sugar"
+  | "lupine-free"
+  | "mediterranean"
+  | "mollusk-free"
+  | "mustard-free"
+  | "No-oil-added"
+  | "paleo"
+  | "peanut-free"
+  | "pescatarian"
+  | "pork-free"
+  | "red-meat-free"
+  | "sesame-free"
+  | "shellfish-free"
+  | "soy-free"
+  | "sugar-conscious"
+  | "tree-nut-free"
+  | "vegan"
+  | "vegetarian"
+  | "wheat-free";
 
 export type CuisineType =
-  | 'American'
-  | 'Asian'
-  | 'British'
-  | 'Caribbean'
-  | 'Central Europe'
-  | 'Chinese'
-  | 'Eastern Europe'
-  | 'French'
-  | 'Indian'
-  | 'Italian'
-  | 'Japanese'
-  | 'Kosher'
-  | 'Mediterranean'
-  | 'Mexican'
-  | 'Middle Eastern'
-  | 'Nordic'
-  | 'South American'
-  | 'South East Asian';
+  | "American"
+  | "Asian"
+  | "British"
+  | "Caribbean"
+  | "Central Europe"
+  | "Chinese"
+  | "Eastern Europe"
+  | "French"
+  | "Indian"
+  | "Italian"
+  | "Japanese"
+  | "Kosher"
+  | "Mediterranean"
+  | "Mexican"
+  | "Middle Eastern"
+  | "Nordic"
+  | "South American"
+  | "South East Asian";
 
-export type MealType = 'Breakfast' | 'Lunch' | 'Dinner' | 'Snack' | 'Teatime';
+export type MealType = "Breakfast" | "Lunch" | "Dinner" | "Snack" | "Teatime";
 
 export type DishType =
-  | 'Biscuits and cookies'
-  | 'Bread'
-  | 'Cereals'
-  | 'Condiments and sauces'
-  | 'Desserts'
-  | 'Drinks'
-  | 'Main course'
-  | 'Pancake'
-  | 'Preps'
-  | 'Preserve'
-  | 'Salad'
-  | 'Sandwiches'
-  | 'Side dish'
-  | 'Soup'
-  | 'Starter'
-  | 'Sweets';
+  | "Biscuits and cookies"
+  | "Bread"
+  | "Cereals"
+  | "Condiments and sauces"
+  | "Desserts"
+  | "Drinks"
+  | "Main course"
+  | "Pancake"
+  | "Preps"
+  | "Preserve"
+  | "Salad"
+  | "Sandwiches"
+  | "Side dish"
+  | "Soup"
+  | "Starter"
+  | "Sweets";
 
-export type ImageSize = 'SMALL' | 'REGULAR' | 'LARGE' | 'THUMBNAIL';
+export type ImageSize = "SMALL" | "REGULAR" | "LARGE" | "THUMBNAIL";
 
 export type Nutrients = {
   CA?: Range;
   CHOCDF?: Range;
-  'CHOCDF.net'?: Range;
+  "CHOCDF.net"?: Range;
   CHOLE?: Range;
   ENERC_KCAL?: Range;
   FAMS?: Range;
@@ -144,8 +144,8 @@ export type Nutrients = {
   PROCNT?: Range;
   RIBF?: Range;
   SUGAR?: Range;
-  'SUGAR.added'?: Range;
-  'Sugar.alcohol'?: Range;
+  "SUGAR.added"?: Range;
+  "Sugar.alcohol"?: Range;
   THIA?: Range;
   TOCPHA?: Range;
   VITA_RAE?: Range;
@@ -158,7 +158,7 @@ export type Nutrients = {
   ZN?: Range;
 };
 
-export type CO2EmissionsClass = 'A+' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
+export type CO2EmissionsClass = "A+" | "A" | "B" | "C" | "D" | "E" | "F" | "G";
 
 export type SearchRecipeResponse = {
   from: number;
@@ -204,11 +204,8 @@ export type Recipe = {
   cuisineType: string[]; // CuisineType[];
   mealType: string[]; // MealType[];
   dishType: string[]; // DishType[];
-//  totalNutrients: unknown;
+  //  totalNutrients: unknown;
   totalTime: number;
   likes: number;
   isLikedByMe: boolean;
 }
-
-
-

@@ -2,17 +2,19 @@ import { useTheme } from "styled-components";
 import GearsAnimation from "../../../atoms/GearsAnimation/GearsAnimation";
 import Typography from "../../../atoms/Typography/Typography.styles";
 import * as S from "./QuizzIntro.style";
+import Button from "../../../atoms/Button/Button";
 
-const QuizzIntro = () => {
+type QuizzIntroProps = {
+  startQuizz: () => void;
+  $quizzView: boolean;
+};
+
+const QuizzIntro = ({ startQuizz, $quizzView }: QuizzIntroProps) => {
   const theme = useTheme();
   return (
-    <S.QuizzIntroContainer>
+    <S.QuizzIntroContainer $quizzView={$quizzView}>
       <S.QuizzIntroInfo>
-        <Typography.H1
-          color={theme.colors.primary[500]}
-          align="center"
-          fontSize="2xl"
-        >
+        <Typography.H1 color={theme.colors.primary[500]} align="center" fontSize="2xl">
           Customize you recipes
         </Typography.H1>
         <div>
@@ -25,6 +27,9 @@ const QuizzIntro = () => {
         </div>
       </S.QuizzIntroInfo>
       <GearsAnimation />
+      <S.QuizzStartButton>
+        <Button onClick={startQuizz}>Start quizz</Button>
+      </S.QuizzStartButton>
     </S.QuizzIntroContainer>
   );
 };

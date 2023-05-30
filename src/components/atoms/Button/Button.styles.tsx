@@ -37,13 +37,12 @@ const disabledButtonStyle = css`
 export const Button = styled.button<StyledButtonProps>`
   border-radius: 8px;
   padding: 12px 20px;
-  min-width: 100px;
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease; /* Add hover transition */
   ${({ disabled }) => disabled && disabledButtonStyle}
-  ${({ variant }) =>
-    variant === "primary" ? primaryButtonStyle : secondaryButtonStyle}
+  ${({ variant }) => (variant === "primary" ? primaryButtonStyle : secondaryButtonStyle)}
   ${({ $borderRadius }) => $borderRadius && `border-radius:${$borderRadius}`}
+  text-align: center;
 `;

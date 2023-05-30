@@ -26,7 +26,6 @@ const Header = () => {
           ) : (
             <FontAwesomeIcon icon={faBars} />
           )}
-        </S.Button>
 
         <h1>
           Mealos
@@ -34,15 +33,16 @@ const Header = () => {
         <FontAwesomeIcon size='10x' icon={faInstagram} />
 
       </S.Header>
-      {isOpen && 
-      <S.Overlay $isOpen={isOpen}>
-        <S.Paramter>
-          <h1>Profile</h1>
-        </S.Paramter>
-        <S.Paramter>
-          <h1>Settings</h1>
-        </S.Paramter>
-      </S.Overlay>}
+      {isOpen && (
+        <S.Overlay $isOpen={isOpen}>
+          <S.Paramter>
+            <h1>Profile</h1>
+          </S.Paramter>
+          <S.Paramter>
+            <h1>Settings</h1>
+          </S.Paramter>
+        </S.Overlay>
+      )}
     </div>
   );
 };

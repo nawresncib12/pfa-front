@@ -11,10 +11,7 @@ type IngredientStepProps = {
   setIngredients: Dispatch<SetStateAction<string[]>>;
 };
 
-const IngredientStep = ({
-  ingredients,
-  setIngredients,
-}: IngredientStepProps) => {
+const IngredientStep = ({ ingredients, setIngredients }: IngredientStepProps) => {
   const removeIngredient = (value: string) => {
     if (ingredients.includes(value)) {
       const newIngredients = ingredients.filter((ing) => ing !== value);
@@ -24,29 +21,22 @@ const IngredientStep = ({
 
   return (
     <S.IngredientStepContainer>
-      <RecipeSearchBar
-        ingredients={ingredients}
-        setIngredients={setIngredients}
-      />
+      <RecipeSearchBar ingredients={ingredients} setIngredients={setIngredients} />
       <S.IngredientList>
         <AnimatePresence>
-          {!!ingredients.length ? (
+          {ingredients.length ? (
             ingredients.map((ingredient) => (
               <motion.div
                 style={{
                   width: "100%",
                   display: "flex",
-                  justifyContent: "center",
+                  justifyContent: "center"
                 }}
                 key={ingredient}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <IngredientCard
-                  ingredient={ingredient}
-                  removeIngredient={removeIngredient}
-                />
+                exit={{ opacity: 0 }}>
+                <IngredientCard ingredient={ingredient} removeIngredient={removeIngredient} />
               </motion.div>
             ))
           ) : (
@@ -54,11 +44,8 @@ const IngredientStep = ({
               key="none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <Typography.Base fontSize="xl">
-                No ingredients chosen yet
-              </Typography.Base>
+              exit={{ opacity: 0 }}>
+              <Typography.Base fontSize="xl">No ingredients chosen yet</Typography.Base>
               <S.NoIngredientImage src={recipeBook} />
             </S.NoIngredientAlert>
           )}

@@ -13,15 +13,10 @@ const Button = ({
   variant = "primary",
   disabled = false,
   children,
-  borderRadius,
+  borderRadius
 }: ButtonProps) => {
   return (
-    <S.Button
-      disabled={disabled}
-      variant={variant}
-      onClick={onClick}
-      $borderRadius={borderRadius}
-    >
+    <S.Button disabled={disabled} variant={variant} onClick={onClick} $borderRadius={borderRadius}>
       {children}
     </S.Button>
   );

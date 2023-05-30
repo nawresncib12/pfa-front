@@ -3,16 +3,19 @@ import * as S from "./QuizzCards.style";
 import QuizzCard from "../QuizzCard/QuizzCard";
 import { useQuizz } from "../../../../store/quizz/quizz.hooks";
 
-const QuizzCards = () => {
+export type QuizzCardsProps = {
+  $quizzView: boolean;
+};
+
+const QuizzCards = ({ $quizzView }: QuizzCardsProps) => {
   const { quizz } = useQuizz();
 
   return (
-    <S.QuizzCardsContainer>
+    <S.QuizzCardsContainer $quizzView={$quizzView}>
       <CardStack
         onDone={() => {
           /* call profile api*/
-        }}
-      >
+        }}>
         {quizz.map((quizzItem, index) => (
           <QuizzCard
             total={quizz.length}

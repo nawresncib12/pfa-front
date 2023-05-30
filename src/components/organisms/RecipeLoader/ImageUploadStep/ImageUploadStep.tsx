@@ -19,12 +19,7 @@ const ImageUploadStep = () => {
     <S.ImageUploadStepContainer>
       <Input value={value?.name} type="file" onChange={onImageSelected} />
       {memoizedImage ? (
-        <S.UploadedImage
-          height={"100%"}
-          width={"100%"}
-          src={memoizedImage}
-          alt="Uploaded Image"
-        />
+        <S.UploadedImage height={"100%"} width={"100%"} src={memoizedImage} alt="Uploaded Image" />
       ) : (
         <S.UploadedImage
           height={"100%"}

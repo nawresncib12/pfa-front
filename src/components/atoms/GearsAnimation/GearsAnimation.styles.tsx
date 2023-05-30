@@ -47,4 +47,5 @@ export const GearWrapper = styled(motion.div)`
 export const Gear = styled(FontAwesomeIcon)`
   width: 100%;
   height: 100%;
+  transition: color 0.5s ease-in;
 `;

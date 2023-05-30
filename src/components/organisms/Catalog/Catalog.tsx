@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import * as S from "./Catalog.style";
 import FiltersMenu from "../../molecules/filtersMenu/FiltersMenu";
 import AutoComplete from "../../molecules/AutoComplete/AutoComplete";
@@ -19,23 +19,24 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
       ],
       time: "15",
-      calories: "120",
+      calories: "120"
     },
     {
       id: 2,
       name: "caprese pasta",
       description: "delicious pasta (sans gluten)",
-      image: "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+      image:
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
       ingedients: [
-       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-       "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*"
       ],
       time: "35",
-      calories: "445",
+      calories: "445"
     },
     {
       id: 3,
@@ -43,13 +44,13 @@ const Catalog = () => {
       description: "balking by eating salads ? yes it is possible",
       image:
         "https://hips.hearstapps.com/hmg-prod/images/4th-of-july-salads-6451572460f16.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-        ingedients: [
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-         ],
+      ingedients: [
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*"
+      ],
       time: "30",
-      calories: "600",
+      calories: "600"
     },
     {
       id: 4,
@@ -57,13 +58,13 @@ const Catalog = () => {
       description: "for meat lovers",
       image:
         "https://hips.hearstapps.com/hmg-prod/images/cowboy-steak-recipe-2-6446ed45d1ae3.jpg?crop=0.502xw:1.00xh;0.279xw,0&resize=360:*",
-        ingedients: [
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-          "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
-         ],
+      ingedients: [
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*",
+        "https://hips.hearstapps.com/hmg-prod/images/chickpea-recipes-645e582c4abe3.jpeg?crop=1.00xw:1.00xh;0,0&resize=360:*"
+      ],
       time: "10",
-      calories: "800",
+      calories: "800"
     },
     {
       id: 5,
@@ -77,10 +78,10 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
       ],
       time: "30",
-      calories: "500",
+      calories: "500"
     },
     {
       id: 6,
@@ -94,22 +95,22 @@ const Catalog = () => {
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
         "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
-        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg",
+        "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/322868_1100-1100x628.jpg"
       ],
       time: "26",
-      calories: "560",
+      calories: "560"
     }
   ];
   const [recipies, setRecipies] = useState(recipesList);
   const filterList = [
     { fitlerGroup: "Season", elements: ["winter", "summer", "spring"] },
     { fitlerGroup: "Dish", elements: ["cold", "hot", "average"] },
-    { fitlerGroup: "Sort By", elements: ["time", "calories"] },
+    { fitlerGroup: "Sort By", elements: ["time", "calories"] }
   ];
   const [filters, setFilters] = useState([
     { fitlerGroup: "Season", elements: ["winter", "summer", "spring"] },
     { fitlerGroup: "Dish", elements: ["cold", "hot", "average"] },
-    { fitlerGroup: "Sort By", elements: "time" },
+    { fitlerGroup: "Sort By", elements: "time" }
   ]);
   const onChange = (input: string) => {
     let newRecipes = recipesList;

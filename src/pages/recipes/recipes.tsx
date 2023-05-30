@@ -36,14 +36,10 @@ const Recipes = () => {
             key={step}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
+            exit={{ opacity: 0 }}>
             {step == 0 && <ImageUploadStep />}
             {step == 1 && (
-              <IngredientStep
-                ingredients={ingredients}
-                setIngredients={setIngredients}
-              />
+              <IngredientStep ingredients={ingredients} setIngredients={setIngredients} />
             )}
             {step == 2 && (
               <PreferencesStep
@@ -62,14 +58,15 @@ const Recipes = () => {
           Back
         </Button>
         {step === steps.length - 1 ? (
-          <Button disabled={ingredients.length === 0} onClick={() => {}}>
+          <Button
+            disabled={ingredients.length === 0}
+            onClick={() => {
+              console.log("test");
+            }}>
             Submit
           </Button>
         ) : (
-          <Button
-            disabled={!!error.length || step >= steps.length - 1}
-            onClick={next}
-          >
+          <Button disabled={!!error.length || step >= steps.length - 1} onClick={next}>
             Next
           </Button>
         )}
