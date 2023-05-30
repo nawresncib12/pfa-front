@@ -25,21 +25,19 @@ export const Card = ({ recipie }: any) => {
           <h5 style={{ margin: "10px", color: "gray" }}> {recipie.calories}</h5>
         </div>
         <hr className="rounded"></hr>
-    <div style={{ gap: 20 }}>
-    {recipie.ingedients.slice(0,2).map((image:string) => {
-        return (
-        <Avatar.Root className="AvatarRoot">
-        <Avatar.Image
-            className="AvatarImage"
-            src={image}/>
-    </Avatar.Root>)
-    })}
-    { recipie.ingedients && recipie.ingedients.length > 4 &&
-    <Avatar.Root className="AvatarRoot">
-        <S.Circle>
-        +{recipie.ingedients.length - 4}
-        </S.Circle>
-    </Avatar.Root>}
+        <div style={{ gap: 20 }}>
+          {recipie.ingedients.slice(0, 2).map((image: string) => {
+            return (
+              <Avatar.Root className="AvatarRoot" key={image}>
+                <Avatar.Image className="AvatarImage" src={image} />
+              </Avatar.Root>
+            );
+          })}
+          {recipie.ingedients && recipie.ingedients.length > 4 && (
+            <Avatar.Root className="AvatarRoot">
+              <S.Circle>+{recipie.ingedients.length - 4}</S.Circle>
+            </Avatar.Root>
+          )}
         </div>
       </S.Card_info>
     </S.Card>

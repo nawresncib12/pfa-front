@@ -208,4 +208,4 @@ export type Recipe = {
   totalTime: number;
   likes: number;
   isLikedByMe: boolean;
-}
+};
