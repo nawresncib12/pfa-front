@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import {
   HORIZONTAL_PADDING,
   MOBILE_HORIZONTAL_PADDING,
   VERTICAL_PADDING
-} from '../../atoms/Layout/Layout.style';
+} from "../../atoms/Layout/Layout.style";
 
 type OverlayProps = {
   $isOpen: boolean;
@@ -58,7 +58,7 @@ export const Overlay = styled.div<OverlayProps>`
   right: 0;
   bottom: 0;
   background: ${({ theme }) => theme.colors.primary[500]};
-  transform: ${({ $isOpen }) => ($isOpen ? 'translateX(0)' : 'translateX(100vw)')};
+  transform: ${({ $isOpen }) => ($isOpen ? "translateX(0)" : "translateX(100vw)")};
   transition: transform 0.5s ease-in;
   transform-origin: top right;
   z-index: 3;
