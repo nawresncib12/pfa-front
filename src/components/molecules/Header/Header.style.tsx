@@ -1,21 +1,24 @@
 import styled from "styled-components";
+import {
+  HORIZONTAL_PADDING,
+  MOBILE_HORIZONTAL_PADDING,
+  VERTICAL_PADDING
+} from "../../atoms/Layout/Layout.style";
 
 type OverlayProps = {
   $isOpen: boolean;
 };
 
 export const Header = styled.div`
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
   color: black;
-  font-family: Century Gothic;
   padding: 5px;
   text-align: center;
-  position: absolute;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  h1: {
-    left: 2px;
-    margin: 0;
+  padding: ${VERTICAL_PADDING}px ${MOBILE_HORIZONTAL_PADDING}px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    padding: ${VERTICAL_PADDING}px ${HORIZONTAL_PADDING}px;
   }
 `;
 export const Button = styled.div`
@@ -32,13 +35,12 @@ export const Button = styled.div`
   width: 24px;
   height: 24px;
   right: 20px;
-  position: absolute;
   cursor: pointer;
   position: fixed;
 `;
 
 export const Overlay = styled.div<OverlayProps>`
-  position: absolute;
+  position: sticky;
   display: flex;
   justify-content: center;
   align-items: center;

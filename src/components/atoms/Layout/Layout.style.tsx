@@ -6,7 +6,6 @@ export const MOBILE_HORIZONTAL_PADDING = 50;
 export const Layout = styled.div`
   min-height: 100vh;
   width: 100%;
-  display: flex;
 `;
 
 export const Body = styled.div`

@@ -17,8 +17,7 @@ const Header = () => {
   return (
     <div>
       <S.Header>
-        <h1 style={{ margin: 10, left: "20px", position: "absolute" }}>Mealos</h1>
-
+        <h1 style={{ margin: 10, left: "20px" }}>Mealos</h1>
         <S.Button onClick={manageHeader}>
           {isOpen ? <FontAwesomeIcon icon={faClose} /> : <FontAwesomeIcon icon={faBars} />}
         </S.Button>

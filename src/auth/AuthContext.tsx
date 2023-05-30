@@ -16,6 +16,8 @@ export type User = {
   email: string;
 
   preferences?: Preferences;
+  likedRecipes?: unknown[];
+  savedRecipes?: unknown[];
   // Add other user properties as needed
 };
 
