@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
-export const ProfileContainer = styled.div`
+export const ProfileTabs = styled.div`
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  min-height: 80vh;
 
   @media (min-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+`;
+
+export const ProfileContent = styled.div`
+  margin-top: 32px;
 `;
 
 export const ProfileCard = styled.div<{ backgroundColor: string; color?: string }>`
@@ -17,7 +19,7 @@ export const ProfileCard = styled.div<{ backgroundColor: string; color?: string 
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 16px 8px;
   border-radius: 16px;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ color }) => color || "white"};
