@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useTheme } from "styled-components";
 import { User } from "../../auth/AuthContext";
 import { RecipeEntity } from "../recipe/types";
@@ -21,37 +21,40 @@ export const mockUser: User = {
 };
 const Profile = () => {
   const theme = useTheme();
-  // const { user } = useAuth();
-  const user = mockUser;
   const navigate = useNavigate();
 
   return (
-    <S.ProfileContainer>
-      <S.ProfileCard backgroundColor={theme.colors.primary[500]}>
-        <h1>{user.name}</h1>
-        <h1>{user.email}</h1>
-      </S.ProfileCard>
+    <div>
+      <S.ProfileTabs>
+        <S.ProfileCard
+          onClick={() => navigate("/profile")}
+          backgroundColor={theme.colors.primary[500]}
+        >
+          <p>Profile</p>
+        </S.ProfileCard>
 
-      <S.ProfileCard
-        onClick={() => navigate("/profile/liked")}
-        backgroundColor={theme.colors.pastels.darkPink}
-      >
-        <h1>{user.likedRecipes?.length ?? 0}</h1>
-        <h1>Liked Recipes</h1>
-      </S.ProfileCard>
+        <S.ProfileCard
+          onClick={() => navigate("/profile/liked")}
+          backgroundColor={theme.colors.pastels.darkPink}
+        >
+          <p>Liked</p>
+        </S.ProfileCard>
 
-      <S.ProfileCard
-        onClick={() => navigate("/profile/saved")}
-        backgroundColor={theme.colors.pastels.darkYellow}
-      >
-        <h1>{user.savedRecipes?.length ?? 0}</h1>
-        <h1>Saved Recipes</h1>
-      </S.ProfileCard>
+        <S.ProfileCard
+          onClick={() => navigate("/profile/saved")}
+          backgroundColor={theme.colors.pastels.darkYellow}
+        >
+          <p>Saved</p>
+        </S.ProfileCard>
 
-      <S.ProfileCard backgroundColor={theme.colors.pastels.darkOrange}>
-        <h1>Preferences</h1>
-      </S.ProfileCard>
-    </S.ProfileContainer>
+        <S.ProfileCard backgroundColor={theme.colors.pastels.darkOrange}>
+          <p>Preferences</p>
+        </S.ProfileCard>
+      </S.ProfileTabs>
+      <S.ProfileContent>
+        <Outlet />
+      </S.ProfileContent>
+    </div>
   );
 };
 

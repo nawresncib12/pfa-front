@@ -12,6 +12,7 @@ import { AuthProvider } from "./auth/AuthContext";
 import Profile from "./pages/profile/Profile";
 import SavedRecipes from "./pages/profile/saved/SavedRecipes";
 import LikedRecipes from "./pages/profile/liked/LikedRecipes";
+import ProfileInfo from "./pages/profile/profile-info/ProfileInfo";
 
 function App() {
   return (
@@ -76,23 +77,11 @@ function App() {
                 <Profile />
               </Layout>
             }
-          />
-          <Route
-            path="/profile/saved"
-            element={
-              <Layout>
-                <SavedRecipes />
-              </Layout>
-            }
-          />
-          <Route
-            path="/profile/liked"
-            element={
-              <Layout>
-                <LikedRecipes />
-              </Layout>
-            }
-          />
+          >
+            <Route path="" element={<ProfileInfo />} />
+            <Route path="saved" element={<SavedRecipes />} />
+            <Route path="liked" element={<LikedRecipes />} />
+          </Route>
         </Routes>
       </AuthProvider>
     </BrowserRouter>

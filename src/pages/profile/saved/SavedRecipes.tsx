@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../../../components/atoms/Button/Button";
 import Pill from "../../../components/atoms/Pill/Pill";
 import { mockUser } from "../Profile";
 import * as S from "./SavedRecipes.styles";
@@ -13,7 +12,6 @@ const SavedRecipes = () => {
   };
   return (
     <div>
-      <Button onClick={() => navigate("/profile")}>Back to Profile</Button>
       <S.SavedRecipesTitle>Saved Recipes</S.SavedRecipesTitle>
       <S.RecipeCardsContainer>
         {user.savedRecipes?.map((recipe) => (
