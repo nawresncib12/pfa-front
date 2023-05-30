@@ -10,8 +10,6 @@ export const Header = styled.div`
   padding: 5px;
   text-align: center;
   position: absolute;
-  display: grid;
-  grid-template-columns: repeat(3,auto);
   height: 50px;
   left: 0px;
   right: 0px;
@@ -26,15 +24,17 @@ export const Button = styled.div`
   background-color: #f6f6f6;
   border: none;
   color: black;
-  padding: 8px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   z-index: 3;
-  margin: 20px;
+  top:20px;
+  left:50px;
   width: 24px;
   height: 24px;
+  position: absolute;
   cursor: pointer;
   `;
 
@@ -78,4 +78,9 @@ export const Separator = styled.hr`
   border-radius: 5px;
   background-color: white;
   width: 70%;
+`;
+export const InstaIcon = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 50px
 `;
