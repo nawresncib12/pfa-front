@@ -40,7 +40,7 @@ function useApi() {
   };
 
   const register = async (registerData: { email: string; password: string; name: string }) => {
-    await api.post("/auth/register", registerData);
+    await api.post("/auth/signup", registerData);
   };
 
   const getRecipe = async (id: string) => {
