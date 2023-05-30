@@ -43,11 +43,17 @@ function useApi() {
     await api.post("/auth/register", registerData);
   };
 
+  const getRecipe = async (id: string) => {
+    const { data } = await api.get<RecipeResponse>(`/recipes/recipe/${id}`);
+    return data;
+  };
+
   return {
     updatePreferences,
     searchRecipe,
     loginWithEmail,
-    register
+    register,
+    getRecipe
   };
 }
 
@@ -62,3 +68,7 @@ type LoginWithEmailResponse = {
 };
 
 type UpdatePreferencesResponse = User;
+
+export type RecipeResponse = {
+  recipe: Recipe;
+};

@@ -19,6 +19,7 @@ export const RecipeImageContainer = styled.div`
   border-radius: 16px;
   overflow: hidden;
   height: 40vh;
+  overflow: hidden;
 
   @media only screen and (min-width: 1024px) {
     position: sticky;
@@ -31,7 +32,6 @@ export const RecipeImageContainer = styled.div`
 export const RecipeImage = styled.img`
   width: 100%;
   height: 100%;
-  position: absolute;
   object-fit: cover;
   border-radius: 16px;
 `;
@@ -130,6 +130,11 @@ export const HeartButton = styled.button`
   background-color: white;
   padding: 10px;
   text-align: center;
-  right: 20px;
-  top: 20px;
+  right: 5%;
+  top: 5%;
+
+  @media only screen and (min-width: 1024px) {
+    right: 10%;
+    top: 10%;
+  }
 `;
