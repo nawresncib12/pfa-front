@@ -9,6 +9,10 @@ import Header from "./components/molecules/Header/Header";
 import Login from "./pages/auth/login/Login";
 import Signup from "./pages/auth/signup/Signup";
 import { AuthProvider } from "./auth/AuthContext";
+import Profile from "./pages/profile/Profile";
+import SavedRecipes from "./pages/profile/saved/SavedRecipes";
+import LikedRecipes from "./pages/profile/liked/LikedRecipes";
+import ProfileInfo from "./pages/profile/profile-info/ProfileInfo";
 
 function App() {
   return (
@@ -56,7 +60,8 @@ function App() {
                 <Header />
                 <Catalog />
               </div>
-            }></Route>
+            }
+          ></Route>
           <Route
             path="/recipes"
             element={
@@ -65,6 +70,18 @@ function App() {
               </Layout>
             }
           />
+          <Route
+            path="/profile"
+            element={
+              <Layout>
+                <Profile />
+              </Layout>
+            }
+          >
+            <Route path="" element={<ProfileInfo />} />
+            <Route path="saved" element={<SavedRecipes />} />
+            <Route path="liked" element={<LikedRecipes />} />
+          </Route>
         </Routes>
       </AuthProvider>
     </BrowserRouter>

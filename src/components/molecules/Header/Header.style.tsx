@@ -1,28 +1,27 @@
 import styled from 'styled-components';
+import {
+  HORIZONTAL_PADDING,
+  MOBILE_HORIZONTAL_PADDING,
+  VERTICAL_PADDING
+} from '../../atoms/Layout/Layout.style';
 
 type OverlayProps = {
   $isOpen: boolean;
 };
 
 export const Header = styled.div`
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
   color: black;
-  font-family: Century Gothic;
-  padding: 6px;
+  padding: 5px;
   text-align: center;
-  position: absolute;
-  height: 50px;
-  left: 0px;
-  right: 0px;
-  top: 0px;
-  a {
-    color: black;
-    h1 {
-      margin: 10px;
-      font-family: 'system-ui';
-      cursor: pointer;
-    }
+  padding: ${VERTICAL_PADDING}px ${MOBILE_HORIZONTAL_PADDING}px;
+  @media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
+    padding: ${VERTICAL_PADDING}px ${HORIZONTAL_PADDING}px;
   }
 `;
+
 export const Button = styled.div`
   background-color: #f6f6f6;
   border: none;
@@ -32,16 +31,15 @@ export const Button = styled.div`
   align-items: center;
   border-radius: 50%;
   z-index: 3;
-  top: 15px;
-  left: 50px;
-  width: 40px;
-  height: 40px;
-  position: absolute;
+  margin: 10px;
+  width: 32px;
+  height: 32px;
+  right: 20px;
   cursor: pointer;
 `;
 
 export const Overlay = styled.div<OverlayProps>`
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;

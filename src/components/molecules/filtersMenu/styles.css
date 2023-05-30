@@ -1,4 +1,3 @@
-
 /* reset */
 button {
   all: unset;
@@ -18,9 +17,8 @@ button {
   color: lightblue;
   background-color: lightgray;
   cursor: pointer;
-
-
 }
+
 .CheckboxRoot:focus {
   box-shadow: 0 0 0 2px black;
   cursor: pointer;
@@ -28,7 +26,6 @@ button {
 
 .CheckboxIndicator {
   color: black;
-  
 }
 
 .Label {
@@ -38,7 +35,6 @@ button {
   line-height: 1;
   cursor: pointer;
 }
-
 
 button {
   all: unset;
@@ -56,7 +52,6 @@ button {
   width: 15px;
   height: 15px;
   border-radius: 100%;
-
 }
 .RadioGroupItem:hover {
   background-color: lightgray;
@@ -74,7 +69,7 @@ button {
   position: relative;
 }
 .RadioGroupIndicator::after {
-  content: '';
+  content: "";
   display: block;
   width: 11px;
   height: 11px;

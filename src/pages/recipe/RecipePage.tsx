@@ -21,11 +21,13 @@ const RecipePage = ({ recipe = mockRecipe }: { recipe?: Recipe }) => {
           onClick={() => {
             toggleLike(!isLiked);
             console.log(isLiked);
-          }}>
+          }}
+        >
           <FontAwesomeIcon
             size="xl"
             color="#F984B5"
-            icon={isLiked ? rHeart : faHeart}></FontAwesomeIcon>
+            icon={isLiked ? rHeart : faHeart}
+          ></FontAwesomeIcon>
         </S.HeartButton>
       </S.RecipeImageContainer>
       <div>

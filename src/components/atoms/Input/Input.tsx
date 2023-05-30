@@ -84,7 +84,8 @@ const Input = ({
             key={error}
             initial={{ opacity: 0, height: "0" }}
             animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: "0" }}>
+            exit={{ opacity: 0, height: "0" }}
+          >
             <Typography.Base padding="8px 0 0 0" color={theme.colors.error[400]}>
               {error}
             </Typography.Base>

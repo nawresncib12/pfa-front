@@ -92,7 +92,8 @@ const AutoComplete = ({
                 onClick={() => {
                   handleChoose(suggestion);
                 }}
-                key={suggestion}>
+                key={suggestion}
+              >
                 {suggestion}{" "}
               </S.AutoCompleteItem>
             );
