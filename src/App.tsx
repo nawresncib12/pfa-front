@@ -11,6 +11,7 @@ import Signup from "./pages/auth/signup/Signup";
 import { AuthProvider } from "./auth/AuthContext";
 import Profile from "./pages/profile/Profile";
 import SavedRecipes from "./pages/profile/saved/SavedRecipes";
+import LikedRecipes from "./pages/profile/liked/LikedRecipes";
 
 function App() {
   return (
@@ -81,6 +82,14 @@ function App() {
             element={
               <Layout>
                 <SavedRecipes />
+              </Layout>
+            }
+          />
+          <Route
+            path="/profile/liked"
+            element={
+              <Layout>
+                <LikedRecipes />
               </Layout>
             }
           />
