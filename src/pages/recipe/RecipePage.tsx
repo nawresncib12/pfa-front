@@ -61,8 +61,7 @@ const RecipePage = () => {
     }
   };
 
-  if (recipe === null) return null;
-
+  if (recipe === null) return <div>Loading...</div>;
 
   return (
     <S.RecipePageContainer>

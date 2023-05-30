@@ -94,8 +94,6 @@ type LoginWithEmailResponse = {
 
 type UpdatePreferencesResponse = User;
 
-export type RecipeResponse = {
-  recipe: Recipe;
-};
+export type RecipeResponse = Recipe;
 
 export type LikeRecipeResponse = User;

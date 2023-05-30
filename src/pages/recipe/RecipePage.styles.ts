@@ -6,7 +6,6 @@ export const RecipePageContainer = styled.div`
   gap: 16px;
 
   width: 100%;
-  min-height: 80vh;
   @media only screen and (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
   }
