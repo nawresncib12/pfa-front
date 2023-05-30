@@ -7,7 +7,6 @@ import * as S from "./RecipePage.styles";
 import { faHeart as rHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock, faEarth, faFire, faHeart } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "../../components/atoms/Button/Button.styles";
 
 const RecipePage = ({ recipe = mockRecipe }: { recipe?: Recipe }) => {
   const [isLiked, toggleLike] = useState(recipe.isLikedByMe);
