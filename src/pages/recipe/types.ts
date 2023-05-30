@@ -206,4 +206,6 @@ export type Recipe = {
   dishType: string[]; // DishType[];
   //  totalNutrients: unknown;
   totalTime: number;
-};
+  likes: number;
+  isLikedByMe: boolean;
+}

@@ -10,12 +10,16 @@ export const Header = styled.div`
   padding: 5px;
   text-align: center;
   position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3,auto);
+  height: 50px;
   left: 0px;
   right: 0px;
   top: 0px;
-  h1: {
-    left: 2px;
-    margin: 0;
+  h1 {
+    margin: 10; 
+    font-family: "system-ui";
+
   }
 `;
 export const Button = styled.div`
@@ -28,14 +32,11 @@ export const Button = styled.div`
   align-items: center;
   border-radius: 50%;
   z-index: 3;
-  margin: 10px;
+  margin: 20px;
   width: 24px;
   height: 24px;
-  right: 20px;
-  position: absolute;
   cursor: pointer;
-  position: fixed;
-`;
+  `;
 
 export const Overlay = styled.div<OverlayProps>`
   position: absolute;
