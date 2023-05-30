@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/useApi";
+import { RecipeEntity } from "../pages/recipe/types";
 
 export type Preferences = {
   healthLabels: string[];
@@ -16,6 +17,8 @@ export type User = {
   email: string;
 
   preferences?: Preferences;
+  likedRecipes?: RecipeEntity[];
+  savedRecipes?: RecipeEntity[];
   // Add other user properties as needed
 };
 
@@ -92,7 +95,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, token, checkTokenExpiration, checkTokenLocal, getToken }}>
+      value={{ user, login, logout, token, checkTokenExpiration, checkTokenLocal, getToken }}
+    >
       {children}
     </AuthContext.Provider>
   );

@@ -43,12 +43,14 @@ const FiltersMenu = ({ filterList, filters }: any) => {
                     display: "flex",
                     alignItems: "center",
                     margin: "5px 15px"
-                  }}>
+                  }}
+                >
                   <Checkbox.Root
                     className="CheckboxRoot"
                     defaultChecked
                     onClick={(event) => toggleFilter(options.fitlerGroup, option)}
-                    id="c1">
+                    id="c1"
+                  >
                     <Checkbox.Indicator className="CheckboxIndicator">
                       {option && <CheckIcon />}
                     </Checkbox.Indicator>
@@ -69,7 +71,8 @@ const FiltersMenu = ({ filterList, filters }: any) => {
                 className="RadioGroupItem"
                 value={option}
                 id={option}
-                onClick={(event) => sortBy(option)}>
+                onClick={(event) => sortBy(option)}
+              >
                 <RadioGroup.Indicator className="RadioGroupIndicator" />
               </RadioGroup.Item>
               <label className="Label" htmlFor="r1">

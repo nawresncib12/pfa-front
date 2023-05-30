@@ -209,3 +209,11 @@ export type Recipe = {
   likes: number;
   isLikedByMe: boolean;
 };
+
+export type RecipeEntity = {
+  id: string;
+  label: string;
+  dietLabels: string[];
+  mealType: string[];
+  dishType: string[];
+};

@@ -35,7 +35,8 @@ const IngredientStep = ({ ingredients, setIngredients }: IngredientStepProps) =>
                 key={ingredient}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}>
+                exit={{ opacity: 0 }}
+              >
                 <IngredientCard ingredient={ingredient} removeIngredient={removeIngredient} />
               </motion.div>
             ))
@@ -44,7 +45,8 @@ const IngredientStep = ({ ingredients, setIngredients }: IngredientStepProps) =>
               key="none"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}>
+              exit={{ opacity: 0 }}
+            >
               <Typography.Base fontSize="xl">No ingredients chosen yet</Typography.Base>
               <S.NoIngredientImage src={recipeBook} />
             </S.NoIngredientAlert>
