@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/useApi";
+import { RecipeEntity } from "../pages/recipe/types";
 
 export type Preferences = {
   healthLabels: string[];
@@ -16,8 +17,8 @@ export type User = {
   email: string;
 
   preferences?: Preferences;
-  likedRecipes?: unknown[];
-  savedRecipes?: unknown[];
+  likedRecipes?: RecipeEntity[];
+  savedRecipes?: RecipeEntity[];
   // Add other user properties as needed
 };
 

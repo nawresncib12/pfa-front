@@ -39,7 +39,7 @@ export const Button = styled.div`
 `;
 
 export const Overlay = styled.div<OverlayProps>`
-  position: sticky;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;

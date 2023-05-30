@@ -1,17 +1,26 @@
 import { useTheme } from "styled-components";
 import { User } from "../../auth/AuthContext";
+import { RecipeEntity } from "../recipe/types";
 import * as S from "./Profile.styles";
 
-const mockUser: User = {
+export const mockRecipeEntity: RecipeEntity = {
+  id: "1",
+  label: "Chicken Vesuvio",
+  dietLabels: ["Low-Carb"],
+  mealType: ["Dinner"],
+  dishType: ["Chicken"]
+};
+export const mockUser: User = {
   id: "1",
   name: "Taher",
   email: "taher@gmail.com",
   preferences: undefined,
-  savedRecipes: [],
-  likedRecipes: []
+  savedRecipes: [mockRecipeEntity],
+  likedRecipes: [mockRecipeEntity]
 };
 const Profile = () => {
   const theme = useTheme();
+  // const { user } = useAuth();
   const user = mockUser;
 
   return (
