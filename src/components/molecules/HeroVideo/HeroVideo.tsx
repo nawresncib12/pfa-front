@@ -1,4 +1,5 @@
 import * as S from "./HeroVideo.style";
+import hero from "../../../assets/videos/hero-mini-compressed.mp4";
 import heroAudio from "../../../assets/audio/heroAudio.m4a";
 import { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -51,7 +52,7 @@ const HeroVideo = () => {
           </S.HeroInfoStack>
         </S.HeroInfo>
         <S.VideoOverlay />
-        <S.HeroVidePlayer ref={videoRef} playsInline muted loop autoPlay src={"hero"} />
+        <S.HeroVidePlayer ref={videoRef} playsInline muted loop autoPlay src={hero} />
         <S.AudioPlayerButton onClick={start}>
           <FontAwesomeIcon icon={faVolumeHigh} />
         </S.AudioPlayerButton>
