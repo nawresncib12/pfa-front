@@ -207,3 +207,11 @@ export type Recipe = {
   //  totalNutrients: unknown;
   totalTime: number;
 };
+
+export type RecipeEntity = {
+  id: string;
+  label: string;
+  dietLabels: string[];
+  mealType: string[];
+  dishType: string[];
+};

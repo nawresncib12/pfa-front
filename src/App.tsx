@@ -10,6 +10,7 @@ import Login from "./pages/auth/login/Login";
 import Signup from "./pages/auth/signup/Signup";
 import { AuthProvider } from "./auth/AuthContext";
 import Profile from "./pages/profile/Profile";
+import SavedRecipes from "./pages/profile/saved/SavedRecipes";
 
 function App() {
   return (
@@ -72,6 +73,14 @@ function App() {
             element={
               <Layout>
                 <Profile />
+              </Layout>
+            }
+          />
+          <Route
+            path="/profile/saved"
+            element={
+              <Layout>
+                <SavedRecipes />
               </Layout>
             }
           />
