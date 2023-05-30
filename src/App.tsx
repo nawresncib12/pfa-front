@@ -25,9 +25,11 @@ function App() {
           <Route
             path="/recipe/:id"
             element={
-              <Layout>
-                <RecipePage />
-              </Layout>
+              <ProtectedRoute>
+                <Layout>
+                  <RecipePage />
+                </Layout>
+              </ProtectedRoute>
             }
           />
           <Route

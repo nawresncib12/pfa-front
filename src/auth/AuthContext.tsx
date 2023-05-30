@@ -31,6 +31,7 @@ interface AuthContextType {
   checkTokenLocal: () => string | null;
   checkTokenExpiration: () => void;
   getToken: () => string | null;
+  setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
 // Create the authentication context
@@ -41,7 +42,8 @@ const AuthContext = createContext<AuthContextType>({
   checkTokenLocal: () => null,
   checkTokenExpiration: () => {},
   getToken: () => null,
-  token: null
+  token: null,
+  setUser: () => {}
 });
 
 // Create a wrapper component to provide the authentication context
@@ -101,7 +103,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, token, checkTokenExpiration, checkTokenLocal, getToken }}
+      value={{
+        user,
+        login,
+        logout,
+        token,
+        checkTokenExpiration,
+        checkTokenLocal,
+        getToken,
+        setUser
+      }}
     >
       {children}
     </AuthContext.Provider>

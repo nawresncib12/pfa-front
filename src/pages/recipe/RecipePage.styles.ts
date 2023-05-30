@@ -20,6 +20,7 @@ export const RecipeImageContainer = styled.div`
   overflow: hidden;
   height: 40vh;
   overflow: hidden;
+  position: relative;
 
   @media only screen and (min-width: 1024px) {
     position: sticky;
@@ -116,6 +117,7 @@ export const RecipeIngredientQuantity = styled.span`
   font-weight: 300;
   color: ${({ theme }) => theme.colors.gray[600]};
 `;
+
 export const RecipeIngredientImage = styled.img`
   width: 48px;
   height: 48px;
@@ -123,6 +125,7 @@ export const RecipeIngredientImage = styled.img`
   border-radius: 100%;
   border: 1px solid ${({ theme }) => theme.colors.primary[300]};
 `;
+
 export const HeartButton = styled.button`
   z-index: 99;
   position: absolute;
@@ -132,9 +135,27 @@ export const HeartButton = styled.button`
   text-align: center;
   right: 5%;
   top: 5%;
+  cursor: pointer;
 
   @media only screen and (min-width: 1024px) {
     right: 10%;
     top: 10%;
+  }
+`;
+
+export const SaveButton = styled.button`
+  z-index: 99;
+  position: absolute;
+  border-radius: 100%;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  left: 5%;
+  bottom: 5%;
+  cursor: pointer;
+
+  @media only screen and (min-width: 1024px) {
+    left: 10%;
+    bottom: 10%;
   }
 `;

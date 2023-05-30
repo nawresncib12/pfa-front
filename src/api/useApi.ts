@@ -12,7 +12,7 @@ export const api = axios.create({
   }
 });
 function useApi() {
-  const { token, login } = useAuth();
+  const { token, login, setUser } = useAuth();
 
   useEffect(() => {
     console.log("token", token);
@@ -48,12 +48,37 @@ function useApi() {
     return data;
   };
 
+  const likeRecipe = async (id: string) => {
+    const res = await api.post<LikeRecipeResponse>(`/recipes/like?id=${id}`);
+    setUser(res.data);
+    return res.data;
+  };
+  const saveRecipe = async (id: string) => {
+    const res = await api.post<LikeRecipeResponse>(`/recipes/save?id=${id}`);
+    setUser(res.data);
+    return res.data;
+  };
+  const unlikeRecipe = async (id: string) => {
+    const res = await api.post<LikeRecipeResponse>(`/recipes/unlike?id=${id}`);
+    setUser(res.data);
+    return res.data;
+  };
+  const unsaveRecipe = async (id: string) => {
+    const res = await api.post<LikeRecipeResponse>(`/recipes/unsave?id=${id}`);
+    setUser(res.data);
+    return res.data;
+  };
+
   return {
     updatePreferences,
     searchRecipe,
     loginWithEmail,
     register,
-    getRecipe
+    getRecipe,
+    likeRecipe,
+    saveRecipe,
+    unlikeRecipe,
+    unsaveRecipe
   };
 }
 
@@ -72,3 +97,5 @@ type UpdatePreferencesResponse = User;
 export type RecipeResponse = {
   recipe: Recipe;
 };
+
+export type LikeRecipeResponse = User;
