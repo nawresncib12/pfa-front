@@ -10,6 +10,7 @@ import Login from "./pages/auth/login/Login";
 import Signup from "./pages/auth/signup/Signup";
 import { AuthProvider } from "./auth/AuthContext";
 import Home from "./pages/home/home";
+
 import Profile from "./pages/profile/Profile";
 import SavedRecipes from "./pages/profile/saved/SavedRecipes";
 import LikedRecipes from "./pages/profile/liked/LikedRecipes";

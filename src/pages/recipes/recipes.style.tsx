@@ -5,6 +5,7 @@ import { HEADER_HEIGHT } from "../../components/molecules/Header/Header.style";
 
 export const RecipesContainer = styled.div`
   height: calc(100vh - ${HEADER_HEIGHT + 2 * VERTICAL_PADDING}px);
+
   width: calc(100vw - ${2 * MOBILE_HORIZONTAL_PADDING}px);
   display: flex;
   flex-direction: column;
