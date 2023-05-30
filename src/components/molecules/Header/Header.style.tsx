@@ -71,6 +71,7 @@ export const Paramter = styled.div`
   -webkit-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
+  cursor: pointer;
   &:hover {
     -webkit-transform: skewX(-30deg);
     -moz-transform: skewX(-30deg);
