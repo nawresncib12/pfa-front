@@ -28,16 +28,20 @@ export const Card = ({recipie}: any) =>{
         </div>
         <hr className="rounded"></hr>
     <div style={{ gap: 20 }}>
-    {recipie.ingedients.map((image:string) => {
+    {recipie.ingedients.slice(0,2).map((image:string) => {
         return (
         <Avatar.Root className="AvatarRoot">
         <Avatar.Image
             className="AvatarImage"
-            src={image}
-            alt="Colm Tuite"
-        />
+            src={image}/>
     </Avatar.Root>)
     })}
+    { recipie.ingedients && recipie.ingedients.length > 4 &&
+    <Avatar.Root className="AvatarRoot">
+        <S.Circle>
+        +{recipie.ingedients.length - 4}
+        </S.Circle>
+    </Avatar.Root>}
         </div>
     </S.Card_info>
 </S.Card>

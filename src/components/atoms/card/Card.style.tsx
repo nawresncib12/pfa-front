@@ -101,3 +101,13 @@ export const Title = styled.h4`
   margin: 15px 15px;
 `;
 
+export const Circle  = styled.div`
+  background-color: ${({ theme }) => theme.colors.gray[500]};
+  border:1px solid   ${({ theme }) => theme.colors.gray[500]};
+  color: white ;    
+  border-radius:50%;
+  width:25px;
+  height:25px;
+  margin: auto;
+  text-align: center;
+`;

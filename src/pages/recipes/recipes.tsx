@@ -27,6 +27,7 @@ const Recipes = () => {
 
   return (
     <S.RecipesContainer>
+      ooooooooooo
       <ProgressBar steps={steps} currentStep={step} />
       <S.StepContainer>
         <AnimatePresence mode="wait">

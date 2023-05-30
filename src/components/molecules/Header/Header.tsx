@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as S from "./Header.style";
 import { useState } from "react";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -17,10 +18,6 @@ const Header = () => {
   return (
     <div>
       <S.Header>
-        <h1 style={{ margin: 10, left: "20px", position: "absolute" }}>
-          Mealos
-        </h1>
-
         <S.Button
           onClick={manageHeader}
         >
@@ -30,6 +27,12 @@ const Header = () => {
             <FontAwesomeIcon icon={faBars} />
           )}
         </S.Button>
+
+        <h1>
+          Mealos
+        </h1>
+        <FontAwesomeIcon size='10x' icon={faInstagram} />
+
       </S.Header>
       {isOpen && 
       <S.Overlay $isOpen={isOpen}>

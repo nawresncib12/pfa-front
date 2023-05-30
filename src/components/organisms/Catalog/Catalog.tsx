@@ -85,7 +85,7 @@ const Catalog = () => {
     {
       id: 6,
       name: "chicken nuggets",
-      description: "literally chicken turned into nuggest just to make you happy madame Sonia",
+      description: "literally chicken turned into nuggest just to make you happy ",
       image:
         "https://hips.hearstapps.com/hmg-prod/images/summer-chicken-recipes-644c200dc03a1.jpeg?crop=0.998xw:1.00xh;0.00160xw,0&resize=360:*",
       ingedients: [

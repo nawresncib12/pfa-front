@@ -31,6 +31,7 @@ export const RecipeImageContainer = styled.div`
 export const RecipeImage = styled.img`
   width: 100%;
   height: 100%;
+  position:absolute;
   object-fit: cover;
   border-radius: 16px;
 `;
@@ -122,4 +123,15 @@ export const RecipeIngredientImage = styled.img`
   object-fit: cover;
   border-radius: 100%;
   border: 1px solid ${({ theme }) => theme.colors.primary[300]};
+`;
+export const HeartButton = styled.button`
+z-index:99;
+position: absolute;
+border-radius: 100%;
+background-color:white;
+padding:10px;
+text-align:center;
+right:20px;
+top:20px;
+
 `;
