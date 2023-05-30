@@ -16,7 +16,7 @@ export const mockUser: User = {
   name: "Taher",
   email: "taher@gmail.com",
   preferences: undefined,
-  savedRecipes: [mockRecipeEntity],
+  recipes: [mockRecipeEntity],
   likedRecipes: [mockRecipeEntity]
 };
 const Profile = () => {
