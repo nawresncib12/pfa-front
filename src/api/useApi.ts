@@ -15,7 +15,6 @@ function useApi() {
   const { token, login, setUser } = useAuth();
 
   useEffect(() => {
-    console.log("token", token);
     if (token) api.defaults.headers.common.Authorization = `Bearer ${token}`;
     else delete api.defaults.headers.common.Authorization;
   }, [token]);
@@ -67,6 +66,13 @@ function useApi() {
     return data;
   };
 
+  const detectIngredients = async (image: File) => {
+    const formData = new FormData();
+    formData.append("image", image, image.name);
+    const { data } = await api.post<DetectIngredientsResponse>("/recipes/detect", formData);
+    return data;
+  };
+
   return {
     updatePreferences,
     loginWithEmail,
@@ -76,14 +82,15 @@ function useApi() {
     saveRecipe,
     unlikeRecipe,
     unsaveRecipe,
-    searchRecipes
+    searchRecipes,
+    detectIngredients
   };
 }
 
 export default useApi;
 
 type SearchRecipeResponse = {
-  hits: Recipe[];
+  recipes: Recipe[];
 };
 
 type LoginWithEmailResponse = {
@@ -95,3 +102,11 @@ type UpdatePreferencesResponse = User;
 export type RecipeResponse = Recipe;
 
 export type LikeRecipeResponse = User;
+
+export type DetectIngredientsResponse = {
+  message: string;
+  ingredients: {
+    name: string;
+    confidence: number;
+  };
+};
