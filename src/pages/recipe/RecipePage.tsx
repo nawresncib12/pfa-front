@@ -41,7 +41,7 @@ const RecipePage = () => {
   };
   useEffect(() => {
     fetchRecipe();
-  }, [id]);
+  }, [id, isLiked]);
 
   const handleSaveClick = async () => {
     if (!user || !id) return;

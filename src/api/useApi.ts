@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { Preferences, useAuth, User } from "../auth/AuthContext";
-import { Recipe } from "../pages/recipe/types";
+import { Recipe, SearchRecipeDto } from "../pages/recipe/types";
 
 export const API_URL = "http://localhost:3000";
 
@@ -22,13 +22,6 @@ function useApi() {
 
   const updatePreferences = async (preferences: Preferences) => {
     await api.post<UpdatePreferencesResponse>("/preferences", preferences);
-  };
-
-  const searchRecipe = async (ingredients: string[]) => {
-    const { data } = await api.post<SearchRecipeResponse>("/recipes/search", {
-      q: ingredients.join(",")
-    });
-    return data;
   };
 
   const loginWithEmail = async (email: string, password: string) => {
@@ -69,16 +62,21 @@ function useApi() {
     return res.data;
   };
 
+  const searchRecipes = async (searchRecipeDto: SearchRecipeDto) => {
+    const { data } = await api.post<SearchRecipeResponse>("/recipes/search", searchRecipeDto);
+    return data;
+  };
+
   return {
     updatePreferences,
-    searchRecipe,
     loginWithEmail,
     register,
     getRecipe,
     likeRecipe,
     saveRecipe,
     unlikeRecipe,
-    unsaveRecipe
+    unsaveRecipe,
+    searchRecipes
   };
 }
 
