@@ -4,6 +4,58 @@ import AutoComplete from "../../../molecules/AutoComplete/AutoComplete";
 import Button from "../../../atoms/Button/Button";
 import * as S from "./RecipeSearchBar.style";
 
+const MOCK_INGREDIENTS = [
+  "apples",
+  "avocado",
+  "banana",
+  "beans",
+  "broccoli",
+  "carrots",
+  "celery",
+  "cheese",
+  "chicken",
+  "chili",
+  "cucumber",
+  "eggs",
+  "garlic",
+  "ginger",
+  "grapes",
+  "honey",
+  "kale",
+  "lemon",
+  "lettuce",
+  "mango",
+  "milk",
+  "mushrooms",
+  "olives",
+  "onions",
+  "orange",
+  "peanuts",
+  "pepper",
+  "pineapple",
+  "potato",
+  "quinoa",
+  "rice",
+  "salt",
+  "spinach",
+  "strawberries",
+  "sugar",
+  "tomato",
+  "tuna",
+  "turkey",
+  "vinegar",
+  "walnuts",
+  "watermelon",
+  "yogurt",
+  "zucchini",
+  "beef",
+  "corn",
+  "dates",
+  "feta",
+  "kiwi",
+  "papaya"
+];
+
 type RecipeSearchBarProps = {
   ingredients: string[];
   setIngredients: Dispatch<SetStateAction<string[]>>;
@@ -28,7 +80,7 @@ const RecipeSearchBar = ({ ingredients, setIngredients }: RecipeSearchBarProps) 
       <AutoComplete
         onChange={onChange}
         maxVisibleItems={3}
-        suggestions={["tomato", "potato", "beans", "pies", "milk"]}
+        suggestions={MOCK_INGREDIENTS}
         onChoose={onChoose}
         icon={faSearch}
         placeholder="Add ingredients"

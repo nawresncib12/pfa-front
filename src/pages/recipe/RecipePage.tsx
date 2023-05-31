@@ -33,17 +33,17 @@ const RecipePage = ({ recipe = mockRecipe }: { recipe?: Recipe }) => {
       <div>
         <S.RecipeTitle>{recipe.label}</S.RecipeTitle>
         <S.PillsContainer>
-          {recipe.cautions.map((caution) => (
-            <Pill key="" label={caution} color={"yellow"} />
+          {recipe.cautions.map((caution, index) => (
+            <Pill key={index} label={caution} color={"yellow"} />
           ))}
-          {recipe.cuisineType.map((cuisine) => (
-            <Pill key="" label={capitalizeFirstLetter(cuisine)} color={"purple"} />
+          {recipe.cuisineType.map((cuisine, index) => (
+            <Pill key={index} label={capitalizeFirstLetter(cuisine)} color={"purple"} />
           ))}
-          {recipe.dishType.map((dish) => (
-            <Pill key="" label={capitalizeFirstLetter(dish)} color={"purple"} />
+          {recipe.dishType.map((dish, index) => (
+            <Pill key={index} label={capitalizeFirstLetter(dish)} color={"purple"} />
           ))}
-          {recipe.dietLabels.map((diet) => (
-            <Pill key="" label={capitalizeFirstLetter(diet)} color={"purple"} />
+          {recipe.dietLabels.map((diet, index) => (
+            <Pill key={index} label={capitalizeFirstLetter(diet)} color={"purple"} />
           ))}
         </S.PillsContainer>
         <S.RecipeInfo>

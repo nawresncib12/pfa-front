@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export type PillColors = "yellow" | "purple" | "green";
+export type PillColors = "yellow" | "purple" | "green" | "gray";
 const colors: {
   [s in PillColors]: {
     backgroundColor: string;
@@ -18,6 +18,10 @@ const colors: {
   green: {
     backgroundColor: "#D1F2E5",
     color: "#17B958"
+  },
+  gray: {
+    backgroundColor: "#E5E5E5",
+    color: "#7A7A7A"
   }
 };
 type PillContainerProps = {
