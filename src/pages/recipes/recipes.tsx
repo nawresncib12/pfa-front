@@ -8,7 +8,11 @@ import ImageUploadStep from "../../components/organisms/RecipeLoader/ImageUpload
 import PreferencesStep from "../../components/organisms/RecipeLoader/PreferencesStep/PreferencesStep";
 
 const Recipes = () => {
-  const steps = ["Upload image", "Edit ingredients", "Add options"];
+  const steps = [
+    "Upload an image to extract your ingredients list",
+    "Edit your ingredients list",
+    "Request summary"
+  ];
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [ingredientCount, setIngredientCount] = useState(ingredients.length);
   const [step, setStep] = useState(0);
@@ -27,7 +31,6 @@ const Recipes = () => {
 
   return (
     <S.RecipesContainer>
-      ooooooooooo
       <ProgressBar steps={steps} currentStep={step} />
       <S.StepContainer>
         <AnimatePresence mode="wait">
@@ -44,6 +47,7 @@ const Recipes = () => {
             )}
             {step == 2 && (
               <PreferencesStep
+                ingredients={ingredients}
                 setError={setError}
                 error={error}
                 maxCount={ingredients.length}
@@ -60,7 +64,7 @@ const Recipes = () => {
         </Button>
         {step === steps.length - 1 ? (
           <Button
-            disabled={ingredients.length === 0}
+            disabled={ingredients.length === 0 || !!error}
             onClick={() => {
               console.log("test");
             }}

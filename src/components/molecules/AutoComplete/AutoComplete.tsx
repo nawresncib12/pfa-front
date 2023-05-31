@@ -94,7 +94,7 @@ const AutoComplete = ({
                 }}
                 key={suggestion}
               >
-                {suggestion}{" "}
+                {suggestion}
               </S.AutoCompleteItem>
             );
           })}
