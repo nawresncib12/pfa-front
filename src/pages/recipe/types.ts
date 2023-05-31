@@ -218,3 +218,25 @@ export type RecipeEntity = {
   mealType: string[];
   dishType: string[];
 };
+
+export type SearchRecipeDto = {
+  q?: string;
+  ingr?: Range;
+  diet?: Diet[];
+  health?: Health[];
+  cuisineType?: CuisineType[];
+  mealType?: MealType[];
+  dishType?: DishType[];
+  calories?: Range;
+
+  // in minutes
+  time?: Range;
+
+  glycemicIndex?: Range;
+  excluded?: string[];
+  random?: boolean;
+  nutrients?: Nutrients;
+  fields?: (keyof Recipe)[];
+  co2EmissionsClass?: CO2EmissionsClass;
+  tag?: string[];
+};
