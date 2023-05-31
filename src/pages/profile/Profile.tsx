@@ -1,6 +1,6 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useTheme } from "styled-components";
-import { User } from "../../auth/AuthContext";
+import { User } from "../../hooks/useProfile";
 import { RecipeEntity } from "../recipe/types";
 import * as S from "./Profile.styles";
 
@@ -47,7 +47,10 @@ const Profile = () => {
           <p>Saved</p>
         </S.ProfileCard>
 
-        <S.ProfileCard backgroundColor={theme.colors.pastels.darkOrange}>
+        <S.ProfileCard
+          backgroundColor={theme.colors.pastels.darkOrange}
+          onClick={() => navigate("/profile/preferences")}
+        >
           <p>Preferences</p>
         </S.ProfileCard>
       </S.ProfileTabs>

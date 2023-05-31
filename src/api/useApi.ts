@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
-import { Preferences, useAuth, User } from "../auth/AuthContext";
+import { useAuth } from "../auth/AuthContext";
+import { Preferences, useProfile, User } from "../hooks/useProfile";
 import { Recipe, SearchRecipeDto } from "../pages/recipe/types";
 
 export const API_URL = "http://localhost:3000";
@@ -12,7 +13,8 @@ export const api = axios.create({
   }
 });
 function useApi() {
-  const { token, login, setUser } = useAuth();
+  const { token, login } = useAuth();
+  const { user, setUser } = useProfile();
 
   useEffect(() => {
     if (token) api.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -20,7 +22,8 @@ function useApi() {
   }, [token]);
 
   const updatePreferences = async (preferences: Preferences) => {
-    await api.post<UpdatePreferencesResponse>("/preferences", preferences);
+    const res = await api.post<UpdatePreferencesResponse>("/preferences", preferences);
+    setUser(res.data);
   };
 
   const loginWithEmail = async (email: string, password: string) => {

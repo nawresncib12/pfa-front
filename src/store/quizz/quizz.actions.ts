@@ -1,4 +1,5 @@
 import { PayloadAction, current } from "@reduxjs/toolkit";
+import { Preferences } from "../../hooks/useProfile";
 import { QuizzState } from "./quizz.types";
 
 export const quizzQuestionAnswerAction = (
@@ -14,6 +15,16 @@ export const quizzQuestionAnswerAction = (
       } else {
         state.quizz[index].selected = [...quizzItem.selected, item];
       }
+    }
+  });
+};
+
+export const quizzSetAction = (state: QuizzState, action: PayloadAction<Preferences>) => {
+  const preferences = action.payload;
+
+  current(state).quizz.map((quizzItem, index) => {
+    if (preferences[quizzItem.tag]) {
+      state.quizz[index].selected = preferences[quizzItem.tag];
     }
   });
 };

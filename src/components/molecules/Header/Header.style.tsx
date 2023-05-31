@@ -12,7 +12,7 @@ type OverlayProps = {
 export const HEADER_HEIGHT = 80;
 
 export const Header = styled.div`
-  position: absolute;
+  position: relative;
   width: 100vw;
   box-sizing: border-box;
   z-index: 999;

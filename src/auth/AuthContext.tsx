@@ -2,25 +2,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/useApi";
-import { RecipeEntity } from "../pages/recipe/types";
-
-export type Preferences = {
-  healthLabels: string[];
-  dietLabels: string[];
-  excluded: string[];
-};
-
-// Define the shape of your user object
-export type User = {
-  id: string;
-  name: string;
-  email: string;
-
-  preferences?: Preferences;
-  likedRecipes?: RecipeEntity[];
-  recipes?: RecipeEntity[];
-  // Add other user properties as needed
-};
+import { useProfile, User } from "../hooks/useProfile";
 
 // Define the shape of your authentication context
 interface AuthContextType {
@@ -31,7 +13,6 @@ interface AuthContextType {
   checkTokenLocal: () => string | null;
   checkTokenExpiration: () => void;
   getToken: () => string | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
 // Create the authentication context
@@ -42,13 +23,12 @@ const AuthContext = createContext<AuthContextType>({
   checkTokenLocal: () => null,
   checkTokenExpiration: () => {},
   getToken: () => null,
-  token: null,
-  setUser: () => {}
+  token: null
 });
 
 // Create a wrapper component to provide the authentication context
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const { user, setUser } = useProfile();
   const [token, setToken] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -86,6 +66,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     try {
       const response = await api.get("/auth/profile");
+      console.log("response", response.data);
       setUser(response.data);
     } catch (error) {
       console.error(error);
@@ -110,8 +91,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         token,
         checkTokenExpiration,
         checkTokenLocal,
-        getToken,
-        setUser
+        getToken
       }}
     >
       {children}
