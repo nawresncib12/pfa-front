@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { HEADER_HEIGHT } from "../Header/Header.style";
 
 export const HeroWrapper = styled.div`
-  height: 100vh;
+  height: calc(100vh - ${HEADER_HEIGHT}px);
 `;
 
 export const HeroContainer = styled.div`

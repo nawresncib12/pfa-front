@@ -20,8 +20,6 @@ const HeroVideo = () => {
   };
 
   const handleScroll = () => {
-    console.log("heyy");
-    console.log(document.getElementById("heroNext"));
     document.getElementById("heroNext")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 

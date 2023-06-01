@@ -1,12 +1,11 @@
 import HeroVideo from "../../components/molecules/HeroVideo/HeroVideo";
+import RecipeCategories from "../../components/molecules/RecipeCategories/RecipeCategories";
 
 const Home = () => {
   return (
     <>
       <HeroVideo />
-      <div id="heroNext" style={{ height: "100vh", width: "100%" }}>
-        nadine
-      </div>
+      <RecipeCategories />
     </>
   );
 };
