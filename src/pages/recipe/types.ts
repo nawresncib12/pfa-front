@@ -6,6 +6,7 @@ export type API_Ingredient = {
   weight: number;
   foodId: string;
   image: string;
+  foodCategory: string;
 };
 
 export type Digest = {

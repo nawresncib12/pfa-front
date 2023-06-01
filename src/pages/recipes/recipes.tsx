@@ -57,6 +57,7 @@ const Recipes = () => {
 
   const handleSubmit = async () => {
     await search();
+    navigate("/catalog");
   };
 
   const next = () => {

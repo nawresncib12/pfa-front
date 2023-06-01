@@ -1,87 +1,89 @@
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import * as RadioGroup from "@radix-ui/react-radio-group";
+import { capitalizeFirstLetter, splitCamelCase } from "../../../utils";
 import * as S from "./filtersMenu.styles";
 import "./styles.css";
 
-const FiltersMenu = ({ filterList, filters }: any) => {
-  const [activatedFilterList, setActivatedFilterList] = filters;
-  const toggleFilter = (fitlerGroup: any, value: any) => {
-    const newFilters = JSON.parse(JSON.stringify(activatedFilterList));
-    newFilters.map((filter: any) => {
-      if (filter.fitlerGroup == fitlerGroup) {
-        if (filter.elements.includes(value)) {
-          filter.elements = filter.elements.filter((element: any) => element != value);
-        } else {
-          filter.elements.push(value);
-        }
-      }
-    });
+export type FilterFields = "mealType" | "dishType" | "dietLabels" | "cuisineType";
 
-    setActivatedFilterList(newFilters);
-    console.log(activatedFilterList);
-  };
+export type FilterGroups = {
+  [key in FilterFields]: {
+    value: string;
+    checked: boolean;
+  }[];
+};
 
-  const sortBy = (option: any) => {
-    const newFilters = JSON.parse(JSON.stringify(activatedFilterList));
-    newFilters[2].elements = [option];
-    setActivatedFilterList(newFilters);
-  };
+type FiltersMenuProps = {
+  filterGroups: FilterGroups;
+  toggleFilter: (filterGroup: FilterFields, value: string) => void;
+  sortByOptions: string[];
+  sortByOption: string;
+  sortBy: (option: string) => void;
+};
+
+const FiltersMenu = ({
+  filterGroups,
+  toggleFilter,
+  sortBy,
+  sortByOptions,
+  sortByOption
+}: FiltersMenuProps) => {
   return (
     <S.FiltersContainer>
-      <h3>Filter Recipes</h3>
-      <h5>check the options u want</h5>
-      {filterList.map((options: any) => (
-        <div key={options.fitlerGroup}>
-          <h5 style={{ margin: "0px" }}> {options.fitlerGroup} </h5>
-          {options.elements.map(
-            (option: any) =>
-              options.fitlerGroup != "Sort By" && (
-                <div
-                  key={option}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    margin: "5px 15px"
-                  }}
-                >
-                  <Checkbox.Root
-                    className="CheckboxRoot"
-                    defaultChecked
-                    onClick={(event) => toggleFilter(options.fitlerGroup, option)}
-                    id="c1"
-                  >
-                    <Checkbox.Indicator className="CheckboxIndicator">
-                      {option && <CheckIcon />}
-                    </Checkbox.Indicator>
-                  </Checkbox.Root>
-                  <label className="Label" htmlFor="c1">
-                    {option}
-                  </label>
-                </div>
-              )
-          )}
-        </div>
-      ))}
+      <h3>Filters</h3>
       <div style={{ display: "flex", alignItems: "center", margin: "5px 15px" }}>
-        <RadioGroup.Root className="RadioGroupRoot" defaultValue="time" aria-label="View density">
-          {filterList[2].elements.map((option: any) => (
-            <div key={option} style={{ display: "flex", alignItems: "center" }}>
-              <RadioGroup.Item
-                className="RadioGroupItem"
-                value={option}
-                id={option}
-                onClick={(event) => sortBy(option)}
+        {sortByOptions.length > 0 && (
+          <RadioGroup.Root className="RadioGroupRoot" value={sortByOption} aria-label="Sort By">
+            {sortByOptions.map((option) => (
+              <div key={option} style={{ display: "flex", alignItems: "center" }}>
+                <RadioGroup.Item
+                  className="RadioGroupItem"
+                  value={option}
+                  id={option}
+                  onClick={(event) => sortBy(option)}
+                >
+                  {option === sortByOption && (
+                    <RadioGroup.Indicator color="black" className="RadioGroupIndicator" />
+                  )}
+                </RadioGroup.Item>
+                <label className="Label" htmlFor={option}>
+                  {option}
+                </label>
+              </div>
+            ))}
+          </RadioGroup.Root>
+        )}
+      </div>
+      {Object.entries(filterGroups).map(([filterGroup, elements]) => (
+        <div key={filterGroup}>
+          <h5 style={{ margin: "0px" }}>{capitalizeFirstLetter(splitCamelCase(filterGroup))}</h5>
+          {elements.map((option) => (
+            <div
+              key={option.value}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                margin: "5px 15px"
+              }}
+            >
+              <Checkbox.Root
+                className="CheckboxRoot"
+                checked={option.checked}
+                onClick={(event) => toggleFilter(filterGroup as FilterFields, option.value)}
+                id={option.value}
               >
-                <RadioGroup.Indicator className="RadioGroupIndicator" />
-              </RadioGroup.Item>
-              <label className="Label" htmlFor="r1">
-                {option}
+                <Checkbox.Indicator className="CheckboxIndicator">
+                  {option && <CheckIcon />}
+                </Checkbox.Indicator>
+              </Checkbox.Root>
+              <label className="Label" htmlFor={option.value}>
+                {option.value}
               </label>
             </div>
           ))}
-        </RadioGroup.Root>
-      </div>
+        </div>
+      ))}
     </S.FiltersContainer>
   );
 };

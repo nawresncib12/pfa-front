@@ -19,7 +19,15 @@ const UserPreferences = () => {
     navigate("/quizz");
   };
 
-  if (!preferences) return null;
+  if (!preferences)
+    return (
+      <S.UserPreferencesItem>
+        <Typography.Subtitle fontSize="base" weight="semiBold" color={theme.colors.gray[600]}>
+          No preferences yet
+        </Typography.Subtitle>
+        <Button onClick={onClickUpdatePreferences}>Set preferences</Button>
+      </S.UserPreferencesItem>
+    );
 
   return (
     <S.UserPreferencesContainer>

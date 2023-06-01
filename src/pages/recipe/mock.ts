@@ -1,4 +1,7 @@
-export const mockRecipe = {
+import { Recipe } from "./types";
+
+export const mockRecipe: Recipe = {
+  id: "recipe_b79327d05b8e5b838ad6cfd9576b30b6",
   uri: "http://www.edamam.com/ontologies/edamam.owl#recipe_b79327d05b8e5b838ad6cfd9576b30b6",
   label: "Chicken Vesuvio",
   image: "https://img.cuisineaz.com/660x660/2019/07/22/i148306-.webp",

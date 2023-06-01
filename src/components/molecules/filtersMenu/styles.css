@@ -62,8 +62,8 @@
 .RadioGroupIndicator::after {
   content: "";
   display: block;
-  width: 11px;
-  height: 11px;
+  min-width: 10px;
+  min-height: 10px;
   border-radius: 50%;
   background-color: gray;
 }

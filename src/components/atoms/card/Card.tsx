@@ -3,39 +3,46 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./Card.style";
 import "./Card.style.css";
+import { Recipe } from "../../../pages/recipe/types";
 
-export const Card = ({ recipie }: any) => {
+type CardProps = {
+  recipe: Recipe;
+};
+export const Card = ({ recipe }: CardProps) => {
   return (
     <S.Card>
       <S.Card_img>
-        <img src={recipie.image} alt="user-image" />
+        <img
+          src={recipe.images?.LARGE?.url ?? recipe.images?.REGULAR?.url ?? recipe.image}
+          alt="user-image"
+        />
       </S.Card_img>
       <S.Card_info>
-        <S.Title>{recipie.name}</S.Title>
-        <S.Description>{recipie.description}</S.Description>
+        <S.Title>{recipe.label}</S.Title>
+        <S.Description>Source: {recipe.source}</S.Description>
         <S.Likes>
           <FontAwesomeIcon className="NotifHeartIcon" icon={faHeart}></FontAwesomeIcon>
-          <div>{Math.floor(Math.random() * 20)}</div>
+          <div>{recipe.likes}</div>
         </S.Likes>
         <hr className="rounded"></hr>
         <div className="receiptInfo">
           <h5>Time</h5>
           <h5>calories</h5>
-          <h5 style={{ margin: "10px", color: "gray" }}>{recipie.time}</h5>
-          <h5 style={{ margin: "10px", color: "gray" }}> {recipie.calories}</h5>
+          <h5 style={{ margin: "10px", color: "gray" }}>{recipe.totalTime}</h5>
+          <h5 style={{ margin: "10px", color: "gray" }}>{recipe.calories.toFixed(2)}</h5>
         </div>
         <hr className="rounded"></hr>
         <div style={{ gap: 20 }}>
-          {recipie.ingedients.slice(0, 2).map((image: string) => {
+          {recipe.ingredients.slice(0, 4).map((ingredient) => {
             return (
-              <Avatar.Root className="AvatarRoot" key={image}>
-                <Avatar.Image className="AvatarImage" src={image} />
+              <Avatar.Root className="AvatarRoot" key={ingredient.foodId}>
+                <Avatar.Image className="AvatarImage" src={ingredient.image} />
               </Avatar.Root>
             );
           })}
-          {recipie.ingedients && recipie.ingedients.length > 4 && (
+          {recipe.ingredients && recipe.ingredients.length > 4 && (
             <Avatar.Root className="AvatarRoot">
-              <S.Circle>+{recipie.ingedients.length - 4}</S.Circle>
+              <S.Circle>+{recipe.ingredients.length - 4}</S.Circle>
             </Avatar.Root>
           )}
         </div>

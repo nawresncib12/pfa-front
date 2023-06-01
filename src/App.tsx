@@ -66,10 +66,12 @@ function App() {
               <Route
                 path="/catalog"
                 element={
-                  <div>
-                    <Header />
-                    <Catalog />
-                  </div>
+                  <ProtectedRoute>
+                    <div>
+                      <Header />
+                      <Catalog />
+                    </div>
+                  </ProtectedRoute>
                 }
               ></Route>
               <Route

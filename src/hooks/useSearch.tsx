@@ -1,13 +1,13 @@
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
 import useApi from "../api/useApi";
-import { RecipeEntity, SearchRecipeDto } from "../pages/recipe/types";
+import { Recipe, SearchRecipeDto } from "../pages/recipe/types";
 import { Preferences, useProfile } from "./useProfile";
 
 export function useSearchInternal() {
   const { user } = useProfile();
   const { searchRecipes } = useApi();
   const [ingredients, setIngredients] = useState<string[]>([]);
-  const [searchResults, setSearchResults] = useState<RecipeEntity[]>([]);
+  const [searchResults, setSearchResults] = useState<Recipe[]>([]);
   const [preferences, setPreferences] = useState<Preferences>(
     user?.preferences || {
       mealTypes: [],
@@ -68,8 +68,8 @@ export function useSearchInternal() {
 type SearchContextType = {
   ingredients: string[];
   setIngredients: Dispatch<SetStateAction<string[]>>;
-  searchResults: RecipeEntity[];
-  setSearchResults: Dispatch<SetStateAction<RecipeEntity[]>>;
+  searchResults: Recipe[];
+  setSearchResults: Dispatch<SetStateAction<Recipe[]>>;
   preferences: Preferences;
   setPreferences: Dispatch<SetStateAction<Preferences>>;
   imageFile: File | null;
