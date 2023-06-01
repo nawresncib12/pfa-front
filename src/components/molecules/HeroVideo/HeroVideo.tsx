@@ -1,15 +1,21 @@
 import * as S from "./HeroVideo.style";
 import hero from "../../../assets/videos/hero-mini-compressed.mp4";
 import heroAudio from "../../../assets/audio/heroAudio.m4a";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faVolumeHigh } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faPlay,
+  faVolumeHigh,
+  faVolumeMute
+} from "@fortawesome/free-solid-svg-icons";
 import Typography from "../../atoms/Typography/Typography.styles";
 import { useTheme } from "styled-components";
 import Button from "../../atoms/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 const HeroVideo = () => {
+  const [audioState, setAudioState] = useState(false);
   const theme = useTheme();
   const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -23,16 +29,19 @@ const HeroVideo = () => {
     document.getElementById("heroNext")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const start = () => {
-    if (videoRef.current) {
-      videoRef.current.currentTime = 0;
+  const handleAudio = () => {
+    if (!audioState) {
+      if (videoRef.current) {
+        videoRef.current.currentTime = 0;
+      }
+      audio.play();
+      setAudioState(true);
     }
-    audio.play();
   };
 
   return (
     <S.HeroWrapper>
-      <S.HeroContainer onClick={stop}>
+      <S.HeroContainer>
         <S.HeroInfo>
           <S.HeroInfoStack>
             <Typography.H1 color={theme.colors.white} fontSize="6xl">
@@ -51,8 +60,8 @@ const HeroVideo = () => {
         </S.HeroInfo>
         <S.VideoOverlay />
         <S.HeroVidePlayer ref={videoRef} playsInline muted loop autoPlay src={hero} />
-        <S.AudioPlayerButton onClick={start}>
-          <FontAwesomeIcon icon={faVolumeHigh} />
+        <S.AudioPlayerButton onClick={handleAudio}>
+          <FontAwesomeIcon icon={!audioState ? faVolumeMute : faVolumeHigh} />
         </S.AudioPlayerButton>
       </S.HeroContainer>
     </S.HeroWrapper>

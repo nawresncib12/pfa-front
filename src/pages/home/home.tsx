@@ -1,11 +1,11 @@
 import HeroVideo from "../../components/molecules/HeroVideo/HeroVideo";
-import RecipeCategories from "../../components/molecules/RecipeCategories/RecipeCategories";
+import AboutUs from "../../components/molecules/AboutUs/AboutUs";
 
 const Home = () => {
   return (
     <>
       <HeroVideo />
-      <RecipeCategories />
+      <AboutUs />
     </>
   );
 };

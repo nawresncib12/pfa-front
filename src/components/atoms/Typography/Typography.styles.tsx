@@ -13,7 +13,7 @@ export type TypographyProps = {
   maxLines?: number;
   borderRadius?: number;
   padding?: string;
-  align?: "center" | "left" | "right" | "justify";
+  align?: "center" | "left" | "right" | "justify" | "inherit";
 };
 
 const pickFontSizeHeight = (fontSize = "base"): { size: string; lineHeight: string } => {
