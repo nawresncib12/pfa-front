@@ -1,4 +1,3 @@
-import { capitalize } from "lodash";
 import Pill from "../Pill/Pill";
 import Typography from "../Typography/Typography.styles";
 import * as S from "./UserPreferences.style";
@@ -6,6 +5,7 @@ import { useTheme } from "styled-components";
 import { useProfile } from "../../../hooks/useProfile";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import { capitalizeFirstLetter, splitCamelCase } from "../../../utils";
 
 const UserPreferences = () => {
   const theme = useTheme();
@@ -27,7 +27,7 @@ const UserPreferences = () => {
         key === "id" ? null : (
           <S.UserPreferencesItem key={key}>
             <Typography.Subtitle fontSize="base" weight="semiBold" color={theme.colors.gray[600]}>
-              {capitalize(key)} :
+              {capitalizeFirstLetter(splitCamelCase(key))} :
             </Typography.Subtitle>
             {value.map((v) => (
               <Pill key={v} label={v} color={key == "excluded" ? "yellow" : "purple"} />

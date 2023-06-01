@@ -70,9 +70,19 @@ function useApi() {
   };
 
   const detectIngredients = async (image: File) => {
+    console.log("image", image);
     const formData = new FormData();
-    formData.append("image", image, image.name);
-    const { data } = await api.post<DetectIngredientsResponse>("/recipes/detect", formData);
+    formData.append("file", image, image.name || "image");
+    console.log("file", formData.get("file"));
+    const { data } = await api.post<DetectIngredientsResponse>(
+      "/ingredients-model/detect",
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      }
+    );
     return data;
   };
 
@@ -111,5 +121,5 @@ export type DetectIngredientsResponse = {
   ingredients: {
     name: string;
     confidence: number;
-  };
+  }[];
 };

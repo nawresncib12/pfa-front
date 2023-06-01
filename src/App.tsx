@@ -18,90 +18,95 @@ import ProfileInfo from "./pages/profile/profile-info/ProfileInfo";
 import ProtectedRoute from "./auth/ProtectedRoute";
 import ProfilePreferences from "./pages/profile/preferences/ProfilePreferences";
 import { ProfileProvider } from "./hooks/useProfile";
+import { SearchProvider } from "./hooks/useSearch";
 
 function App() {
   return (
     <BrowserRouter>
       <ProfileProvider>
         <AuthProvider>
-          <Routes>
-            <Route
-              path="/recipe/:id"
-              element={
-                <ProtectedRoute>
+          <SearchProvider>
+            <Routes>
+              <Route
+                path="/recipe/:id"
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <RecipePage />
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/auth/register"
+                element={
                   <Layout>
-                    <RecipePage />
+                    <Signup />
                   </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/auth/register"
-              element={
-                <Layout>
-                  <Signup />
-                </Layout>
-              }
-            />
-            <Route
-              path="/auth/login"
-              element={
-                <Layout>
-                  <Login />
-                </Layout>
-              }
-            />
-            <Route
-              path="/quizz"
-              element={
-                <ProtectedRoute>
+                }
+              />
+              <Route
+                path="/auth/login"
+                element={
                   <Layout>
-                    <Quizz />
+                    <Login />
                   </Layout>
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/catalog"
-              element={
-                <div>
-                  <Header />
-                  <Catalog />
-                </div>
-              }
-            ></Route>
-            <Route
-              path="/recipes"
-              element={
-                <Layout>
-                  <Recipes />
-                </Layout>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
+                }
+              />
+              <Route
+                path="/quizz"
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <Quizz />
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/catalog"
+                element={
+                  <div>
+                    <Header />
+                    <Catalog />
+                  </div>
+                }
+              ></Route>
+              <Route
+                path="/recipes"
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <Recipes />
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Layout>
+                      <Profile />
+                    </Layout>
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="" element={<ProfileInfo />} />
+                <Route path="saved" element={<SavedRecipes />} />
+                <Route path="liked" element={<LikedRecipes />} />
+                <Route path="preferences" element={<ProfilePreferences />} />
+              </Route>
+              <Route
+                path="/"
+                element={
                   <Layout>
-                    <Profile />
+                    <Home />
                   </Layout>
-                </ProtectedRoute>
-              }
-            >
-              <Route path="" element={<ProfileInfo />} />
-              <Route path="saved" element={<SavedRecipes />} />
-              <Route path="liked" element={<LikedRecipes />} />
-              <Route path="preferences" element={<ProfilePreferences />} />
-            </Route>
-            <Route
-              path="/"
-              element={
-                <Layout>
-                  <Home />
-                </Layout>
-              }
-            />
-          </Routes>
+                }
+              />
+            </Routes>
+          </SearchProvider>
         </AuthProvider>
       </ProfileProvider>
     </BrowserRouter>
