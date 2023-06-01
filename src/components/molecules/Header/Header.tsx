@@ -33,11 +33,29 @@ const Header = () => {
     navigate("/profile");
     setOpen(false);
   };
+
+  const handleClickSearch = () => {
+    navigate("/recipes");
+    setOpen(false);
+  };
+
+  const handleClickPreferences = () => {
+    navigate("/profile/preferences");
+    setOpen(false);
+  };
+
+  const handleClickHeader = () => {
+    navigate("/");
+    setOpen(false);
+  };
+
   return (
     <div>
       <S.Header>
         <Typography.H1 fontSize="4xl" weight="semiBold" color={theme.colors.primary[300]}>
-          Mealos
+          <span style={{ cursor: "pointer" }} onClick={handleClickHeader}>
+            Mealos
+          </span>
         </Typography.H1>
         <S.Button onClick={manageHeader}>
           {isOpen ? <FontAwesomeIcon icon={faClose} /> : <FontAwesomeIcon icon={faBars} />}
@@ -46,13 +64,21 @@ const Header = () => {
       {isOpen && (
         <S.Overlay $isOpen={isOpen}>
           {token !== null && (
-            <S.Paramter onClick={handleClickProfile}>
-              <h1>Profile</h1>
-            </S.Paramter>
+            <>
+              <S.Parameter onClick={handleClickProfile}>
+                <h1>Profile</h1>
+              </S.Parameter>
+              <S.Parameter onClick={handleClickPreferences}>
+                <h1>Preferences</h1>
+              </S.Parameter>
+              <S.Parameter onClick={handleClickSearch}>
+                <h1>Search recipe</h1>
+              </S.Parameter>
+            </>
           )}
-          <S.Paramter onClick={handleClickLog}>
+          <S.Parameter onClick={handleClickLog}>
             <h1>{token === null ? "Login" : "Logout"}</h1>
-          </S.Paramter>
+          </S.Parameter>
         </S.Overlay>
       )}
     </div>

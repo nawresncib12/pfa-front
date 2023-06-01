@@ -58,11 +58,13 @@ const Signup = () => {
           <Input
             width="100%"
             placeholder="Password"
+            type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <Input
             width="100%"
+            type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirm(e.target.value)}

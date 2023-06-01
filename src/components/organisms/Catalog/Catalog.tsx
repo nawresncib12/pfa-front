@@ -4,21 +4,16 @@ import FiltersMenu, { FilterFields, FilterGroups } from "../../molecules/filters
 import AutoComplete from "../../molecules/AutoComplete/AutoComplete";
 import RecipesGrid from "../../molecules/recipesGrid/RecipesGrid";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { mockRecipe } from "../../../pages/recipe/mock";
+import { useSearch } from "../../../hooks/useSearch";
 function filterMap(e: string) {
   return { value: e, checked: true };
 }
-const searchResults = Array.from({ length: 10 }).map(() => ({
-  ...mockRecipe,
-  id: "" + Math.random(),
-  totalTime: Math.floor(Math.random() * 100)
-}));
 
 const sortByOptions = ["totalTime", "calories", "likes"] as const;
 type SortByOptions = (typeof sortByOptions)[number];
 
 const Catalog = () => {
-  // const { searchResults } = useSearch();
+  const { searchResults } = useSearch();
   const [filteredRecipes, setFilteredRecipes] = useState(searchResults);
 
   const filterGroups: FilterGroups = useMemo(() => {

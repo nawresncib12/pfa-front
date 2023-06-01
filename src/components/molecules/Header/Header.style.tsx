@@ -64,7 +64,7 @@ export const Overlay = styled.div<OverlayProps>`
   z-index: 3;
 `;
 
-export const Paramter = styled.div`
+export const Parameter = styled.div`
   color: white;
   padding: 10px 200px;
   -moz-transition: all 1s;

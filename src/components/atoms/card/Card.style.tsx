@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { generateRandomPastel } from "../../../utils";
 
@@ -84,8 +85,17 @@ export const Description = styled.div`
   width: 70%;
 `;
 
-export const Title = styled.h4`
-  margin: 15px 15px;
+export const Title = styled(Link)`
+  position: relative;
+  bottom: -8px;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary[500]};
+    text-decoration: underline;
+  }
 `;
 
 export const Circle = styled.div`

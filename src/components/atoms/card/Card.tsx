@@ -4,6 +4,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import * as S from "./Card.style";
 import "./Card.style.css";
 import { Recipe } from "../../../pages/recipe/types";
+import { Link } from "react-router-dom";
 
 type CardProps = {
   recipe: Recipe;
@@ -18,7 +19,7 @@ export const Card = ({ recipe }: CardProps) => {
         />
       </S.Card_img>
       <S.Card_info>
-        <S.Title>{recipe.label}</S.Title>
+        <S.Title to={`/recipe/${recipe.id}`}>{recipe.label}</S.Title>
         <S.Description>Source: {recipe.source}</S.Description>
         <S.Likes>
           <FontAwesomeIcon className="NotifHeartIcon" icon={faHeart}></FontAwesomeIcon>
