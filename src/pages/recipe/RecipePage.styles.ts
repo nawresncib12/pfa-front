@@ -6,7 +6,6 @@ export const RecipePageContainer = styled.div`
   gap: 16px;
 
   width: 100%;
-  min-height: 80vh;
   @media only screen and (min-width: 1024px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -19,6 +18,8 @@ export const RecipeImageContainer = styled.div`
   border-radius: 16px;
   overflow: hidden;
   height: 40vh;
+  overflow: hidden;
+  position: relative;
 
   @media only screen and (min-width: 1024px) {
     position: sticky;
@@ -31,7 +32,6 @@ export const RecipeImageContainer = styled.div`
 export const RecipeImage = styled.img`
   width: 100%;
   height: 100%;
-  position: absolute;
   object-fit: cover;
   border-radius: 16px;
 `;
@@ -116,6 +116,7 @@ export const RecipeIngredientQuantity = styled.span`
   font-weight: 300;
   color: ${({ theme }) => theme.colors.gray[600]};
 `;
+
 export const RecipeIngredientImage = styled.img`
   width: 48px;
   height: 48px;
@@ -123,6 +124,7 @@ export const RecipeIngredientImage = styled.img`
   border-radius: 100%;
   border: 1px solid ${({ theme }) => theme.colors.primary[300]};
 `;
+
 export const HeartButton = styled.button`
   z-index: 99;
   position: absolute;
@@ -130,6 +132,29 @@ export const HeartButton = styled.button`
   background-color: white;
   padding: 10px;
   text-align: center;
-  right: 20px;
-  top: 20px;
+  right: 5%;
+  top: 5%;
+  cursor: pointer;
+
+  @media only screen and (min-width: 1024px) {
+    right: 10%;
+    top: 10%;
+  }
+`;
+
+export const SaveButton = styled.button`
+  z-index: 99;
+  position: absolute;
+  border-radius: 100%;
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  left: 5%;
+  bottom: 5%;
+  cursor: pointer;
+
+  @media only screen and (min-width: 1024px) {
+    left: 10%;
+    bottom: 10%;
+  }
 `;

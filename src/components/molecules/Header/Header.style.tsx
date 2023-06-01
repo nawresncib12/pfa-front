@@ -12,7 +12,7 @@ type OverlayProps = {
 export const HEADER_HEIGHT = 80;
 
 export const Header = styled.div`
-  position: absolute;
+  position: relative;
   width: 100vw;
   box-sizing: border-box;
   z-index: 999;
@@ -71,6 +71,7 @@ export const Paramter = styled.div`
   -webkit-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
+  cursor: pointer;
   &:hover {
     -webkit-transform: skewX(-30deg);
     -moz-transform: skewX(-30deg);

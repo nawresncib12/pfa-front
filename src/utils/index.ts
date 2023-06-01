@@ -5,6 +5,10 @@ export function capitalizeFirstLetter(s: string) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
+export function splitCamelCase(s: string) {
+  return s.replace(/([A-Z])/g, " $1").trim();
+}
+
 export const generateRandomPastel = (theme: DefaultTheme): string => {
   const colors: (keyof Pastels)[] = [
     "lightPink",

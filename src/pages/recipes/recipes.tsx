@@ -6,6 +6,14 @@ import Button from "../../components/atoms/Button/Button";
 import { AnimatePresence, motion } from "framer-motion";
 import ImageUploadStep from "../../components/organisms/RecipeLoader/ImageUploadStep/ImageUploadStep";
 import PreferencesStep from "../../components/organisms/RecipeLoader/PreferencesStep/PreferencesStep";
+import { useSearch } from "../../hooks/useSearch";
+import useApi from "../../api/useApi";
+import { SearchRecipeDto } from "../recipe/types";
+import { useNavigate } from "react-router-dom";
+
+const UPLOAD_IMAGE_STEP = 0;
+const INGREDIENT_STEP = 1;
+const PREFERENCES_STEP = 2;
 
 const Recipes = () => {
   const steps = [
@@ -13,18 +21,58 @@ const Recipes = () => {
     "Edit your ingredients list",
     "Request summary"
   ];
-  const [ingredients, setIngredients] = useState<string[]>([]);
+  const { ingredients, setIngredients, imageFile, search, loading: searchLoading } = useSearch();
+  const { detectIngredients } = useApi();
+  const navigate = useNavigate();
   const [ingredientCount, setIngredientCount] = useState(ingredients.length);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(UPLOAD_IMAGE_STEP);
   const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleUploadImageNext = async () => {
+    if (imageFile) {
+      setIsLoading(true);
+      try {
+        const detectIngredientsResponse = await detectIngredients(imageFile);
+        if (detectIngredientsResponse) {
+          const ingredientSet = new Set(
+            detectIngredientsResponse.ingredients.map((ingredient) => ingredient.name)
+          );
+          setIngredients(Array.from(ingredientSet));
+        }
+        setStep((step) => step + 1);
+      } catch (error) {
+        if (error instanceof Error) setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    } else {
+      return;
+    }
+  };
+
+  const handleIngredientNext = () => {
+    setStep((step) => step + 1);
+  };
+
+  const handleSubmit = async () => {
+    await search();
+  };
 
   const next = () => {
-    if (step < steps.length - 1) {
-      setStep((step) => step + 1);
+    switch (step) {
+      case UPLOAD_IMAGE_STEP:
+        handleUploadImageNext();
+        break;
+      case INGREDIENT_STEP:
+        handleIngredientNext();
+        break;
+      case PREFERENCES_STEP:
+        break;
     }
   };
   const back = () => {
-    if (step > 0) {
+    if (step > UPLOAD_IMAGE_STEP) {
       setStep((step) => step - 1);
     }
   };
@@ -41,11 +89,11 @@ const Recipes = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {step == 0 && <ImageUploadStep />}
-            {step == 1 && (
+            {step == UPLOAD_IMAGE_STEP && <ImageUploadStep />}
+            {step == INGREDIENT_STEP && (
               <IngredientStep ingredients={ingredients} setIngredients={setIngredients} />
             )}
-            {step == 2 && (
+            {step == PREFERENCES_STEP && (
               <PreferencesStep
                 ingredients={ingredients}
                 setError={setError}
@@ -64,15 +112,18 @@ const Recipes = () => {
         </Button>
         {step === steps.length - 1 ? (
           <Button
-            disabled={ingredients.length === 0 || !!error}
-            onClick={() => {
-              console.log("test");
-            }}
+            loading={searchLoading}
+            disabled={ingredients.length === 0 || !!error || isLoading}
+            onClick={handleSubmit}
           >
             Submit
           </Button>
         ) : (
-          <Button disabled={!!error.length || step >= steps.length - 1} onClick={next}>
+          <Button
+            loading={isLoading}
+            disabled={!!error.length || step >= steps.length - 1 || isLoading}
+            onClick={next}
+          >
             Next
           </Button>
         )}

@@ -2,25 +2,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../api/useApi";
-import { RecipeEntity } from "../pages/recipe/types";
-
-export type Preferences = {
-  healthLabels: string[];
-  dietLabels: string[];
-  excluded: string[];
-};
-
-// Define the shape of your user object
-export type User = {
-  id: string;
-  name: string;
-  email: string;
-
-  preferences?: Preferences;
-  likedRecipes?: RecipeEntity[];
-  savedRecipes?: RecipeEntity[];
-  // Add other user properties as needed
-};
+import { useProfile, User } from "../hooks/useProfile";
 
 // Define the shape of your authentication context
 interface AuthContextType {
@@ -46,7 +28,7 @@ const AuthContext = createContext<AuthContextType>({
 
 // Create a wrapper component to provide the authentication context
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const { user, setUser } = useProfile();
   const [token, setToken] = useState<string | null>(null);
   const navigate = useNavigate();
 
@@ -63,9 +45,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     // Fetch the user data
-    api.get("/auth/profile").then((response) => {
-      setUser(response.data);
-    });
+    api
+      .get("/auth/profile")
+      .then((response) => {
+        setUser(response.data);
+        navigate("/profile");
+      })
+      .catch(() => {
+        logout();
+      });
   };
 
   const checkTokenLocal = () => {
@@ -78,6 +66,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     try {
       const response = await api.get("/auth/profile");
+      console.log("response", response.data);
       setUser(response.data);
     } catch (error) {
       console.error(error);
@@ -95,7 +84,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, login, logout, token, checkTokenExpiration, checkTokenLocal, getToken }}
+      value={{
+        user,
+        login,
+        logout,
+        token,
+        checkTokenExpiration,
+        checkTokenLocal,
+        getToken
+      }}
     >
       {children}
     </AuthContext.Provider>

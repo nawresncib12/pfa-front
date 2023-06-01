@@ -1,20 +1,21 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../auth/AuthContext";
 import Pill from "../../../components/atoms/Pill/Pill";
-import { mockUser } from "../Profile";
 import * as S from "./SavedRecipes.styles";
 
 const SavedRecipes = () => {
-  const user = mockUser;
+  const { user } = useAuth();
   const navigate = useNavigate();
   const handleClick = (id: string) => {
     console.log(id);
     navigate(`/recipe/${id}`);
   };
+  if (user === null) return null;
   return (
     <div>
       <S.SavedRecipesTitle>Saved Recipes</S.SavedRecipesTitle>
       <S.RecipeCardsContainer>
-        {user.savedRecipes?.map((recipe) => (
+        {user.recipes?.map((recipe) => (
           <S.RecipeCard key={recipe.id}>
             <S.RecipeCardHeader>
               <S.RecipeCardTitle onClick={() => handleClick(recipe.id)}>

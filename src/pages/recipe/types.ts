@@ -184,6 +184,7 @@ export type SearchRecipeResponse = {
 
 // https://developer.edamam.com/edamam-docs-recipe-api
 export type Recipe = {
+  id: string;
   uri: string;
   label: string;
   image: string;
@@ -216,4 +217,26 @@ export type RecipeEntity = {
   dietLabels: string[];
   mealType: string[];
   dishType: string[];
+};
+
+export type SearchRecipeDto = {
+  q?: string;
+  ingr?: Range;
+  diet?: string[];
+  health?: string[];
+  cuisineType?: string[];
+  mealType?: string[];
+  dishType?: string[];
+  calories?: Range;
+
+  // in minutes
+  time?: Range;
+
+  glycemicIndex?: Range;
+  excluded?: string[];
+  random?: boolean;
+  nutrients?: Nutrients;
+  fields?: (keyof Recipe)[];
+  co2EmissionsClass?: CO2EmissionsClass;
+  tag?: string[];
 };

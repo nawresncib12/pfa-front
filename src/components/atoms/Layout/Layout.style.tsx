@@ -7,6 +7,7 @@ export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  height: fit-content;
   width: 100%;
 `;
 
@@ -14,7 +15,7 @@ export const Body = styled.div`
   margin-top: 80px;
   flex-grow: 1;
   box-sizing: border-box;
-  margin-top: 50px;
+  margin-top: 16px;
   padding: ${VERTICAL_PADDING}px ${MOBILE_HORIZONTAL_PADDING}px;
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}px) {
     padding: ${VERTICAL_PADDING}px ${HORIZONTAL_PADDING}px;

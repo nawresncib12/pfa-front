@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialQuizz } from "./quizz/quizz.constants";
-import { quizzQuestionAnswerAction } from "./quizz/quizz.actions";
+import { quizzQuestionAnswerAction, quizzSetAction } from "./quizz/quizz.actions";
 import { QuizzState } from "./quizz/quizz.types";
 
 const initialState: QuizzState = { quizz: initialQuizz };
@@ -9,10 +9,11 @@ const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    quizzQuestionAnswer: quizzQuestionAnswerAction
+    quizzQuestionAnswer: quizzQuestionAnswerAction,
+    quizzSet: quizzSetAction
   }
 });
 
-export const { quizzQuestionAnswer } = appSlice.actions;
+export const { quizzQuestionAnswer, quizzSet } = appSlice.actions;
 
 export default appSlice.reducer;

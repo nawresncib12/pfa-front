@@ -1,23 +1,24 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import placeholderImage from "../../../../assets/images/placeholderImage.png";
 import * as S from "./ImageUploadStep.style";
 import Input from "../../../atoms/Input/Input";
+import { useSearch } from "../../../../hooks/useSearch";
 
 const ImageUploadStep = () => {
-  const [value, setValue] = useState<File | null>(null);
+  const { imageFile, setImageFile } = useSearch();
 
   const onImageSelected = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files && event.target.files[0];
-    setValue(file);
+    setImageFile(file);
   };
 
   const memoizedImage = useMemo(() => {
-    return value ? URL.createObjectURL(value) : null;
-  }, [value]);
+    return imageFile ? URL.createObjectURL(imageFile) : null;
+  }, [imageFile]);
 
   return (
     <S.ImageUploadStepContainer>
-      <Input value={value?.name} type="file" onChange={onImageSelected} />
+      <Input value={imageFile?.name} type="file" onChange={onImageSelected} />
       {memoizedImage ? (
         <S.UploadedImage height={"100%"} width={"100%"} src={memoizedImage} alt="Uploaded Image" />
       ) : (

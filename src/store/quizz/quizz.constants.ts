@@ -3,9 +3,29 @@ import { QuizzItem } from "./quizz.types";
 
 export const initialQuizz: QuizzItem[] = [
   {
-    question: "What cuisine do you prefer?",
-    tag: "cuisine",
+    question: "What do you want to avoid?",
+    tag: "excluded",
+    options: ["alcohol", "celery", "crustacean", "dairy", "sulfite"],
     icon: faBurger,
+    selected: []
+  },
+  {
+    question: "What diet do you prefer?",
+    tag: "dietLabels",
+    icon: faBurger,
+    options: ["balanced", "high-fiber", "high-protein", "low-carb", "low-fat", "low-sodium"],
+    selected: []
+  },
+  {
+    question: "What meal do you prefer?",
+    tag: "mealTypes",
+    icon: faUtensils,
+    options: ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"],
+    selected: []
+  },
+  {
+    question: "What cuisine do you prefer?",
+    tag: "cuisineTypes",
     options: [
       "American",
       "Asian",
@@ -20,15 +40,13 @@ export const initialQuizz: QuizzItem[] = [
       "Japanese",
       "Kosher",
       "Mediterranean",
-      "Mexican"
+      "Mexican",
+      "Middle Eastern",
+      "Nordic",
+      "South American",
+      "South East Asian"
     ],
-    selected: []
-  },
-  {
-    question: "What meal do you prefer?",
-    tag: "meal",
-    icon: faUtensils,
-    options: ["Breakfast", "Lunch", "Dinner", "Snack", "Teatime"],
+    icon: faBurger,
     selected: []
   }
 ];
