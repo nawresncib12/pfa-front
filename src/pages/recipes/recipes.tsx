@@ -8,6 +8,8 @@ import ImageUploadStep from "../../components/organisms/RecipeLoader/ImageUpload
 import PreferencesStep from "../../components/organisms/RecipeLoader/PreferencesStep/PreferencesStep";
 import { useSearch } from "../../hooks/useSearch";
 import useApi from "../../api/useApi";
+import { SearchRecipeDto } from "../recipe/types";
+import { useNavigate } from "react-router-dom";
 
 const UPLOAD_IMAGE_STEP = 0;
 const INGREDIENT_STEP = 1;
@@ -19,8 +21,9 @@ const Recipes = () => {
     "Edit your ingredients list",
     "Request summary"
   ];
-  const { ingredients, setIngredients, imageFile } = useSearch();
+  const { ingredients, setIngredients, imageFile, search, loading: searchLoading } = useSearch();
   const { detectIngredients } = useApi();
+  const navigate = useNavigate();
   const [ingredientCount, setIngredientCount] = useState(ingredients.length);
   const [step, setStep] = useState(UPLOAD_IMAGE_STEP);
   const [error, setError] = useState("");
@@ -28,11 +31,9 @@ const Recipes = () => {
 
   const handleUploadImageNext = async () => {
     if (imageFile) {
-      console.log(imageFile);
       setIsLoading(true);
       try {
         const detectIngredientsResponse = await detectIngredients(imageFile);
-        console.log(detectIngredientsResponse);
         if (detectIngredientsResponse) {
           const ingredientSet = new Set(
             detectIngredientsResponse.ingredients.map((ingredient) => ingredient.name)
@@ -52,6 +53,10 @@ const Recipes = () => {
 
   const handleIngredientNext = () => {
     setStep((step) => step + 1);
+  };
+
+  const handleSubmit = async () => {
+    await search();
   };
 
   const next = () => {
@@ -107,15 +112,18 @@ const Recipes = () => {
         </Button>
         {step === steps.length - 1 ? (
           <Button
-            disabled={ingredients.length === 0 || !!error}
-            onClick={() => {
-              console.log("test");
-            }}
+            loading={searchLoading}
+            disabled={ingredients.length === 0 || !!error || isLoading}
+            onClick={handleSubmit}
           >
             Submit
           </Button>
         ) : (
-          <Button disabled={!!error.length || step >= steps.length - 1 || isLoading} onClick={next}>
+          <Button
+            loading={isLoading}
+            disabled={!!error.length || step >= steps.length - 1 || isLoading}
+            onClick={next}
+          >
             Next
           </Button>
         )}

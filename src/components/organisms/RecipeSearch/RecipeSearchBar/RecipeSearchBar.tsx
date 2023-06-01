@@ -70,6 +70,7 @@ const RecipeSearchBar = ({ ingredients, setIngredients }: RecipeSearchBarProps) 
     }
     const newIngredients = [...ingredients, input];
     setIngredients(newIngredients);
+    setValue("");
   };
   const onChange = (input: string) => {
     setValue(input);

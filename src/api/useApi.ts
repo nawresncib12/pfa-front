@@ -14,7 +14,7 @@ export const api = axios.create({
 });
 function useApi() {
   const { token, login } = useAuth();
-  const { user, setUser } = useProfile();
+  const { setUser } = useProfile();
 
   useEffect(() => {
     if (token) api.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -65,15 +65,15 @@ function useApi() {
   };
 
   const searchRecipes = async (searchRecipeDto: SearchRecipeDto) => {
-    const { data } = await api.post<SearchRecipeResponse>("/recipes/search", searchRecipeDto);
+    const { data } = await api.get<SearchRecipeResponse>("/recipes/search", {
+      params: searchRecipeDto
+    });
     return data;
   };
 
   const detectIngredients = async (image: File) => {
-    console.log("image", image);
     const formData = new FormData();
     formData.append("file", image, image.name || "image");
-    console.log("file", formData.get("file"));
     const { data } = await api.post<DetectIngredientsResponse>(
       "/ingredients-model/detect",
       formData,
@@ -103,7 +103,9 @@ function useApi() {
 export default useApi;
 
 type SearchRecipeResponse = {
-  recipes: Recipe[];
+  data: {
+    recipes: Recipe[];
+  };
 };
 
 type LoginWithEmailResponse = {

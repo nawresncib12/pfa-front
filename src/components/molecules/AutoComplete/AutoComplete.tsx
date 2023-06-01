@@ -61,12 +61,14 @@ const AutoComplete = ({
     setInputValue(value);
     onChange?.(value);
     onChoose?.(value);
+    setOpen(false);
+    setInputValue("");
   };
 
   const onEnter = (event: React.KeyboardEvent<HTMLInputElement>) => {
     console.log(event);
     if (event.key === "Enter") {
-      onChoose?.(inputValue);
+      handleChoose?.(inputValue);
     }
   };
 

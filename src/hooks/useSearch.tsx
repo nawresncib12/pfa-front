@@ -1,9 +1,11 @@
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
-import { RecipeEntity } from "../pages/recipe/types";
+import useApi from "../api/useApi";
+import { RecipeEntity, SearchRecipeDto } from "../pages/recipe/types";
 import { Preferences, useProfile } from "./useProfile";
 
 export function useSearchInternal() {
   const { user } = useProfile();
+  const { searchRecipes } = useApi();
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [searchResults, setSearchResults] = useState<RecipeEntity[]>([]);
   const [preferences, setPreferences] = useState<Preferences>(
@@ -15,6 +17,33 @@ export function useSearchInternal() {
     }
   );
   const [imageFile, setImageFile] = useState<File | null>(null);
+
+  const [loading, setLoading] = useState(false);
+
+  const search = async () => {
+    if (ingredients.length === 0) {
+      return;
+    }
+    setLoading(true);
+    try {
+      const searchRecipeDto: SearchRecipeDto = {
+        q: ingredients.join(","),
+        mealType: preferences.mealTypes,
+        cuisineType: preferences.cuisineTypes,
+        diet: preferences.dietLabels,
+        excluded: preferences.excluded
+      };
+      const searchRecipesResponse = await searchRecipes(searchRecipeDto);
+      if (searchRecipesResponse) {
+        console.log(searchRecipesResponse);
+        setSearchResults(searchRecipesResponse.data.recipes);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (user?.preferences) {
@@ -30,7 +59,9 @@ export function useSearchInternal() {
     preferences,
     setPreferences,
     imageFile,
-    setImageFile
+    setImageFile,
+    loading,
+    search
   };
 }
 
@@ -43,6 +74,8 @@ type SearchContextType = {
   setPreferences: Dispatch<SetStateAction<Preferences>>;
   imageFile: File | null;
   setImageFile: Dispatch<SetStateAction<File | null>>;
+  loading?: boolean;
+  search: () => Promise<void>;
 };
 
 export const SearchContext = createContext<SearchContextType>({
@@ -58,7 +91,9 @@ export const SearchContext = createContext<SearchContextType>({
   },
   setPreferences: () => null,
   imageFile: null,
-  setImageFile: () => null
+  setImageFile: () => null,
+  loading: false,
+  search: () => Promise.resolve()
 });
 
 export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
@@ -70,7 +105,9 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     preferences,
     setPreferences,
     imageFile,
-    setImageFile
+    setImageFile,
+    loading,
+    search
   } = useSearchInternal();
 
   return (
@@ -83,7 +120,9 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
         preferences,
         setPreferences,
         imageFile,
-        setImageFile
+        setImageFile,
+        loading,
+        search
       }}
     >
       {children}
@@ -100,7 +139,9 @@ export const useSearch = () => {
     preferences,
     setPreferences,
     imageFile,
-    setImageFile
+    setImageFile,
+    loading,
+    search
   } = useContext(SearchContext);
 
   return {
@@ -111,6 +152,8 @@ export const useSearch = () => {
     preferences,
     setPreferences,
     imageFile,
-    setImageFile
+    setImageFile,
+    loading,
+    search
   };
 };

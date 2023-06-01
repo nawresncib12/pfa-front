@@ -222,11 +222,11 @@ export type RecipeEntity = {
 export type SearchRecipeDto = {
   q?: string;
   ingr?: Range;
-  diet?: Diet[];
-  health?: Health[];
-  cuisineType?: CuisineType[];
-  mealType?: MealType[];
-  dishType?: DishType[];
+  diet?: string[];
+  health?: string[];
+  cuisineType?: string[];
+  mealType?: string[];
+  dishType?: string[];
   calories?: Range;
 
   // in minutes
